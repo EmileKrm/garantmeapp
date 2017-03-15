@@ -19,6 +19,12 @@ gem 'autoprefixer-rails'
 #Heroku setup
 ruby '2.3.3'
 
+#cloudinary setup security
+gem 'figaro'
+gem 'cloudinary'
+#Upload files associated with models
+gem 'carrierwave', '~> 0.11.2'
+
 group :development, :test do
   gem 'binding_of_caller'
   gem 'better_errors'
