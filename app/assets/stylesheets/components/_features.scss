@@ -1,0 +1,33 @@
+.features h2 {
+  padding: 10px;
+  margin: 0;
+  font-size: 20px;
+  font-family: Raleway, Helvetica, sans-serif;
+  color: $green;
+}
+
+.features h1 {
+  font-size: 30px;
+  color: $green;
+}
+
+.features img {
+  height: 85px;
+  width: 85px;
+}
+
+.features h3 {
+  margin: 0 0 0px;
+  padding: 50px;
+  font-size: 20px;
+  font-weight: lighter;
+  font-family: Open-sans, sans-serif;
+  color: $gray;
+}
+
+.features p {
+  font-size: 17px;
+  font-weight: lighter;
+  color: $gray;
+  margin-bottom: 20px;
+}

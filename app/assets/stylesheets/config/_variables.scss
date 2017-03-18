@@ -24,11 +24,20 @@ $base-height: 1.4;
  * Colors
  * ------------------------------------- */
 // Scheme
-$brand-color: #D23333;
+$brand-color: #005B66;
 
-$red: #EE5F5B;
+$red: #E5001C;
 $blue: #469AE0;
 $yellow: #FDB631;
 $orange: #E67E22;
-$green: #32B796;
-$gray: #000000;
+
+// Brand color green scale
+$green: #005B66;
+$light-green:#00B0C7;
+
+
+// Gray scale
+
+$light-gray: #F2F2F2;
+$gray: #393939;
+$dark-gray:#393939;
