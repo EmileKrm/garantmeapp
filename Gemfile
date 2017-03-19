@@ -24,6 +24,9 @@ gem 'cloudinary'
 #Upload files associated with models
 gem 'carrierwave', '~> 0.11.2'
 
+#authentification
+gem 'devise'
+
 group :development, :test do
   gem 'binding_of_caller'
   gem 'better_errors'
