@@ -2,3 +2,24 @@
   background-color: $light-gray;
   padding: 30px;
 }
+
+.body-container-footer {
+  position: relative;
+  margin-top: 70px;
+  height: calc(100vh - 154px);
+  width: 100vw;
+  overflow: scroll;
+}
+
+.body-container-no-footer {
+  position: relative;
+  margin-top: 70px;
+  height: calc(100vh - 70px);
+  width: 100vw;
+}
+
+.wider-container {
+  width: 100%;
+  height: calc(100vh - 70px);
+  overflow: scroll;
+}
