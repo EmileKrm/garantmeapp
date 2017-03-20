@@ -24,6 +24,8 @@ gem 'cloudinary'
 #Upload files associated with models
 gem 'carrierwave', '~> 0.11.2'
 
+gem 'will_paginate'
+
 #authentification
 gem 'devise'
 
