@@ -33,6 +33,7 @@ gem 'devise'
 gem "pundit"
 
 #linkedin
+gem 'omniauth-oauth2', '~> 1.3.1'
 gem 'omniauth-linkedin-oauth2'
 
 group :development, :test do

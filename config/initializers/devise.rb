@@ -274,11 +274,11 @@ Devise.setup do |config|
 
   #LinkedIn setup
   Devise.setup do |config|
-  config.omniauth :linkedin, ENV["LinkedIn_ID"], ENV["LinkedIn_SECRET"],
-    scope: 'email',
-    info_fields: 'email-address, first-name, last-name, picture-url',
-    image_size: 'square',  # 50x50, guaranteed ratio
-    secure_image_url: true
+    config.omniauth :linkedin, ENV["LinkedIn_ID"], ENV["LinkedIn_Secret"], scope: "r_basicprofile r_emailaddress"
+    # scope: 'r_emailaddress',
+    # info_fields: 'email-address, first-name, last-name, picture-url',
+    # image_size: 'square',  # 50x50, guaranteed ratio
+    # secure_image_url: true
   end
 end
 
