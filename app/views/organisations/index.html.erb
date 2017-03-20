@@ -1,36 +1,41 @@
-<% @interviews.each do |itw| %>
-  <p> <%= itw.user.last_name %> </p>
-<%end%>
+<div class="container body-container-no-footer">
+  <div class="row">
+    <div class="col-xs-12 col-md-8 col-md-offset-2">
 
-<div class="panel panel-default">
-  <div class="panel-heading">Panel heading</div>
-    <table class="table">
-      <thead>
-        <tr>
-          <th>#</th>
-          <th>First Name</th>
-          <th>Last Name</th>
-          <th>Username</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <th scope="row">1</th>
-          <td>Mark</td> <td>Otto</td>
-          <td>@mdo</td>
-        </tr>
-        <tr>
-          <th scope="row">2</th>
-          <td>Jacob</td>
-          <td>Thornton</td>
-          <td>@fat</td>
-        </tr>
-        <tr>
-          <th scope="row">3</th>
-          <td>Larry</td>
-          <td>the Bird</td>
-          <td>@twitter</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+        <table id="dashboard-table" class="table table-hover table-condensed" cellspacing="0"">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>User</th>
+              <th>Stage</th>
+              <th>Move-in date</th>
+              <th>Status</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+
+            <% @interviews.each_with_index do |itw, i| %>
+              <tr>
+                <th scope="row"><%= i+1 %></th>
+                <td><%=  itw.user.first_name.capitalize %> <%= itw.user.last_name.capitalize %></td>
+                <td>60%</td>
+                <td><%= itw.move_in_date.strftime("%F") %></td>
+                <td>Pending</td>
+                <td>Zoom</td>
+              </tr>
+            <%end%>
+
+          </tbody>
+        </table>
+      </div>
+
+</div>
+
+<% content_for(:js) do %>
+  <%= javascript_tag do %>
+    $(document).ready(function() {
+      $('#dashboard-table').DataTable();
+    } );
+  <% end %>
+<% end %>

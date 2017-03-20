@@ -5,7 +5,9 @@ class OrganisationsController < ApplicationController
   def index
     @organisations = policy_scope(Organisation)
 
-    @interviews = Interview.all.paginate(:per_page => 5, :page => params[:page])
+    @interviews = Interview.all
+
+
   end
 
   def show
