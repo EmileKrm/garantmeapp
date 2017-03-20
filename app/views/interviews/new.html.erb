@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="questions-container">
+
+    <!-- first row with head -->
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="questionnaire-head">
+          <h1>My questionnaire</h1>
+          <p>You can edit a questionnaire field by clicking on your answer in green</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- First question yes no style -->
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="yes-no-question">
+          <h3>Have you already found an appartment?</h3>
+          <p>If yes, you co tenents will have to complete a separate application</p>
+          <div class="yes-no-form">
+            <%= simple_form_for @interview do |f| %>
+              <%= f.input :has_found_apartment, label: nil, as: :check_boxes %>
+              <%= f.button :button, :has_found_apartment, true, class: "btn btn-primary" %>
+              <%= f.button :button, :has_found_apartment, false, class: "btn btn-primary" %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- First question form style -->
+
+  </div>
+</div>
