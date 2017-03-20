@@ -271,4 +271,27 @@ Devise.setup do |config|
   # When using OmniAuth, Devise cannot automatically set OmniAuth path,
   # so you need to do it manually. For the users scope, it would be:
   # config.omniauth_path_prefix = '/my_engine/users/auth'
+
+  #LinkedIn setup
+  Devise.setup do |config|
+  config.omniauth :linkedin, ENV["LinkedIn_ID"], ENV["LinkedIn_SECRET"],
+    scope: 'email',
+    info_fields: 'email-address, first-name, last-name, picture-url',
+    image_size: 'square',  # 50x50, guaranteed ratio
+    secure_image_url: true
+  end
 end
+
+
+
+
+
+
+
+
+
+
+
+
+
+

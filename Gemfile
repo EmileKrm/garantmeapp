@@ -30,6 +30,9 @@ gem 'devise'
 #pundit setup
 gem "pundit"
 
+#linkedin
+gem 'omniauth-linkedin-oauth2'
+
 group :development, :test do
   gem 'binding_of_caller'
   gem 'better_errors'
