@@ -1,9 +1,11 @@
 class OrganisationsController < ApplicationController
+  before_action :set_organisation
   before_action :get_current_user, only: [:create, :update]
 
   def index
-    @organisations = policy_scope(Organisation)
-    @interviews = Interview.where(sort_column + ' ' + sort_direction).paginate(:per_page => 5, :page => params[:page])
+    @organisations = policy_scope(Organisation).order(created_at: :desc)
+    @interviews = Interview.where(["organisation_id = :organisation", { organisation: @organisation.id }])
+    p @interviews
   end
 
   def show
@@ -30,8 +32,8 @@ class OrganisationsController < ApplicationController
     @user = current_user
   end
 
-  def set_or
-    @or = Organisation.find(params[:id])
+  def set_organisation
+    @organisation = current_user.organisation
   end
 
 end

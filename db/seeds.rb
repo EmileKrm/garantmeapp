@@ -19,3 +19,10 @@
 #   u = User.new(email: email, password: '123456', first_name: Faker::Internet.user_name, last_name: Faker::Internet.user_name, organisation_id: 1)
 #   u.save!
 # end
+
+# org = Organisation.find(1)
+
+# Interview.all.each do |elt|
+#   elt.organisation = org
+#   elt.save!
+# end
