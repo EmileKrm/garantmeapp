@@ -3,9 +3,9 @@ class OrganisationsController < ApplicationController
   before_action :get_current_user, only: [:create, :update]
 
   def index
-    @organisations = policy_scope(Organisation).order(created_at: :desc)
-    @interviews = Interview.where(["organisation_id = :organisation", { organisation: @organisation.id }])
-    p @interviews
+    @organisations = policy_scope(Organisation)
+
+    @interviews = Interview.all.paginate(:per_page => 5, :page => params[:page])
   end
 
   def show
@@ -33,6 +33,7 @@ class OrganisationsController < ApplicationController
   end
 
   def set_organisation
+    p current_user
     @organisation = current_user.organisation
   end
 
