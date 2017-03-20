@@ -27,6 +27,9 @@ gem 'carrierwave', '~> 0.11.2'
 #authentification
 gem 'devise'
 
+#pundit setup
+gem "pundit"
+
 group :development, :test do
   gem 'binding_of_caller'
   gem 'better_errors'
