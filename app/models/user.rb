@@ -5,7 +5,9 @@ class User < ApplicationRecord
 
   belongs_to :organisation, optional: true
 
- 
+   mount_uploader :photo, PhotoUploader
+
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable, omniauth_providers: [:linkedin]
 
