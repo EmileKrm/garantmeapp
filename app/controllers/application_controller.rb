@@ -5,9 +5,12 @@ class ApplicationController < ActionController::Base
   #Protect your app in views and controllers
   include Pundit
 
-   def configure_permitted_parameters
+  def configure_permitted_parameters
+    # For additional fields in app/views/devise/registrations/new.html.erb
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:organisation_id])
+
     # For additional in app/views/devise/registrations/edit.html.erb
-    devise_parameter_sanitizer.permit(:account_update, keys: [:first_name, :last_name, :phone_number, :date_of_birth, :home_address, :organisation_name])
+    devise_parameter_sanitizer.permit(:account_update, keys: [:username])
   end
 
   # Pundit: white-list approach.
