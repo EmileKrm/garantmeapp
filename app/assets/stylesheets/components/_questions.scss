@@ -2,9 +2,32 @@
   border-style: solid;
   border-color: $light-gray;
   border-radius: 10px;
+  padding: 20px;
 }
 
 .questionnaire-head {
   border-bottom-style: solid;
   border-bottom-color: $green;
 }
+
+.yes-no-form {
+  display: flex;
+}
+
+.question {
+  border-bottom-color: $light-gray;
+  border-bottom-style: solid;
+
+  .btn {
+    width: 200px;
+    margin-right: 20px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }
+
+}
+
+.embedded-form {
+  width: 300px;
+}
+
