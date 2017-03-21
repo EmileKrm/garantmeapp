@@ -1,27 +1,31 @@
 class InterviewsController < ApplicationController
 before_action :set_interview, only: [:show, :edit]
 
-def new
-  @interview = Interview.new
-  authorize @interview
-end
+  def new
+    @interview = Interview.new
+    authorize @interview
+  end
 
-def create
-  raise
-  authorize @interview
-end
+  def create
+    raise
+    authorize @interview
+  end
 
-def show
-  @user= current_user
-end
+  def show
+    @user= current_user
+  end
 
-private
+ private
+  
+  def set_interview
+    @interview = Interview.find(params[:id])
+    authorize @interview
+  end
 
-def set_interview
-  @interview = Interview.find(params[:id])
-  authorize @interview
-end
 
+  def interview_params
+    params.require(:product).permit(:id_card)
+  end
 end
 
 # stepper form: having one div per question that will be hidden or not accordingly
