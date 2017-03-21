@@ -5,6 +5,7 @@ class UsersController < ApplicationController
 
   def update
     @user.update(user_params)
+     render 'interviews/update'
   end
 
   private

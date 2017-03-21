@@ -66,6 +66,11 @@
                   <span class="round-tab">4</span>
                 </a>
               </li>
+              <li role="presentation" class="disabled">
+                <a class="persistant-disabled" href="#stepper-step-5" data-toggle="tab" aria-controls="stepper-step-5" role="tab" title="Complete">
+                  <span class="round-tab">5</span>
+                </a>
+              </li>
             </ul>
             <!-- End of the tab elements -->
 
@@ -100,16 +105,41 @@
                   </ul>
                 </div>
                 <div class="tab-pane fade" role="tabpanel" id="stepper-step-3">
-                  <h3>Enter the address of the appartment you found</h3>
-                  <p>Your address will appear on the contract</p>
-                  <div class="embedded-form">
-                    <%= simple_form_for @interview, remote: true do |f| %>
-                      <%= f.input :address %>
-                      <%= f.submit 'Save', class: "btn btn-primary next-step" %>
-                    <% end %>
+                  <div class="question">
+                    <h3>What is your first name?</h3>
+                    <p>Info from linkedin, you can edit or press enter</p>
+                    <div class="embedded-form">
+                      <%= simple_form_for @user, remote: true do |f| %>
+                        <%= f.input :first_name %>
+                        <%= f.submit 'Save', class: "btn btn-primary next-step" %>
+                      <% end %>
+                    </div>
                   </div>
+                  <ul class="list-inline pull-right">
+                    <li>
+                      <a class="btn btn-default prev-step">Back</a>
+                    </li>
+                  </ul>
                 </div>
                 <div class="tab-pane fade" role="tabpanel" id="stepper-step-4">
+                  <div class="question">
+                    <h3>What is your second name?</h3>
+                    <p>Info from linkedin, you can edit or press enter</p>
+                    <div class="embedded-form">
+                      <%= simple_form_for @user, remote: true do |f| %>
+                        <%= f.input :first_name %>
+                        <%= f.submit 'Save', class: "btn btn-primary next-step" %>
+                      <% end %>
+                    </div>
+                  </div>
+                  <ul class="list-inline pull-right">
+                    <li>
+                      <a class="btn btn-default prev-step">Back</a>
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="tab-pane fade" role="tabpanel" id="stepper-step-5">
                   <h3>4. All done!</h3>
                   <p>You have successfully completed all steps.</p>
                 </div>

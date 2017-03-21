@@ -17,6 +17,7 @@ before_action :set_interview, only: [:show, :edit, :update]
   end
 
   def edit
+    @user = @interview.user
   end
 
   def update
