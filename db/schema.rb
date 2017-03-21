@@ -10,7 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170321162923) do
+
+ActiveRecord::Schema.define(version: 20170321113511) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -78,6 +79,8 @@ ActiveRecord::Schema.define(version: 20170321162923) do
     t.string   "provider"
     t.string   "uid"
     t.string   "linkedin_picture_url"
+    t.string   "linkedin_first_name"
+    t.string   "linkedin_last_name"
     t.string   "token"
     t.datetime "token_expiry"
     t.string   "photo"
