@@ -1,0 +1,126 @@
+<div class="container">
+  <div class="questions-container">
+
+    <!-- first row with head -->
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="questionnaire-head">
+          <h1>My questionnaire</h1>
+          <p>You can edit a questionnaire field by clicking on your answer in green</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- First question yes no style -->
+    <div class="row">
+      <div class="col-xs-12">
+
+      </div>
+    </div>
+
+    <!-- First question form style -->
+    <div class="row">
+      <div class="col-xs-12">
+
+      </div>
+    </div>
+
+    <!-- page header -->
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <!-- STEPPER
+            Allows a user to complete steps in a given process.
+
+                * Required base class: .stepper
+                @param .active
+                @param .completed
+                @param .disabled
+
+                Dependencies:
+                  //maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css
+                  //cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js
+                  //maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js
+
+            -->
+
+          <div class="stepper">
+            <!-- Those are the tab element -->
+            <ul class="nav nav-tabs" role="tablist">
+              <li role="presentation" class="active">
+                <a class="persistant-disabled" href="#stepper-step-1" data-toggle="tab" aria-controls="stepper-step-1" role="tab" title="Step 1">
+                  <span class="round-tab">1</span>
+                </a>
+              </li>
+              <li role="presentation" class="disabled">
+                <a class="persistant-disabled" href="#stepper-step-2" data-toggle="tab" aria-controls="stepper-step-2" role="tab" title="Step 2">
+                  <span class="round-tab">2</span>
+                </a>
+              </li>
+              <li role="presentation" class="disabled">
+                <a class="persistant-disabled" href="#stepper-step-3" data-toggle="tab" aria-controls="stepper-step-3" role="tab" title="Step 3">
+                  <span class="round-tab">3</span>
+                </a>
+              </li>
+              <li role="presentation" class="disabled">
+                <a class="persistant-disabled" href="#stepper-step-4" data-toggle="tab" aria-controls="stepper-step-4" role="tab" title="Complete">
+                  <span class="round-tab">4</span>
+                </a>
+              </li>
+            </ul>
+            <!-- End of the tab elements -->
+
+            <!-- Here you have the different forms for each question -->
+            <div>
+              <div class="tab-content">
+                <div class="tab-pane fade in active" role="tabpanel" id="stepper-step-1">
+                  <div class="question">
+                    <h3>Have you already found an appartment?</h3>
+                    <p>If yes, you co tenents will have to complete a separate application</p>
+                    <div class="yes-no-form">
+                      <%= button_to 'Yes', {controller: "interviews", action: 'update', has_found_apartment: true}, method: :patch, remote: true, class: "btn btn-primary next-step" %>
+                      <%= button_to 'No',{controller: "interviews", action: 'update', has_found_apartment: false}, method: :patch, remote: true, class: "btn btn-primary next-step" %>
+                    </div>
+                  </div>
+                </div>
+                <div class="tab-pane fade" role="tabpanel" id="stepper-step-2">
+                  <div class="question">
+                    <h3>In which arrondissement are you looking?</h3>
+                    <p>bla bla bla</p>
+                    <div class="embedded-form">
+                      <%= simple_form_for @interview, remote: true do |f| %>
+                        <%= f.input :arrondissement, collection: 1..20 %>
+                        <%= f.submit 'Save', class: "btn btn-primary next-step" %>
+                      <% end %>
+                    </div>
+                  </div>
+                  <ul class="list-inline pull-right">
+                    <li>
+                      <a class="btn btn-default prev-step">Back</a>
+                    </li>
+                  </ul>
+                </div>
+                <div class="tab-pane fade" role="tabpanel" id="stepper-step-3">
+                  <h3>Enter the address of the appartment you found</h3>
+                  <p>Your address will appear on the contract</p>
+                  <div class="embedded-form">
+                    <%= simple_form_for @interview, remote: true do |f| %>
+                      <%= f.input :address %>
+                      <%= f.submit 'Save', class: "btn btn-primary next-step" %>
+                    <% end %>
+                  </div>
+                </div>
+                <div class="tab-pane fade" role="tabpanel" id="stepper-step-4">
+                  <h3>4. All done!</h3>
+                  <p>You have successfully completed all steps.</p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    <!-- end -->
+
+  </div>
+</div>
