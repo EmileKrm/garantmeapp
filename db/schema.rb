@@ -10,10 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170320173514) do
+ActiveRecord::Schema.define(version: 20170321162923) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "attachinary_files", force: :cascade do |t|
+    t.string   "attachinariable_type"
+    t.integer  "attachinariable_id"
+    t.string   "scope"
+    t.string   "public_id"
+    t.string   "version"
+    t.integer  "width"
+    t.integer  "height"
+    t.string   "format"
+    t.string   "resource_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.index ["attachinariable_type", "attachinariable_id", "scope"], name: "by_scoped_parent", using: :btree
+  end
 
   create_table "interviews", force: :cascade do |t|
     t.string   "professional_status"
@@ -29,6 +44,7 @@ ActiveRecord::Schema.define(version: 20170320173514) do
     t.boolean  "has_found_apartment"
     t.string   "arrondissement"
     t.boolean  "has_a_cosigner"
+    t.string   "id_card"
     t.index ["organisation_id"], name: "index_interviews_on_organisation_id", using: :btree
     t.index ["user_id"], name: "index_interviews_on_user_id", using: :btree
   end
@@ -56,7 +72,7 @@ ActiveRecord::Schema.define(version: 20170320173514) do
     t.string   "last_name"
     t.string   "phone_number"
     t.date     "date_of_birth"
-    t.string   "hame_address"
+    t.string   "home_address"
     t.integer  "organisation_id"
     t.boolean  "is_manager"
     t.string   "provider"
@@ -65,6 +81,8 @@ ActiveRecord::Schema.define(version: 20170320173514) do
     t.string   "token"
     t.datetime "token_expiry"
     t.string   "photo"
+    t.string   "linkedin_first_name"
+    t.string   "linkedin_last_name"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["organisation_id"], name: "index_users_on_organisation_id", using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
