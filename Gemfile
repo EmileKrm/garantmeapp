@@ -24,8 +24,7 @@ ruby '2.3.3'
 gem 'figaro'
 #cloudinary setup
 # gem 'cloudinary'
-#Upload files associated with models
-gem 'carrierwave', '~> 0.11.2'
+
 
 #attachinary setup
 gem 'cloudinary', '1.1.7'
