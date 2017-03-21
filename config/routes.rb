@@ -1,7 +1,4 @@
 Rails.application.routes.draw do
-  get 'users/edit'
-
-  get 'users/update'
 
   devise_for :users,
     controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
@@ -13,4 +10,6 @@ Rails.application.routes.draw do
   resources :interviews, only: [:show, :new, :create, :edit, :update]
 
   resources :organisations, only: [:index, :show, :new, :create, :edit, :update]
+  mount Attachinary::Engine => "/attachinary"
+
 end

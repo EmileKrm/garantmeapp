@@ -10,10 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170321102518) do
+
+ActiveRecord::Schema.define(version: 20170321113511) do
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "attachinary_files", force: :cascade do |t|
+    t.string   "attachinariable_type"
+    t.integer  "attachinariable_id"
+    t.string   "scope"
+    t.string   "public_id"
+    t.string   "version"
+    t.integer  "width"
+    t.integer  "height"
+    t.string   "format"
+    t.string   "resource_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.index ["attachinariable_type", "attachinariable_id", "scope"], name: "by_scoped_parent", using: :btree
+  end
 
   create_table "interviews", force: :cascade do |t|
     t.string   "professional_status"
@@ -25,10 +42,11 @@ ActiveRecord::Schema.define(version: 20170321102518) do
     t.integer  "user_id"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
-    t.integer  "organisation_id"
     t.boolean  "has_found_apartment"
     t.string   "arrondissement"
     t.boolean  "has_a_cosigner"
+    t.string   "id_card"
+    t.integer  "organisation_id"
     t.index ["organisation_id"], name: "index_interviews_on_organisation_id", using: :btree
     t.index ["user_id"], name: "index_interviews_on_user_id", using: :btree
   end
@@ -62,6 +80,8 @@ ActiveRecord::Schema.define(version: 20170321102518) do
     t.string   "provider"
     t.string   "uid"
     t.string   "linkedin_picture_url"
+    t.string   "linkedin_first_name"
+    t.string   "linkedin_last_name"
     t.string   "token"
     t.datetime "token_expiry"
     t.string   "photo"

@@ -20,11 +20,17 @@ gem 'faker'
 #Heroku setup
 ruby '2.3.3'
 
-#cloudinary setup security
+# setup security for keys
 gem 'figaro'
-gem 'cloudinary'
-#Upload files associated with models
-gem 'carrierwave', '~> 0.11.2'
+#cloudinary setup
+# gem 'cloudinary'
+
+
+#attachinary setup
+gem 'cloudinary', '1.1.7'
+gem 'attachinary', github: 'assembler/attachinary'
+gem 'jquery-fileupload-rails'
+gem 'coffee-rails'
 
 gem 'will_paginate'
 
