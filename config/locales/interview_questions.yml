@@ -1,0 +1,121 @@
+- question_type: "boolean"
+  title: "Have you found an apartment?"
+  description: "We can help you if not"
+  answer_options: ["Yes", "No"]
+  next_question: ""
+  next_question_if_true: 2
+  next_question_if_false: 5
+
+- question_type: "address"
+  title: "Enter the address:"
+  description: "This address will appear on the contract"
+  answer_options: ""
+  next_question: 3
+  next_question_if_true: ""
+  next_question_if_false: ""
+
+- question_type: "email"
+  title: "What the email address of the Landlord?"
+  description: "We will let him now that Garantme is backing your application"
+  answer_options: ""
+  next_question: 4
+  next_question_if_true: ""
+  next_question_if_false: ""
+
+- question_type: "number"
+  title: "What is your monthly rent?"
+  description: ""
+  answer_options: ""
+  next_question: 6
+  next_question_if_true: ""
+  next_question_if_false: ""
+
+- question_type: "address"
+  title: "Which area do you want to live in? "
+  description: ""
+  answer_options: ""
+  next_question: 6
+  next_question_if_true: ""
+  next_question_if_false: ""
+
+- question_type: "address"
+  title: "What is your monthly budget?"
+  description: ""
+  answer_options: ""
+  next_question: 7
+  next_question_if_true: ""
+  next_question_if_false: ""
+
+- question_type: "date"
+  title: "What is your expected move-in date?"
+  description: ""
+  answer_options: ""
+  next_question: 8
+  next_question_if_true: ""
+  next_question_if_false: ""
+
+- question_type: "text"
+  title: "What is your first name?"
+  description: "pre-filled by linkedin, you can edit or press enter"
+  answer_options: ""
+  next_question: 9
+  next_question_if_true: ""
+  next_question_if_false: ""
+
+- question_type: "text"
+  title: "What is your last name?"
+  description: "pre-filled by linkedin, you can edit or press enter"
+  answer_options: ""
+  next_question: 10
+  next_question_if_true: ""
+  next_question_if_false: ""
+
+- question_type: "date"
+  title: "What is your date of birth?"
+  description: "pre-filled by linkedin, you can edit or press enter"
+  answer_options: ""
+  next_question: 11
+  next_question_if_true: ""
+  next_question_if_false: ""
+
+- question_type: "phone"
+  title: "What is your phone number?"
+  description: ""
+  answer_options: ""
+  next_question: 12
+  next_question_if_true: ""
+  next_question_if_false: ""
+
+- question_type: "dropdown"
+  title: "What is your school's name?"
+  description: "pre-filled by linkedin, you can edit or press enter"
+  answer_options: ""
+  next_question: 13
+  next_question_if_true: ""
+  next_question_if_false: ""
+
+- question_type: "multiple-choice"
+  title: "What is your current status?"
+  description: ""
+  answer_options: ""
+  next_question: 14
+  next_question_if_true: ""
+  next_question_if_false: ""
+
+- question_type: "number"
+  title: "What is your monthly revenue?"
+  description: "It's alright if you have none"
+  answer_options: ""
+  next_question: 15
+  next_question_if_true: ""
+  next_question_if_false: ""
+
+- question_type: "boolean"
+  title: "Can you provide a Co-signer?"
+  description: "A co-signer is a close relative (Father, Mother or Siblings) to the applicant but would not be a signatory on the apartment lease. The co-signer will need to have a minimum anual income of 3.5x the annual rent. We can also combine co-signers to meet the requirements"
+  answer_options: ""
+  next_question: ""
+  next_question_if_true: ""
+  next_question_if_false: ""
+
+
