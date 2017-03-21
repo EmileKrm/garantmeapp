@@ -1,16 +1,15 @@
-class InterviewPolicy < ApplicationPolicy
+class UserPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
       scope
     end
   end
 
-  def create?
-    true
+  def edit?
+    user == record
   end
 
   def update?
-    record.user == user
+    user == record
   end
-
 end

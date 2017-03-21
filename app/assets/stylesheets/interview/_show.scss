@@ -1,0 +1,72 @@
+.interview-show-top-left-container {
+  border-style: solid;
+  border-width: 2px;
+  border-color: $border-gray;
+  padding: 20px;
+  background-color: white;
+  text-align: center;
+}
+.interview-show-left-container {
+  border-style: solid;
+  border-width: 2px;
+  border-color: $border-gray;
+  padding: 20px;
+  background-color: white;
+  text-align: left;
+  i{
+    color: $green;
+  }
+}
+.interview-show-middle-container {
+  border-style: solid;
+  border-width: 2px;
+  border-color: $border-gray;
+  padding: 20px;
+  background-color: white;
+  margin-bottom: 20px;
+}
+
+.interview-show-avatar {
+  width: 80px;
+  border-radius: 50%;
+  border-width: 10px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+  border: $border-gray 1px solid;
+  margin: 10px;
+}
+
+.separator {
+  border-bottom-color: $border-gray;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: -20px;
+  margin-right: -20px;
+}
+
+.interview-show-right-container {
+  border-style: solid;
+  border-width: 2px;
+  border-color: $border-gray;
+  padding: 20px;
+  background-color: white;
+  text-align: center;
+}
+
+.scroll-container {
+  overflow: scroll;
+  height: calc(100vh - 100px);
+}
+
+.noscroll {
+  overflow: hidden;
+}
+.show-container-padding {
+  padding-top: 30px;
+}
+
+.user-show-full-name{
+  font-weight: bolder;
+}
+

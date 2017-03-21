@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-  has_many :interviews
+  has_many :interviews, dependent: :destroy
 
   belongs_to :organisation, optional: true
 
