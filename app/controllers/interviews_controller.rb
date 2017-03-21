@@ -11,8 +11,9 @@ before_action :set_interview, only: [:show, :edit]
     authorize @interview
   end
 
-  def show
 
+  def show
+    @user= current_user
   end
 
   private
