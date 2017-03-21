@@ -10,8 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 20170321113511) do
+ActiveRecord::Schema.define(version: 20170321174300) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,7 +44,6 @@ ActiveRecord::Schema.define(version: 20170321113511) do
     t.boolean  "has_found_apartment"
     t.string   "arrondissement"
     t.boolean  "has_a_cosigner"
-    t.string   "id_card"
     t.index ["organisation_id"], name: "index_interviews_on_organisation_id", using: :btree
     t.index ["user_id"], name: "index_interviews_on_user_id", using: :btree
   end
@@ -79,11 +77,8 @@ ActiveRecord::Schema.define(version: 20170321113511) do
     t.string   "provider"
     t.string   "uid"
     t.string   "linkedin_picture_url"
-    t.string   "linkedin_first_name"
-    t.string   "linkedin_last_name"
     t.string   "token"
     t.datetime "token_expiry"
-    t.string   "photo"
     t.string   "linkedin_first_name"
     t.string   "linkedin_last_name"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree

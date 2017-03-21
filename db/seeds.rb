@@ -13,9 +13,11 @@ manager = User.new()
 i = 0
 10.times do
   i += 1
+  url = "https://maxcdn.icons8.com/Share/icon/Cinema//avatar1600.png"
   email_b = 'user+' + i.to_s
   email = email_b +'@gmail.com'
-  u = User.new(email: email, password: '123456', first_name: Faker::Internet.user_name, last_name: Faker::Internet.user_name, organisation_id: 1, photo: Faker::Avatar.image("my-own-slug", "50x50", "jpg" ))
+  u = User.new(email: email, password: '123456', first_name: Faker::Internet.user_name, last_name: Faker::Internet.user_name, organisation_id: 1)
+  u.photo_url = url # Upload happens here
   u.save!
 end
 
