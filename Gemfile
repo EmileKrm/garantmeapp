@@ -15,6 +15,8 @@ gem 'font-awesome-sass'
 gem 'simple_form'
 gem 'autoprefixer-rails'
 
+gem 'faker'
+
 #Heroku setup
 ruby '2.3.3'
 
