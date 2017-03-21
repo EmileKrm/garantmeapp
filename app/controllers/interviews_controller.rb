@@ -12,13 +12,14 @@ def create
 end
 
 def show
-@user= current_user
+  @user= current_user
 end
 
 private
 
 def set_interview
   @interview = Interview.find(params[:id])
+  authorize @interview
 end
 
 end
