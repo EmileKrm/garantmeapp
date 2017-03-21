@@ -62,6 +62,8 @@ ActiveRecord::Schema.define(version: 20170320173514) do
     t.string   "provider"
     t.string   "uid"
     t.string   "linkedin_picture_url"
+    t.string   "linkedin_first_name"
+    t.string   "linkedin_last_name"
     t.string   "token"
     t.datetime "token_expiry"
     t.string   "photo"

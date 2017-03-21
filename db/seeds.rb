@@ -1,4 +1,25 @@
-##### ITW SEED
+
+# !!!! Delete when doing a Heroku seed !!!
+
+User.destroy_all
+
+
+###### MANAGER SEED ######
+email = 'manager@gmail.com'
+u = User.new(email: email, password: '123456', first_name: Faker::Internet.user_name, last_name: Faker::Internet.user_name, organisation_id: 1, :is_manager => true)
+u.save!
+manager = User.new()
+######################## USER SEED
+i = 0
+10.times do
+  i += 1
+  email_b = 'quentin.gondat+' + i.to_s
+  email = email_b +'@gmail.com'
+  u = User.new(email: email, password: '123456', first_name: Faker::Internet.user_name, last_name: Faker::Internet.user_name, organisation_id: 1)
+  u.save!
+end
+
+##### Interviews (ITW) SEED
 
 i = 2
 7.times do
@@ -10,15 +31,6 @@ i = 2
 end
 
 
-######################## USER SEED
-
-# 10.times do
-#   i += 1
-#   email_b = 'quentin.gondat+' + i.to_s
-#   email = email_b +'@gmail.com'
-#   u = User.new(email: email, password: '123456', first_name: Faker::Internet.user_name, last_name: Faker::Internet.user_name, organisation_id: 1)
-#   u.save!
-# end
 
 ######################## ORG SEED
 
