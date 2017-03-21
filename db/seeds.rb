@@ -1,3 +1,13 @@
+####################### USER SEED
+
+10.times do
+  i += 1
+  email_b = 'quentin.gondat+' + i.to_s
+  email = email_b +'@gmail.com'
+  u = User.new(email: email, password: '123456', first_name: Faker::Internet.user_name, last_name: Faker::Internet.user_name, organisation_id: 1)
+  u.save!
+end
+
 ##### ITW SEED
 
 i = 2
@@ -10,15 +20,6 @@ i = 2
 end
 
 
-######################## USER SEED
-
-# 10.times do
-#   i += 1
-#   email_b = 'quentin.gondat+' + i.to_s
-#   email = email_b +'@gmail.com'
-#   u = User.new(email: email, password: '123456', first_name: Faker::Internet.user_name, last_name: Faker::Internet.user_name, organisation_id: 1)
-#   u.save!
-# end
 
 ######################## ORG SEED
 
