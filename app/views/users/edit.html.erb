@@ -5,15 +5,13 @@
         <br>
         <div class ="user-edit-form">
           <%= f.input :email %>
-          <%= f.input :encrypted_password %>
           <%= f.input :first_name %>
           <%= f.input :last_name %>
           <%= f.input :phone_number %>
           <%= f.input :home_address %>
           <%= f.input :date_of_birth, as: :date, start_year: Date.today.year - 60,
                               end_year: Date.today.year - 12, order: [:day, :month, :year] %>
-          <%= f.label :photo %>
-          <%= f.attachinary_file_field :photo %>
+          <%= f.input :photo, as: :attachinary %>
         <br>
           <%= f.submit %>
         <br><br><br><br>
