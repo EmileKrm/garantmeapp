@@ -11,16 +11,17 @@ before_action :set_interview, only: [:show, :edit]
     authorize @interview
   end
 
-
   def show
     @user= current_user
   end
 
-  private
-
+ private
+  
   def set_interview
     @interview = Interview.find(params[:id])
+    authorize @interview
   end
+
 
   def interview_params
     params.require(:product).permit(:id_card)

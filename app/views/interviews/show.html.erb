@@ -1,0 +1,55 @@
+<div class="wrapper bg-light-gray show-container-padding">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-md-3">
+        <div class="interview-show-top-left-container">
+          <div class="interview-show-row">
+            <div class="user-show-photo"><%= user_picture_avatar(current_user, "interview-show-avatar") %></div>
+          </div>
+          <div class="separator"></div>
+          <div class="interview-show-row">
+            <div class="user-show-full-name"><%=@user.first_name %> <%=@user.last_name %></div>
+          <div class="interview-show-row">
+            <div class="user-show-organisation"> <%= @interview.organisation.name.upcase %></div>
+          </div>
+          </div>
+        </div>
+        <div class="interview-show-left-container">
+          <div class="row">
+            <div class="col-xs-3"><i class="fa fa-share-square-o fa-3x" aria-hidden="true"></i></div>
+            <div class="col-xs-9">Share my housing link onsocial platforms</div>
+          </div>
+          <div class="separator"></div>
+          <div class="row">
+            <div class="col-xs-3"><i class="fa fa-print fa-3x" aria-hidden="true"></i></div>
+            <div class="col-xs-9">Visit Flat with my beautiful printed profile</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-md-6">
+        <div class="scroll-container">
+          <div class="interview-show-middle-container">
+            <%30.times do %>
+            <%= @user.last_name %>
+            <% end %>
+          </div>
+          <div class="interview-show-middle-container">
+            <%100.times do %>
+            <%= @user.last_name %>
+            <% end %>
+          </div>
+          <div class="interview-show-middle-container">
+            <%50.times do %>
+            <%= @user.last_name %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-md-3">
+        <div class="interview-show-right-container">
+          <%=@user.first_name %><%=@user.last_name %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
