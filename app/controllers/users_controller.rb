@@ -5,7 +5,8 @@ class UsersController < ApplicationController
 
   def update
     @user.update(user_params)
-    raise
+    @interview = @user.interviews.last
+    # redirect_to interview_path(@interview)
   end
 
   private
