@@ -7,4 +7,10 @@ ActiveAdmin.register Organisation do
       column :name
       actions
   end
+
+  form do |f|
+    f.inputs "Information" do
+      f.input :name
+    end
+  end
 end
