@@ -1,0 +1,6 @@
+<div class="embedded-form">
+  <%= simple_form_for interview, remote: true do |f| %>
+  <%= f.input :address %>
+  <%= f.submit 'Save', class: "btn btn-primary save-step" %>
+  <% end %>
+</div>
