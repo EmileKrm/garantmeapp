@@ -5,6 +5,7 @@
   next_question: ""
   next_question_if_true: 2
   next_question_if_false: 5
+  field: 'has_found_apartment'
 
 - question_type: "address"
   title: "Enter the address:"
@@ -31,12 +32,13 @@
   next_question_if_false: ""
 
 - question_type: "address"
-  title: "Which area do you want to live in? "
+  title: "Which arrondissement do you want to live in? "
   description: ""
   answer_options: ""
   next_question: 6
   next_question_if_true: ""
   next_question_if_false: ""
+  field: 'arrondissement'
 
 - question_type: "address"
   title: "What is your monthly budget?"
