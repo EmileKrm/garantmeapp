@@ -8,7 +8,7 @@ Organisation.destroy_all
 ###### ORG SEED ######
 
 org = Organisation.new(name: "HEC Paris")
-
+org.save!
 ###### ADMIN SEED ######
 email = 'admin@gmail.com'
 admin = User.new(email: email, password: '123456', first_name: Faker::Internet.user_name, last_name: Faker::Internet.user_name, organisation_id: org.id, :is_manager => true, :admin => true)
