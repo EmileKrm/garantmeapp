@@ -1,3 +1,5 @@
+
+
 <div class="container">
   <div class="questions-container">
 
@@ -68,36 +70,43 @@
             <!-- Here you have the different forms for each question -->
 
             <div class="tab-content">
-              <div class="tab-pane fade in active" role="tabpanel" id="stepper-step-1">
-                <div class="question">
-                  <h3>In which arrondissement are you looking?</h3>
-                  <p>bla bla bla</p>
-                  <%= render 'form_arrondissement', interview: @interview %>
-                </div>
-                <ul class="list-inline pull-right">
-                <!-- I hide those links because they're part of the initial code
-                and without them, it's hard to make it work
-                The click on those links is triggered by the submit -->
-                  <li>
-                    <a class="btn btn-primary next-step">Next</a>
-                  </li>
-                </ul>
-              </div>
-              <div class="tab-pane fade" role="tabpanel" id="stepper-step-2">
-                <div class="question">
-                  <h3>Have you already found an appartment?</h3>
-                  <p>If yes, you co tenents will have to complete a separate application</p>
-                  <%= render 'form_has_found_appartment', interview: @interview %>
-                </div>
-                <ul class="list-inline pull-right">
-                  <li>
-                    <a class="btn btn-default prev-step">Back</a>
-                  </li>
-                  <li>
-                    <a class="btn btn-primary next-step hidden">Next</a>
-                  </li>
-                </ul>
-              </div>
+
+              <!-- start of the loop -->
+              <% questions_array = YAML.load(open('config/interview_questions.yml').read) %>
+              <% questions_array = [questions_array[0], questions_array[4]] %>
+              <% questions_array.each_with_index do |question, index| %>
+                <% if index == 0 %>
+                  <div class="tab-pane fade in active" role="tabpanel" id=<%= "stepper-step-" + (index + 1).to_s %>>
+                    <div class="question">
+                      <h3><%= question['title'] %></h3>
+                      <p><%= question['description'] %></p>
+                      <%= render "form_#{question['field']}", interview: @interview %>
+                    </div>
+                    <ul class="list-inline pull-right">
+                      <li>
+                        <a class="btn btn-link next-step">Skip for now</a>
+                      </li>
+                    </ul>
+                  </div>
+                <% else %>
+                  <div class="tab-pane fade" role="tabpanel" id=<%= "stepper-step-" + (index + 1).to_s %>>
+                    <div class="question">
+                      <h3><%= question['title'] %></h3>
+                      <p><%= question['description'] %></p>
+                      <%= render "form_#{question['field']}", interview: @interview %>
+                    </div>
+                    <ul class="list-inline pull-right">
+                      <li>
+                        <a class="btn btn-default prev-step">Back</a>
+                      </li>
+                        <li>
+                          <a class="btn btn-link next-step">Skip for now</a>
+                        </li>
+                    </ul>
+                  </div>
+                <% end %>
+              <% end %>
+
               <div class="tab-pane fade" role="tabpanel" id="stepper-step-3">
                 <div class="question">
                   <h3>What is your first name?</h3>
