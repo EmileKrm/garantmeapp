@@ -86,3 +86,13 @@
     text-decoration: none;
   }
 }
+
+.social-links-cases {
+  margin-bottom: 10px;
+  & img {
+    height: 22px;
+    width: 22px;
+    filter: grayscale(100%);
+    object-fit: cover;
+  }
+}
