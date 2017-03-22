@@ -5,6 +5,7 @@
   padding: 20px;
   background-color: white;
   text-align: center;
+  margin-bottom: 20px;
 }
 .interview-show-left-container {
   border-style: solid;
@@ -13,9 +14,7 @@
   padding: 20px;
   background-color: white;
   text-align: left;
-  i{
-    color: $green;
-  }
+  margin-bottom: 20px;
 }
 .interview-show-middle-container {
   border-style: solid;
@@ -24,6 +23,13 @@
   padding: 20px;
   background-color: white;
   margin-bottom: 20px;
+  & h4 {
+    color: $green;
+  }
+  & h5{
+    color: $green;
+    font-weight: bolder;
+  }
 }
 
 .interview-show-avatar {
@@ -51,7 +57,11 @@
   border-color: $border-gray;
   padding: 20px;
   background-color: white;
-  text-align: center;
+  text-align: left;
+   & h5{
+    color: $green;
+    font-weight: bolder;
+  }
 }
 
 .scroll-container {
@@ -70,3 +80,18 @@
   font-weight: bolder;
 }
 
+.green-container {
+  border: solid;
+  border-width: 3px;
+  border-color: $green;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+.user-show-buttons {
+  color: $gray;
+  text-align: right;
+  :hover{
+    text-decoration: none;
+  }
+}

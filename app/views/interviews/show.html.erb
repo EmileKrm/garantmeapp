@@ -9,45 +9,93 @@
           <div class="separator"></div>
           <div class="interview-show-row">
             <div class="user-show-full-name"><%=@user.first_name %> <%=@user.last_name %></div>
-          <div class="interview-show-row">
             <div class="user-show-organisation"> <%= @interview.organisation.name.upcase %></div>
           </div>
-          </div>
+          <%= link_to edit_user_path, class: "navbar-wagon-link" do %>
+            <i class="fa fa-pencil fa-fw fa-pull-right"></i>
+          <% end %>
         </div>
         <div class="interview-show-left-container">
           <div class="row">
-            <div class="col-xs-3"><i class="fa fa-share-square-o fa-3x" aria-hidden="true"></i></div>
+            <div class="col-xs-3">
+              <%= link_to edit_user_path, class: "navbar-wagon-link" do %>
+                <i class="fa fa-share-square-o fa-3x" aria-hidden="true"></i></div>
+              <% end %>
             <div class="col-xs-9">Share my housing link onsocial platforms</div>
           </div>
           <div class="separator"></div>
           <div class="row">
-            <div class="col-xs-3"><i class="fa fa-print fa-3x" aria-hidden="true"></i></div>
+            <div class="col-xs-3">
+              <%= link_to edit_user_path, class: "navbar-wagon-link" do %>
+                <i class="fa fa-print fa-3x" aria-hidden="true"></i></div>
+              <% end %>
             <div class="col-xs-9">Visit Flat with my beautiful printed profile</div>
           </div>
         </div>
       </div>
+      <!-- middle column -->
       <div class="col-xs-12 col-md-6">
         <div class="scroll-container">
           <div class="interview-show-middle-container">
-            <%30.times do %>
-            <%= @user.last_name %>
-            <% end %>
+            <h4>Strengthen my profile</h4>
+            <div class="green-container">
+              <div class="row">
+                <div class="col-xs-2 vcenter">
+                  <%= link_to edit_user_path, class: "navbar-wagon-link" do %>
+                    <i class="fa fa-link fa-3x" aria-hidden="true"></i>
+                  <% end %>
+                </div>
+                <div class="col-xs-10">
+                  <h5>You have good reviews on other websites?</h5>
+                  <p>Increase your reputation by importing reviews you've had on other websites (ex. airbnb)</p>
+                </div>
+              </div>
+            </div>
+            <div class="user-show-buttons">
+              <%= link_to "Not now", edit_user_path, class: "bold"%>
+              <%= link_to "Add reviews", edit_user_path, class: "btn btn-primary float-right"%>
+            </div>
           </div>
+          <!-- My interview -->
           <div class="interview-show-middle-container">
-            <%100.times do %>
-            <%= @user.last_name %>
-            <% end %>
+            <h4>My interview</h4>
+            <div class="green-container">
+              <div class="row">
+                <div class="col-xs-2">
+                  <%= link_to edit_user_path, class: "navbar-wagon-link" do %>
+                    <i class="fa fa-files-o fa-3x" aria-hidden="true"></i>
+                  <% end %>
+                </div>
+                <div class="col-xs-10">
+                  <h5>There has been a change to your situation?</h5>
+                  <p>No worries we will take into consideration your adjustments</p>
+                </div>
+              </div>
+            </div>
+            <div class="user-show-buttons">
+              <%= link_to "Update", edit_user_path, class: "btn btn-primary float-right"%>
+            </div>
           </div>
+          <!-- supporting docs -->
           <div class="interview-show-middle-container">
-            <%50.times do %>
-            <%= @user.last_name %>
-            <% end %>
+            <h4>Here are my supporting documents</h4>
+            <div class="green-container">
+              PDF go here
+            </div>
+            <div class="user-show-buttons">
+              <%= link_to "Manage", edit_user_path, class: "btn btn-primary float-right"%>
+            </div>
           </div>
         </div>
       </div>
+      <!-- third column -->
       <div class="col-xs-12 col-md-3">
         <div class="interview-show-right-container">
-          <%=@user.first_name %><%=@user.last_name %>
+          <div class="interview-show-status">
+            <i class="fa fa-refresh fa-3x" aria-hidden="true"></i>
+          </div>
+          <h5>We received your application</h5>
+          <p>We will get back to you in 12 hours. In the meantime you can share, print and  strengthen your profile</p>
         </div>
       </div>
     </div>
