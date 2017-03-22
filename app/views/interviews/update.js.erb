@@ -22,9 +22,13 @@
       $tooltips.tooltip();
 
       //Wizard
+      // tag_toggle takes an element, adds the class completed if the class
+      // does not have the class active or disabled
+      // and returns false if the class has the class disabled
       $tab_toggle.on('show.bs.tab', function(e) {
         var $target = $(e.target);
 
+        // Add completed to the previous small icon
         if (!$target.parent().hasClass('active, disabled')) {
           $target.parent().prev().addClass('completed');
         }
@@ -36,13 +40,17 @@
       $btn_next.on('click', function() {
         $tab_active = $progressWizard.find('.active');
 
+        // Here, I remove the diisabled class of the next small number icon
         $tab_active.next().removeClass('disabled');
 
+        // I select the link of the small icon and simlate a click.
+        // the link is the link of the div with the question
         $tab_next = $tab_active.next().find('a[data-toggle="tab"]');
         triggerClick($tab_next);
 
       });
 
+      // same logic but for previous
       $btn_prev.click(function() {
         $tab_active = $progressWizard.find('.active');
         $tab_prev = $tab_active.prev().find('a[data-toggle="tab"]');
