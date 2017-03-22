@@ -52,10 +52,11 @@
               </div>
             </div>
             <div class="user-show-buttons">
-              <%= link_to "Not now", edit_user_path, class: "bold"%>
-              <%= link_to "Add reviews", edit_user_path, class: "btn btn-primary float-right"%>
+              <div class="btn btn-primary float-right", data-toggle="modal" data-target="#addReviewsModal">Add reviews</div>
             </div>
           </div>
+          <!-- myModal -->
+          <%= render "addReviewsModal" %>
           <!-- My interview -->
           <div class="interview-show-middle-container">
             <h4>My interview</h4>
