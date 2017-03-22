@@ -8,18 +8,28 @@
   margin: 15px;
   display: flex;
   flex-direction: row;
-  padding: 5px;
+  padding: 15px;
+  transition: box-shadow .2s ease-in-out;
+}
+
+.dashboard-user-card:hover {
+  box-shadow: 1px 4px 12px rgb(225, 225, 225);
+}
+
+.dashboard-user-card-separator {
+  width: 1px;
+  background-color: #eee;
+  margin: 20px 0 20px 0;
 }
 
 .dashboard-user-card-left {
   text-align: center;
-  flex: 1;
+  flex: 2;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   padding: 10px;
-
 }
 
 .dashboard-user-card-left {
@@ -34,5 +44,65 @@
 }
 
 .dashboard-user-card-right {
-  flex: 2;
+  flex: 3;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: 10px 0 10px 30px;
+}
+
+
+.dashboard-user-card-right-item {
+  display: flex;
+  flex-direction: row;
+  padding: 8px;
+}
+
+.dashboard-user-card-right-item-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 15px 0 15px;
+  font-size: 25px;
+  color: $brand-primary;
+}
+
+.dashboard-user-card-right-item-text-title {
+  color: $brand-primary;
+}
+.dashboard-user-card-right-item-text {
+  p {
+    margin: 0;
+    font-size: 12px;
+  }
+}
+
+.dashboard-user-feature {
+  margin: 70px 0 70px 0;
+  background-color: red;
+}
+
+.dashboard-user-feature-icon-container {
+  margin: auto;
+  font-size: 30px;
+  height: 100px;
+  width: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  border: solid 10px #eee;
+}
+
+.dashboard-user-feature-icon {
+  height: 40px;
+  width: 40px;
+}
+
+.dashboard-user-feature-text {
+  text-align: center;
+  color: #eee;
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 50px;
 }

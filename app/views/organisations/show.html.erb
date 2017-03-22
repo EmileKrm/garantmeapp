@@ -11,8 +11,51 @@
                     <h5><%= @student.first_name.capitalize %> <%= @student.last_name.capitalize %></h5>
                     <p><%= @student.organisation.name.upcase %></p>
                   </div>
+
+                  <div class="dashboard-user-card-separator">
+
+                  </div>
                   <div class="dashboard-user-card-right">
-                    <h1>helllo</h1>
+
+                    <div class="dashboard-user-card-right-item">
+                      <div class="dashboard-user-card-right-item-icon">
+                        <i class="fa fa-check-circle-o"></i>
+                      </div>
+                      <div class="dashboard-user-card-right-item-text">
+                      <span class="dashboard-user-card-right-item-text-title">Co-Signer</span>
+                      <p>Has a co-signer</p>
+                      </div>
+                    </div>
+
+                    <div class="dashboard-user-card-right-item">
+                      <div class="dashboard-user-card-right-item-icon">
+                        <i class="fa fa-calendar"></i>
+                      </div>
+                      <div class="dashboard-user-card-right-item-text">
+                      <span class="dashboard-user-card-right-item-text-title">Move-in Date</span>
+                      <p>01/01/2018</p>
+                      </div>
+                    </div>
+
+                    <div class="dashboard-user-card-right-item">
+                      <div class="dashboard-user-card-right-item-icon">
+                        <i class="fa fa-calculator"></i>
+                      </div>
+                      <div class="dashboard-user-card-right-item-text">
+                      <span class="dashboard-user-card-right-item-text-title">Budget</span>
+                      <p>920 €</p>
+                      </div>
+                    </div>
+
+                    <div class="dashboard-user-card-right-item">
+                      <div class="dashboard-user-card-right-item-icon">
+                        <i class="fa fa-money"></i>
+                      </div>
+                      <div class="dashboard-user-card-right-item-text">
+                      <span class="dashboard-user-card-right-item-text-title">Revenue</span>
+                      <p>4,500 €</p>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -36,12 +79,79 @@
             <div class="row">
               <div class="col-xs-12">
                 <div class="dashboard-user-card">
-                  <h1>coucou</h1>
-                  <p>fdskljfsdhf</p>
-                  <p>fdskljfsdhf</p>
-                  <p>fdskljfsdhf</p>
-                  <p>fdskljfsdhf</p>
-                  <p>fdskljfsdhf</p>
+                  <div class="container">
+                    <div class="row">
+                      <div class="col-xs-12">
+                         <h4>Certification requirements</h4>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-xs-6">
+                        <div class="dashboard-user-feature">
+                          <div class="dashboard-user-feature-icon-container">
+                            <%= image_tag "typewriter.png", class: "dashboard-user-feature-icon" %>
+                          </div>
+                          <div class="dashboard-user-feature-text">
+                            <span>Interview Completed</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-xs-6">
+                        <div class="dashboard-user-feature">
+                          <div class="dashboard-user-feature-icon-container">
+                            <%= image_tag "folder.png", class: "dashboard-user-feature-icon" %>
+                          </div>
+                          <div class="dashboard-user-feature-text">
+                            <span>Documents submitted</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-xs-6">
+                        <div class="dashboard-user-feature">
+                          <div class="dashboard-user-feature-icon-container">
+                            <%= image_tag "diploma.png", class: "dashboard-user-feature-icon" %>
+                          </div>
+                          <div class="dashboard-user-feature-text">
+                            <span>Documents validated</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-xs-6">
+                        <div class="dashboard-user-feature">
+                          <div class="dashboard-user-feature-icon-container">
+                            <%= image_tag "agreement.png", class: "dashboard-user-feature-icon" %>
+                          </div>
+                          <div class="dashboard-user-feature-text">
+                            <span>G. Agreement signed</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-xs-6">
+                        <div class="dashboard-user-feature">
+                          <div class="dashboard-user-feature-icon-container">
+                            <%= image_tag "court.png", class: "dashboard-user-feature-icon" %>
+                          </div>
+                          <div class="dashboard-user-feature-text">
+                            <span>Lease provided</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-xs-6">
+                        <div class="dashboard-user-feature">
+                          <div class="dashboard-user-feature-icon-container">
+                            <%= image_tag "act.png", class: "dashboard-user-feature-icon" %>
+                          </div>
+                          <div class="dashboard-user-feature-text">
+                            <span>Lease signed</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
                 </div>
               </div>
             </div>
