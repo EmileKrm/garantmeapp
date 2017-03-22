@@ -5,4 +5,4 @@
 //= require cloudinary/jquery.cloudinary
 //= require attachinary
 
-//= require_tree ./front
+//= require_tree
