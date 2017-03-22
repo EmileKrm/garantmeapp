@@ -21,7 +21,6 @@ before_action :set_interview, only: [:show, :edit, :update]
   end
 
   def update
-    p @interview
     @interview.update(interview_params)
     if @interview.save
       respond_to do |format|
