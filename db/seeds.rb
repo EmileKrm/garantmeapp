@@ -11,8 +11,8 @@ org = Organisation.new(name: "HEC Paris")
 
 ###### ADMIN SEED ######
 email = 'admin@gmail.com'
-manager = User.new(email: email, password: '123456', first_name: Faker::Internet.user_name, last_name: Faker::Internet.user_name, organisation_id: org.id, :is_manager => true, :admin => true)
-manager.save!
+admin = User.new(email: email, password: '123456', first_name: Faker::Internet.user_name, last_name: Faker::Internet.user_name, organisation_id: org.id, :is_manager => true, :admin => true)
+admin.save!
 
 ###### MANAGER SEED ######
 email = 'manager@gmail.com'
