@@ -36,8 +36,6 @@ gem 'attachinary', github: 'assembler/attachinary'
 gem 'jquery-fileupload-rails'
 gem 'coffee-rails'
 
-gem 'will_paginate'
-
 #authentification
 gem 'devise'
 
