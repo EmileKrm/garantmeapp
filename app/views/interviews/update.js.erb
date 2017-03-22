@@ -1,5 +1,7 @@
 /*jslint browser: true*/
 /*global $, jQuery, alert*/
+monitorEvents(myDomElem);
+
 (function($) {
   'use strict';
 
@@ -15,6 +17,7 @@
         $tab_next,
         $btn_prev = $progressWizard.find('.prev-step'),
         $btn_next = $progressWizard.find('.next-step'),
+        $btn_save = $progressWizard.find('.save-step'),
         $tab_toggle = $progressWizard.find('[data-toggle="tab"]'),
         $tooltips = $progressWizard.find('[data-toggle="tab"][title]');
 
@@ -35,6 +38,11 @@
         if ($target.parent().hasClass('disabled')) {
           return false;
         }
+      });
+
+      $btn_save.on('click', function(){
+        window.alert("sometext");
+        $('.stepper').find('.active .next-step').click();
       });
 
       $btn_next.on('click', function() {
