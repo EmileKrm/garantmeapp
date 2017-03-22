@@ -4,10 +4,7 @@ class OrganisationsController < ApplicationController
 
   def index
     @organisations = policy_scope(Organisation)
-
-    @interviews = Interview.all
-
-
+    @interviews = helpers.fetch_interviews(params[:tab])
   end
 
   def show
@@ -38,5 +35,4 @@ class OrganisationsController < ApplicationController
     p current_user
     @organisation = current_user.organisation
   end
-
 end
