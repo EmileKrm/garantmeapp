@@ -1,0 +1,35 @@
+.tabs {
+  background-color: $brand-color;
+  display: flex;
+  padding: 10px 10px 0 10px;
+  width: 70vw;
+  margin-left: 15vw;
+}
+.tabs a {
+  color: white;
+}
+.tabs a:hover {
+  cursor: pointer;
+  text-decoration: none;
+  opacity: 0.8;
+}
+.tabs h3 {
+  font-size: 13px;
+  font-weight: bold;
+
+}
+.tabs p {
+  opacity: 0.5;
+  margin-bottom: 0;
+}
+.tab {
+  background-color: $light-green;
+  flex: 0 0 20%;
+  text-align: center;
+  padding: 20px 0;
+}
+
+.tab.active {
+  background: white;
+  color: black;
+}
