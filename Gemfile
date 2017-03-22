@@ -22,8 +22,10 @@ ruby '2.3.3'
 
 # setup security for keys
 gem 'figaro'
-#cloudinary setup
-# gem 'cloudinary'
+
+#activer admin setup
+gem 'activeadmin', github: 'activeadmin/activeadmin'
+gem 'inherited_resources', github: 'activeadmin/inherited_resources'
 
 
 #attachinary setup
