@@ -3,9 +3,7 @@
     <div class="profile">
     <div class="user-show-photo"><%= user_picture_avatar(current_user, "avatar organisation-avatar") %></div>
       <h1><%= @organisation.name %></h1>
-
     </div>
-
     <div class="container-fluid">
       <div class="row">
         <div class="col-xs-12 col-md-8 col-md-offset-2 no-padding">
@@ -31,11 +29,6 @@
         </div>
       </div>
     </div>
-
-
-
-
-
   </div>
   <div class="container-fluid">
     <div class="row">
@@ -61,7 +54,11 @@
                   <td>60%</td>
                   <td><%= itw.move_in_date.strftime("%F") unless itw.move_in_date.nil? %></td>
                   <td>Pending</td>
-                  <td>Zoom</td>
+                  <td>
+                    <%= link_to organisation_path(itw.user) do %>
+                       <i class="fa fa-eye"></i>
+                    <% end %>
+                  </td>
                 </tr>
               <%end%>
 

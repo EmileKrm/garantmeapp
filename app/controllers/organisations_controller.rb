@@ -8,6 +8,11 @@ class OrganisationsController < ApplicationController
   end
 
   def show
+    @student = User.find(params[:id])
+    unless OrganisationPolicy.new(current_user, @organisation, @student).show?
+      raise Pundit::NotAuthorizedError
+    end
+    skip_authorization
   end
 
   def create
@@ -32,7 +37,6 @@ class OrganisationsController < ApplicationController
   end
 
   def set_organisation
-    p current_user
     @organisation = current_user.organisation
   end
 end
