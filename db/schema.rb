@@ -52,6 +52,7 @@ ActiveRecord::Schema.define(version: 20170322140239) do
     t.integer  "monthly_income"
     t.boolean  "unique_signator"
     t.integer  "user_id"
+
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.integer  "organisation_id"
@@ -60,6 +61,7 @@ ActiveRecord::Schema.define(version: 20170322140239) do
     t.boolean  "has_a_cosigner"
     t.string   "address"
     t.boolean  "status",              default: false
+
     t.index ["organisation_id"], name: "index_interviews_on_organisation_id", using: :btree
     t.index ["user_id"], name: "index_interviews_on_user_id", using: :btree
   end
