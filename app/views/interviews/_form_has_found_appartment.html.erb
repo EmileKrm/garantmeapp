@@ -1,0 +1,4 @@
+<div class="yes-no-form">
+  <%= button_to 'Yes', {controller: "interviews", action: 'update', has_found_apartment: true}, method: :patch, remote: true, class: "btn btn-primary save-step" %>
+  <%= button_to 'No',{controller: "interviews", action: 'update', has_found_apartment: false}, method: :patch, remote: true, class: "btn btn-primary save-step" %>
+</div>
