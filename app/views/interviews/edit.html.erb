@@ -11,20 +11,6 @@
       </div>
     </div>
 
-    <!-- First question yes no style -->
-    <div class="row">
-      <div class="col-xs-12">
-
-      </div>
-    </div>
-
-    <!-- First question form style -->
-    <div class="row">
-      <div class="col-xs-12">
-
-      </div>
-    </div>
-
     <!-- page header -->
       <div class="panel panel-default">
         <div class="panel-body">
@@ -71,22 +57,30 @@
                   <span class="round-tab">5</span>
                 </a>
               </li>
+               <li role="presentation" class="disabled">
+                <a class="persistant-disabled" href="#stepper-step-6" data-toggle="tab" aria-controls="stepper-step-6" role="tab" title="Complete">
+                  <span class="round-tab">6</span>
+                </a>
+              </li>
             </ul>
             <!-- End of the tab elements -->
 
             <!-- Here you have the different forms for each question -->
-            <div>
+
               <div class="tab-content">
+              <!-- start yml loop -->
                 <div class="tab-pane fade in active" role="tabpanel" id="stepper-step-1">
                   <div class="question">
                     <h3>In which arrondissement are you looking?</h3>
                     <p>bla bla bla</p>
+                    <!-- partial creation for this section -->
                     <div class="embedded-form">
                       <%= simple_form_for @interview, remote: true do |f| %>
                         <%= f.input :arrondissement, collection: 1..20 %>
                         <%= f.submit 'Save', class: "btn btn-primary save-step" %>
                       <% end %>
                     </div>
+                     <!-- end of partial -->
                   </div>
                   <ul class="list-inline pull-right">
                   <!-- I hide those links because they're part of the initial code
@@ -111,7 +105,7 @@
                       <a class="btn btn-default prev-step">Back</a>
                     </li>
                     <li>
-                      <a class="btn btn-primary next-step hidden">Next</a>
+                      <a class="btn btn-primary next-step">Next</a>
                     </li>
                   </ul>
                 </div>
@@ -119,19 +113,21 @@
                   <div class="question">
                     <h3>What is your first name?</h3>
                     <p>Info from linkedin, you can edit or press enter</p>
+
                     <div class="embedded-form">
                       <%= simple_form_for @user, remote: true do |f| %>
                         <%= f.input :first_name %>
                         <%= f.submit 'Save', class: "btn btn-primary save-step" %>
                       <% end %>
                     </div>
+
                   </div>
                   <ul class="list-inline pull-right">
                     <li>
                       <a class="btn btn-default prev-step">Back</a>
                     </li>
                     <li>
-                      <a class="btn btn-primary next-step hidden">Next</a>
+                      <a class="btn btn-primary next-step">Next</a>
                     </li>
                   </ul>
                 </div>
@@ -151,17 +147,39 @@
                       <a class="btn btn-default prev-step">Back</a>
                     </li>
                     <li>
+                      <a class="btn btn-primary next-step">Next</a>
+                    </li>
+                  </ul>
+                </div>
+
+                <!-- EK: date design -->
+                <div class="tab-pane fade" role="tabpanel" id="stepper-step-5">
+                  <div class="question">
+                    <h3>What is the address of the flat?</h3>
+                    <p></p>
+                    <div class="embedded-form">
+                      <%= simple_form_for @interview, remote: true do |f| %>
+                        <%= f.input :address %>
+                        <%= f.submit 'Save', class: "btn btn-primary" %>
+                      <% end %>
+                    </div>
+                  </div>
+                  <ul class="list-inline pull-right">
+                    <li>
+                      <a class="btn btn-default prev-step">Back</a>
+                    </li>
+                    <li>
                       <a class="btn btn-primary next-step hidden">Next</a>
                     </li>
                   </ul>
                 </div>
 
-                <div class="tab-pane fade" role="tabpanel" id="stepper-step-5">
+                <div class="tab-pane fade" role="tabpanel" id="stepper-step-6">
                   <h3>4. All done!</h3>
                   <p>You have successfully completed all steps.</p>
                 </div>
               </div>
-            </div>
+
 
           </div>
 

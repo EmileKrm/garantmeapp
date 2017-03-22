@@ -27,6 +27,8 @@ gem 'figaro'
 gem 'activeadmin', github: 'activeadmin/activeadmin'
 gem 'inherited_resources', github: 'activeadmin/inherited_resources'
 
+#Google maps
+gem "geocoder"
 
 #attachinary setup
 gem 'cloudinary', '1.1.7'
