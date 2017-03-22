@@ -72,6 +72,7 @@
                 <div class="question">
                   <h3>In which arrondissement are you looking?</h3>
                   <p>bla bla bla</p>
+                  <!-- call embed form partial -->
                   <%= render 'form_arrondissement', interview: @interview %>
                 </div>
                 <ul class="list-inline pull-right">
@@ -87,6 +88,7 @@
                 <div class="question">
                   <h3>Have you already found an appartment?</h3>
                   <p>If yes, you co tenents will have to complete a separate application</p>
+                  <!-- call embed form partial -->
                   <%= render 'form_has_found_appartment', interview: @interview %>
                 </div>
                 <ul class="list-inline pull-right">
@@ -94,7 +96,7 @@
                     <a class="btn btn-default prev-step">Back</a>
                   </li>
                   <li>
-                    <a class="btn btn-primary next-step hidden">Next</a>
+                    <a class="btn btn-primary next-step">Next</a>
                   </li>
                 </ul>
               </div>
@@ -102,6 +104,7 @@
                 <div class="question">
                   <h3>What is your first name?</h3>
                   <p>Info from linkedin, you can edit or press enter</p>
+                  <!-- call embed form partial -->
                   <%= render 'form_first_name', user: @user %>
                 </div>
                 <ul class="list-inline pull-right">
@@ -109,27 +112,23 @@
                     <a class="btn btn-default prev-step">Back</a>
                   </li>
                   <li>
-                    <a class="btn btn-primary next-step hidden">Next</a>
+                    <a class="btn btn-primary next-step">Next</a>
                   </li>
                 </ul>
               </div>
               <div class="tab-pane fade" role="tabpanel" id="stepper-step-4">
                 <div class="question">
-                  <h3>What is your second name?</h3>
+                  <h3>What is your last name?</h3>
                   <p>Info from linkedin, you can edit or press enter</p>
-                  <div class="embedded-form">
-                    <%= simple_form_for @user, remote: true do |f| %>
-                      <%= f.input :first_name %>
-                      <%= f.submit 'Save', class: "btn btn-primary" %>
-                    <% end %>
-                  </div>
+                  <!-- call embed form partial -->
+                  <%= render 'form_last_name', user: @user %>
                 </div>
                 <ul class="list-inline pull-right">
                   <li>
                     <a class="btn btn-default prev-step">Back</a>
                   </li>
                   <li>
-                    <a class="btn btn-primary next-step hidden">Next</a>
+                    <a class="btn btn-primary next-step">Next</a>
                   </li>
                 </ul>
               </div>
@@ -140,12 +139,8 @@
                   <div class="question">
                     <h3>What is the address of the flat?</h3>
                     <p></p>
-                    <div class="embedded-form">
-                      <%= simple_form_for @interview, remote: true do |f| %>
-                        <%= f.input :address %>
-                        <%= f.submit 'Save', class: "btn btn-primary" %>
-                      <% end %>
-                    </div>
+                    <!-- call partial -->
+                    <%= render 'form_address', interview: @interview %>
                   </div>
                   <ul class="list-inline pull-right">
                     <li>
