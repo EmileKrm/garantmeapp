@@ -6,13 +6,13 @@ class UsersController < ApplicationController
   def update
     @user.update(user_params)
     @interview = @user.interviews.last
-    # redirect_to interview_path(@interview)
+    redirect_to interview_path(@interview)
   end
 
   private
 
   def set_user
-    @user = User.find(params[:id])
+    @user = current_user
     authorize @user
   end
 
