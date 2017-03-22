@@ -1,15 +1,25 @@
 ActiveAdmin.register User do
-# See permitted parameters documentation:
-# https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
-#
-# permit_params :list, :of, :attributes, :on, :model
-#
-# or
-#
-# permit_params do
-#   permitted = [:permitted, :attributes]
-#   permitted << :other if params[:action] == 'create' && current_user.admin?
-#   permitted
-# end
+  permit_params :email, :encrypted_password, :first_name, :last_name, :phone_number,
+  :date_of_birth, :home_address, :is_manager, :provider, :uid, :admin, :organisation_id, :interview_id
 
+  index do
+    selectable_column
+    column :id
+    column :first_name
+    column :last_name
+    column :organisation
+    column "Last Interview n°" do |itw|
+        unless itw.interviews.last.nil?
+          link_to "#{itw.interviews.last.id}", admin_interview_path(itw.interviews.last)
+        else
+          " - "
+        end
+      end
+    column :date_of_birth
+    column :phone_number
+    column :email
+    column :is_manager
+    column :admin
+    actions
+  end
 end
