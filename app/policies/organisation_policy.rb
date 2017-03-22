@@ -8,4 +8,14 @@ class OrganisationPolicy < ApplicationPolicy
       end
     end
   end
+
+  def initialize(user, record, student)
+    @user = user
+    @record = record
+    @student = student
+  end
+
+  def show?
+      @student.organisation_id == record.id
+  end
 end
