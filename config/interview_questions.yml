@@ -31,7 +31,8 @@
   next_question_if_true: ""
   next_question_if_false: ""
 
-- question_type: "address"
+
+- question_type: "text"
   title: "Which arrondissement do you want to live in? "
   description: ""
   answer_options: ""
@@ -40,7 +41,7 @@
   next_question_if_false: ""
   field: 'arrondissement'
 
-- question_type: "address"
+- question_type: "number"
   title: "What is your monthly budget?"
   description: ""
   answer_options: ""
