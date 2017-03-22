@@ -49,6 +49,7 @@
   padding: 20px;
   background-color: white;
   text-align: left;
+  margin-bottom: 20px;
    & h5{
     color: $green;
     font-weight: bolder;
@@ -73,7 +74,7 @@
 
 .green-container {
   border: solid;
-  border-width: 3px;
+  border-width: 2px;
   border-color: $green;
   padding: 10px;
   margin-bottom: 20px;
@@ -99,4 +100,19 @@
 
 .show-icons{
   color: $green;
+}
+
+.rating {
+  unicode-bidi: bidi-override;
+  direction: rtl;
+}
+.rating > span {
+  display: inline-block;
+  position: relative;
+  width: 1.1em;
+}
+.rating > span:hover:before,
+.rating > span:hover ~ span:before {
+   content: "\2605";
+   position: absolute;
 }

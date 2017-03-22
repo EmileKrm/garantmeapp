@@ -8,7 +8,7 @@
           </div>
           <div class="separator"></div>
           <div class="interview-show-row">
-            <div class="user-show-full-name"><%=@user.first_name %> <%=@user.last_name %></div>
+            <div class="user-show-full-name"><%=@user.first_name.capitalize %> <%=@user.last_name.capitalize %></div>
             <div class="user-show-organisation"> <%= @user.organisation.name.upcase %></div>
           </div>
           <%= link_to edit_user_path, class: "navbar-wagon-link" do %>
@@ -113,8 +113,19 @@
               </div>
             </div>
           </div>
-          <h5>We received your application</h5>
-          <p>We will get back to you in 12 hours. In the meantime you can share, print and  strengthen your profile</p>
+          <div class="column-content">
+            <h5>We received your application</h5>
+            <p>We will get back to you in 12 hours. In the meantime you can share, print and  strengthen your profile</p>
+          </div>
+        </div>
+        <div class="interview-show-right-container">
+          <div class="column-content">
+            <h5>Your opinion matters</h5>
+            <p>Please let us know what you think about us</p>
+          </div>
+          <div class="rating">
+            <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+          </div>
         </div>
       </div>
     </div>
