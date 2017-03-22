@@ -40,10 +40,10 @@ ActiveRecord::Schema.define(version: 20170321174300) do
     t.integer  "user_id"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
+    t.integer  "organisation_id"
     t.boolean  "has_found_apartment"
     t.string   "arrondissement"
     t.boolean  "has_a_cosigner"
-    t.integer  "organisation_id"
     t.index ["organisation_id"], name: "index_interviews_on_organisation_id", using: :btree
     t.index ["user_id"], name: "index_interviews_on_user_id", using: :btree
   end
