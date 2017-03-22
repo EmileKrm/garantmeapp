@@ -30,7 +30,7 @@
                   //maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js
 
             -->
-
+          <% questions_array = YAML.load(open('config/interview_questions.yml').read) %>
           <div class="stepper">
             <!-- Those are the tab element -->
             <ul class="nav nav-tabs" role="tablist">
@@ -39,31 +39,13 @@
                   <span class="round-tab">1</span>
                 </a>
               </li>
-              <li role="presentation" class="disabled">
-                <a class="persistant-disabled" href="#stepper-step-2" data-toggle="tab" aria-controls="stepper-step-2" role="tab" title="Step 2">
-                  <span class="round-tab">2</span>
-                </a>
-              </li>
-              <li role="presentation" class="disabled">
-                <a class="persistant-disabled" href="#stepper-step-3" data-toggle="tab" aria-controls="stepper-step-3" role="tab" title="Step 3">
-                  <span class="round-tab">3</span>
-                </a>
-              </li>
-              <li role="presentation" class="disabled">
-                <a class="persistant-disabled" href="#stepper-step-4" data-toggle="tab" aria-controls="stepper-step-4" role="tab" title="Complete">
-                  <span class="round-tab">4</span>
-                </a>
-              </li>
-              <li role="presentation" class="disabled">
-                <a class="persistant-disabled" href="#stepper-step-5" data-toggle="tab" aria-controls="stepper-step-5" role="tab" title="Complete">
-                  <span class="round-tab">5</span>
-                </a>
-              </li>
-               <li role="presentation" class="disabled">
-                <a class="persistant-disabled" href="#stepper-step-6" data-toggle="tab" aria-controls="stepper-step-6" role="tab" title="Complete">
-                  <span class="round-tab">6</span>
-                </a>
-              </li>
+              <% (1..questions_array.length - 1).to_a.each do |index| %>
+                <li role="presentation" class="disabled">
+                  <a class="persistant-disabled" href=<%= "#stepper-step-" + (index + 1).to_s %> data-toggle="tab" aria-controls=<%= "stepper-step-" + (index + 1).to_s %> role="tab" title=<%= "Step " + (index + 1).to_s %>>
+                    <span class="round-tab"><%= index + 1  %></span>
+                  </a>
+                </li>
+              <% end %>
             </ul>
             <!-- End of the tab elements -->
 
@@ -72,15 +54,17 @@
             <div class="tab-content">
 
               <!-- start of the loop -->
-              <% questions_array = YAML.load(open('config/interview_questions.yml').read) %>
-              <% questions_array = [questions_array[0], questions_array[4]] %>
               <% questions_array.each_with_index do |question, index| %>
                 <% if index == 0 %>
                   <div class="tab-pane fade in active" role="tabpanel" id=<%= "stepper-step-" + (index + 1).to_s %>>
                     <div class="question">
                       <h3><%= question['title'] %></h3>
                       <p><%= question['description'] %></p>
-                      <%= render "form_#{question['field']}", interview: @interview %>
+                      <% if question['model'] == 'interview' %>
+                        <%= render "form_#{question['field']}", interview: @interview %>
+                      <% else %>
+                        <%= render "form_#{question['field']}", user: @user %>
+                      <% end %>
                     </div>
                     <ul class="list-inline pull-right">
                       <li>
@@ -93,53 +77,23 @@
                     <div class="question">
                       <h3><%= question['title'] %></h3>
                       <p><%= question['description'] %></p>
-                      <%= render "form_#{question['field']}", interview: @interview %>
+                      <% if question['model'] == 'interview' %>
+                        <%= render "form_#{question['field']}", interview: @interview %>
+                      <% else %>
+                        <%= render "form_#{question['field']}", user: @user %>
+                      <% end %>
                     </div>
                     <ul class="list-inline pull-right">
                       <li>
                         <a class="btn btn-default prev-step">Back</a>
                       </li>
-                        <li>
-                          <a class="btn btn-link next-step">Skip for now</a>
-                        </li>
+                      <li>
+                        <a class="btn btn-link next-step">Skip for now</a>
+                      </li>
                     </ul>
                   </div>
                 <% end %>
               <% end %>
-
-              <div class="tab-pane fade" role="tabpanel" id="stepper-step-3">
-                <div class="question">
-                  <h3>What is your first name?</h3>
-                  <p>Info from linkedin, you can edit or press enter</p>
-                  <!-- call embed form partial -->
-                  <%= render 'form_first_name', user: @user %>
-                </div>
-                <ul class="list-inline pull-right">
-                  <li>
-                    <a class="btn btn-default prev-step">Back</a>
-                  </li>
-                  <li>
-                    <a class="btn btn-primary next-step">Next</a>
-                  </li>
-                </ul>
-              </div>
-              <div class="tab-pane fade" role="tabpanel" id="stepper-step-4">
-                <div class="question">
-                  <h3>What is your last name?</h3>
-                  <p>Info from linkedin, you can edit or press enter</p>
-                  <!-- call embed form partial -->
-                  <%= render 'form_last_name', user: @user %>
-                </div>
-                <ul class="list-inline pull-right">
-                  <li>
-                    <a class="btn btn-default prev-step">Back</a>
-                  </li>
-                  <li>
-                    <a class="btn btn-primary next-step">Next</a>
-                  </li>
-                </ul>
-              </div>
-
 
                 <!-- EK: date design -->
                 <div class="tab-pane fade" role="tabpanel" id="stepper-step-5">

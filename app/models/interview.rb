@@ -4,4 +4,7 @@ class Interview < ApplicationRecord
 
   has_attachment :id_card
 
+  def name
+    id
+  end
 end
