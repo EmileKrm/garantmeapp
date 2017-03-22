@@ -84,7 +84,7 @@
                     <div class="embedded-form">
                       <%= simple_form_for @interview, remote: true do |f| %>
                         <%= f.input :arrondissement, collection: 1..20 %>
-                        <%= f.submit 'Save', class: "btn btn-primary save-step", onclick: "$('.stepper').find('.active .next-step').click();" %>
+                        <%= f.submit 'Save', class: "btn btn-primary save-step" %>
                       <% end %>
                     </div>
                   </div>
@@ -93,7 +93,7 @@
                   and without them, it's hard to make it work
                   The click on those links is triggered by the submit -->
                     <li>
-                      <a class="btn btn-primary next-step hidden">Next</a>
+                      <a class="btn btn-primary next-step">Next</a>
                     </li>
                   </ul>
                 </div>
