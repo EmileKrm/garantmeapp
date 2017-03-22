@@ -6,7 +6,7 @@
   next_question_if_true: 2
   next_question_if_false: 5
   model: "interview"
-  field: "has_found_appartment"
+  field: 'has_found_apartment'
 
 - question_type: "address"
   title: "Enter the address:"
@@ -37,6 +37,7 @@
   next_question_if_false: ""
   model: "interview"
   field: "monthly_rent"
+
 
 - question_type: "text"
   title: "Which arrondissement do you want to live in? "
