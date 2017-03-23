@@ -8,10 +8,12 @@ class OrganisationsController < ApplicationController
   end
 
   def show
-    @student = User.find(params[:id])
+    @interview = Interview.find(params[:id])
+    @student = @interview.user
     unless OrganisationPolicy.new(current_user, @organisation, @student).show?
       raise Pundit::NotAuthorizedError
     end
+
     skip_authorization
   end
 
@@ -22,6 +24,12 @@ class OrganisationsController < ApplicationController
   end
 
   def edit
+    @interview = Interview.find(params[:id])
+    if @interview.organisation == current_user.organisation
+      @interview[params[:field]] = !@interview[params[:field]]
+      @interview.save!
+    end
+    skip_authorization
   end
 
   def update
