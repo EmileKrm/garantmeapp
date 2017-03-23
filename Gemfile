@@ -23,6 +23,9 @@ ruby '2.3.3'
 # setup security for keys
 gem 'figaro'
 
+# gem for the drag and drop
+gem 'dropzonejs-rails'
+
 #activer admin setup
 gem 'activeadmin', github: 'activeadmin/activeadmin'
 gem 'inherited_resources', github: 'activeadmin/inherited_resources'

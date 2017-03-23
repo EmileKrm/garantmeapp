@@ -5,6 +5,5 @@
 //= require cloudinary/jquery.cloudinary
 //= require attachinary
 //= require bootstrap-datepicker
-
-
+//= require dropzone
 //= require_tree
