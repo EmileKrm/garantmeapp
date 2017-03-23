@@ -36,7 +36,7 @@
                       </div>
                       <div class="dashboard-user-card-right-item-text">
                       <span class="dashboard-user-card-right-item-text-title">Move-in Date</span>
-                      <p>01/01/2018</p>
+                      <p><%= @interview.move_in_date.present? ? @interview.move_in_date : '-' %></p>
                       </div>
                     </div>
 
@@ -46,7 +46,7 @@
                       </div>
                       <div class="dashboard-user-card-right-item-text">
                       <span class="dashboard-user-card-right-item-text-title">Budget</span>
-                      <p>920 €</p>
+                      <p><%= @interview.monthly_budget.present? ? @interview.monthly_budget : '-' %> €</p>
                       </div>
                     </div>
 
@@ -56,7 +56,7 @@
                       </div>
                       <div class="dashboard-user-card-right-item-text">
                       <span class="dashboard-user-card-right-item-text-title">Revenue</span>
-                      <p>4,500 €</p>
+                      <p><%= @interview.monthly_income.present? ? @interview.monthly_income : '-' %>  €</p>
                       </div>
                     </div>
                   </div>
@@ -66,7 +66,9 @@
             <div class="row">
               <div class="col-xs-12">
                 <div class="dashboard-user-card">
-                  <h1>coucou</h1>
+                  <div class="requirements-title-container">
+                    <h4>Interview requirements</h4>
+                  </div>
                 </div>
               </div>
             </div>
@@ -93,8 +95,8 @@
                     <div class="row">
                       <div class="col-xs-6">
                         <div class="dashboard-user-feature">
-                          <div class="dashboard-user-feature-icon-container">
-                            <%= image_tag "typewriter.png", class: "dashboard-user-feature-icon" %>
+                          <div id="interview_completed" class="dashboard-user-feature-icon-container <%= active_feature?(@interview, "interview_completed") %>">
+                            <%= image_tag "typewriter.png", class: "dashboard-user-feature-icon", id: "interview_completed" %>
                           </div>
                           <div class="dashboard-user-feature-text">
                             <span>Interview Completed</span>
@@ -103,8 +105,8 @@
                       </div>
                       <div class="col-xs-6">
                         <div class="dashboard-user-feature">
-                          <div class="dashboard-user-feature-icon-container">
-                            <%= image_tag "folder.png", class: "dashboard-user-feature-icon" %>
+                          <div id="documents_submitted" class="dashboard-user-feature-icon-container  <%= active_feature?(@interview, "documents_submitted")%>">
+                            <%= image_tag "folder.png", class: "dashboard-user-feature-icon", id: "documents_submitted" %>
                           </div>
                           <div class="dashboard-user-feature-text">
                             <span>Documents submitted</span>
@@ -115,8 +117,8 @@
                     <div class="row">
                       <div class="col-xs-6">
                         <div class="dashboard-user-feature">
-                          <div class="dashboard-user-feature-icon-container">
-                            <%= image_tag "diploma.png", class: "dashboard-user-feature-icon" %>
+                          <div id="documents_validated" class="dashboard-user-feature-icon-container <%= active_feature?(@interview, "documents_validated")%>">
+                            <%= image_tag "diploma.png", class: "dashboard-user-feature-icon", id: "documents_validated" %>
                           </div>
                           <div class="dashboard-user-feature-text">
                             <span>Documents validated</span>
@@ -125,8 +127,8 @@
                       </div>
                       <div class="col-xs-6">
                         <div class="dashboard-user-feature">
-                          <div class="dashboard-user-feature-icon-container">
-                            <%= image_tag "agreement.png", class: "dashboard-user-feature-icon" %>
+                          <div id="agreement_signed" class="dashboard-user-feature-icon-container <%= active_feature?(@interview, "agreement_signed")%>">
+                            <%= image_tag "agreement.png", class: "dashboard-user-feature-icon", id: "agreement_signed" %>
                           </div>
                           <div class="dashboard-user-feature-text">
                             <span>G. Agreement signed</span>
@@ -137,8 +139,8 @@
                     <div class="row">
                       <div class="col-xs-6">
                         <div class="dashboard-user-feature">
-                          <div class="dashboard-user-feature-icon-container">
-                            <%= image_tag "court.png", class: "dashboard-user-feature-icon" %>
+                          <div id="lease_provided" class="dashboard-user-feature-icon-container <%= active_feature?(@interview, "lease_provided")%>">
+                            <%= image_tag "court.png", class: "dashboard-user-feature-icon", id: "lease_provided" %>
                           </div>
                           <div class="dashboard-user-feature-text">
                             <span>Lease provided</span>
@@ -147,8 +149,8 @@
                       </div>
                       <div class="col-xs-6">
                         <div class="dashboard-user-feature">
-                          <div class="dashboard-user-feature-icon-container">
-                            <%= image_tag "act.png", class: "dashboard-user-feature-icon" %>
+                          <div id="lease_signed" class="dashboard-user-feature-icon-container <%= active_feature?(@interview, "lease_signed")%>">
+                            <%= image_tag "act.png", class: "dashboard-user-feature-icon", id: "lease_signed" %>
                           </div>
                           <div class="dashboard-user-feature-text">
                             <span>Lease signed</span>
@@ -156,12 +158,80 @@
                         </div>
                       </div>
                     </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-xs-12">
 
+                <div class="dashboard-user-card">
+                  <div class="container">
+                    <div class="row">
+                      <div class="col-xs-12">
+                        <div class="requirements-title-container">
+                          <h4>Conversation</h4>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-xs-12">
+
+                        <div class="messages-container">
+                          <% @messages.each do |message|%>
+                            <div class="message">
+                              <p class="message-sender"><%= message.sender.first_name %> <%= message.sender.last_name %></p>
+                              <p class="message-timestamp"><%= message.created_at %></p>
+                              <p class="message-content"><%= message.content %></p>
+                            </div>
+                          <% end %>
+                        </div>
+
+                        <div class="message-form-container">
+                          <form class="message-form" action="/">
+                            <div class="form-group">
+                              <textarea class="form-control" id="message-area" rows="3"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-xs btn-primary">Submit</button>
+                          </form>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
+        </div>
       </div>
     </div>
   </div>
 </div>
+
+<% content_for(:js) do %>
+  <%= javascript_tag do %>
+    $(document).ready(function() {
+      $( ".dashboard-user-feature-icon-container" ).click(function(e) {
+        $(this).toggleClass( "active-feature" );
+        var url = "/organisations/<%= @interview.id %>/edit?field=" + e.target.id
+        $.ajax({
+          type: "GET",
+          url: url
+        });
+      });
+      $('.message-form').submit(function(e) {
+          e.preventDefault();
+          var content = "<div class=\"message\"><p class=\"message-sender\"><%= current_user.first_name %> <%= current_user.last_name %></p><p class=\"message-timestamp\">A few seconds ago</p><p class=\"message-content\">" + $("#message-area").val() + "</p></div>"
+          $( ".messages-container" ).append(content);
+          var url = "/organisations/<%= @interview.id %>/edit?message=" + encodeURI($('#message-area').val())
+          $('#message-area').val('');
+        $.ajax({
+          type: "GET",
+          url: url
+        });
+      })
+    });
+  <% end %>
+<% end %>
+
+

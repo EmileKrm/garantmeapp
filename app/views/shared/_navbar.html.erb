@@ -10,10 +10,10 @@
   <div class="navbar-wagon-right hidden-xs hidden-sm">
 
   <!-- Text link -->
-    <a href="" class="navbar-wagon-item navbar-wagon-link">Contact</a>
+     <%= link_to "Contact", contact_path, class: "navbar-wagon-item navbar-wagon-link"  %>
 
     <!-- Text link -->
-    <a href="" class="navbar-wagon-item navbar-wagon-link">Team</a>
+    <%= link_to "Team", team_path, class: "navbar-wagon-item navbar-wagon-link"  %>
 
     <!-- Different navigation if login or not -->
     <% if user_signed_in? %>
@@ -34,6 +34,13 @@
           </div>
 
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+            <% if current_user.is_manager %>
+              <li>
+                <%= link_to organisations_path do %>
+                  <i class="fa fa-tachometer"></i> <%= t(".dashboard", default: "Dashboard") %>
+                <% end %>
+              </li>
+            <% end %>
             <% if current_user.interviews.empty? %>
               <li>
                 <%= link_to new_interview_path do %>

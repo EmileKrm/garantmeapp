@@ -1,0 +1,19 @@
+<div class="add-flat-form">
+  <h5>Have you found an appartment ?</h5>
+  <p>Add the details of the appartment to your application</p>
+  <a class="btn btn-primary" id="flat-found-btn">YES</a>
+
+  <div class="hidden" id="add-flat-form">
+    <%= simple_form_for @interview do |f| %>
+      <%= f.error_notification %>
+      <%= f.input :has_found_apartment, collection: [[true, 'Yes'] ,[false, 'No']], selected: [true, 'Yes'] %>
+      <%= f.input :address,  placeholder: "address", label: false %>
+      <%= f.input :city, placeholder: "city", label: false %>
+      <%= f.input :arrondissement, placeholder: "arrondissement", label: false %>
+      <%= f.input :landlord_email, placeholder: "email of the landlord", label: false  %>
+      <%= f.input :monthly_rent, placeholder: "monthly rent", label: false  %>
+      <%= f.submit "Submit the flat", class: "btn btn-primary"%>
+    <% end %>
+  </div>
+
+</div>

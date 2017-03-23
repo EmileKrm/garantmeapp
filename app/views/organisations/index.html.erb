@@ -59,7 +59,7 @@
                   <td><%= itw.move_in_date.strftime("%F") unless itw.move_in_date.nil? %></td>
                   <td>Pending</td>
                   <td>
-                    <%= link_to organisation_path(itw.user) do %>
+                    <%= link_to organisation_path(itw.id) do %>
                        <i class="fa fa-eye"></i>
                     <% end %>
                   </td>

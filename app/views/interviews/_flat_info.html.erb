@@ -1,0 +1,13 @@
+<div class="flat_info">
+  <h5>Flat Registered with your demand</h5>
+  <ul>
+    <li><strong>Address:</strong> <%= @interview.address %></li>
+    <li><strong>City:</strong> <%= @interview.city %> </li>
+    <li><strong>Arr.: </strong><%= @interview.arrondissement %></li>
+    <li><strong>Landlord: </strong><%=@interview.landlord_email  %></li>
+    <li><strong>Rent:</strong> <%= @interview.monthly_rent %></li>
+  </ul>
+  <%= link_to edit_interview_path, class: "navbar-wagon-link" do %>
+    <i class="fa fa-pencil fa-fw fa-pull-right"></i>
+  <% end %>
+</div>
