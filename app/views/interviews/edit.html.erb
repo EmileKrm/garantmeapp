@@ -39,7 +39,7 @@
                   <span class="round-tab">1</span>
                 </a>
               </li>
-              <% (1..questions_array.length - 1).to_a.each do |index| %>
+              <% (1..questions_array.length).to_a.each do |index| %>
                 <li role="presentation" class="disabled">
                   <a class="persistant-disabled" href=<%= "#stepper-step-" + (index + 1).to_s %> data-toggle="tab" aria-controls=<%= "stepper-step-" + (index + 1).to_s %> role="tab" title=<%= "Step " + (index + 1).to_s %>>
                     <span class="round-tab"><%= index + 1  %></span>
@@ -95,9 +95,10 @@
                 <% end %>
               <% end %>
 
-                <div class="tab-pane fade" role="tabpanel" id="stepper-step-6">
-                  <h3>4. All done!</h3>
+                <div class="tab-pane fade" role="tabpanel" id=<%= "stepper-step-" + (questions_array.length + 1).to_s %>>
+                  <h3>All done!</h3>
                   <p>You have successfully completed all steps.</p>
+                  <%= link_to "Submit all", interview_path(@interview), class: "btn btn-primary" %>
                 </div>
               </div>
 
