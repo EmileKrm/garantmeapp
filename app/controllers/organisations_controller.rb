@@ -13,7 +13,7 @@ class OrganisationsController < ApplicationController
     unless OrganisationPolicy.new(current_user, @organisation, @student).show?
       raise Pundit::NotAuthorizedError
     end
-
+    @messages = Message.where({sender_id: @student.id}).or(Message.where({receiver_id: @student.id}))
     skip_authorization
   end
 
@@ -25,11 +25,16 @@ class OrganisationsController < ApplicationController
 
   def edit
     @interview = Interview.find(params[:id])
-    if @interview.organisation == current_user.organisation
+    @student = @interview.user
+    if @interview.organisation == current_user.organisation && params[:field].present?
       @interview[params[:field]] = !@interview[params[:field]]
       @interview.save!
     end
     skip_authorization
+    if params[:message].present?
+      @message = Message.new(sender: current_user, receiver: @student, content: URI.unescape(params[:message]))
+      @message.save!
+    end
   end
 
   def update
