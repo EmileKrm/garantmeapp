@@ -5,10 +5,10 @@
 // External libraries
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
 @import "font-awesome-sprockets";
 @import "font-awesome";
 @import "vendor/index";
-@import "bootstrap-datepicker";
 
 // Your CSS
 @import "layout/index";
@@ -17,4 +17,3 @@
 @import "user/index";
 @import "interview/index";
 @import "organisation/index";
-

@@ -3,16 +3,14 @@
     <div class="col-xs-12 col-md-8 col-md-offset-2 ">
       <%= simple_form_for(@user) do |f| %>
         <br>
-        <div class ="user-edit-form">
+    <div class ="user-edit-form">
           <%= f.input :email %>
           <%= f.input :first_name %>
           <%= f.input :last_name %>
           <%= f.input :phone_number %>
           <%= f.input :home_address %>
           <%= f.input :photo, as: :attachinary %>
-          <input type="text" class="form-control datepicker" placeholder="Move-in date">
-        <br>
-          <%= f.submit %>
+
         <br><br><br><br>
         </div>
       <% end %>
