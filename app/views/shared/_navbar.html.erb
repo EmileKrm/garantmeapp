@@ -34,6 +34,13 @@
           </div>
 
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+            <% if current_user.is_manager %>
+              <li>
+                <%= link_to organisations_path do %>
+                  <i class="fa fa-tachometer"></i> <%= t(".dashboard", default: "Dashboard") %>
+                <% end %>
+              </li>
+            <% end %>
             <% if current_user.interviews.empty? %>
               <li>
                 <%= link_to new_interview_path do %>
