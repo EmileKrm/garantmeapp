@@ -117,3 +117,36 @@
   font-weight: bold;
   line-height: 50px;
 }
+
+.messages-container {
+
+}
+
+.message {
+  padding: 10px 0 5px 0;
+  border-bottom: solid 1px #eee;
+}
+
+.message-sender {
+  font-size: 14px;
+  font-weight: bold;
+  color: $brand-primary;
+  margin: 0;
+}
+
+.message-timestamp {
+  font-size: 10px;
+}
+
+.message-content {
+  font-size: 12px;
+  margin-left: 15px;
+}
+
+.message-form-container {
+  margin-top: 20px;
+}
+
+#message-area {
+  font-size: 12px;
+}
