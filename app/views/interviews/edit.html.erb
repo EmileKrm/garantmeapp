@@ -95,24 +95,6 @@
                 <% end %>
               <% end %>
 
-                <!-- EK: date design -->
-                <div class="tab-pane fade" role="tabpanel" id="stepper-step-5">
-                  <div class="question">
-                    <h3>What is the address of the flat?</h3>
-                    <p></p>
-                    <!-- call partial -->
-                    <%= render 'form_address', interview: @interview %>
-                  </div>
-                  <ul class="list-inline pull-right">
-                    <li>
-                      <a class="btn btn-default prev-step">Back</a>
-                    </li>
-                    <li>
-                      <a class="btn btn-primary next-step hidden">Next</a>
-                    </li>
-                  </ul>
-                </div>
-
                 <div class="tab-pane fade" role="tabpanel" id="stepper-step-6">
                   <h3>4. All done!</h3>
                   <p>You have successfully completed all steps.</p>
