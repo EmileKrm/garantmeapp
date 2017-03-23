@@ -8,10 +8,12 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   resources :users, only: [:edit, :update]
-  resources :interviews, only: [:show, :new, :create, :edit, :update]
+  resources :interviews, only: [:show, :new, :create, :edit, :update, :found_apartment]
+  post 'interviews/:id/found_apartment', to: 'interviews#found_apartment'
 
   get 'team', to: 'pages#team'
   get 'contact', to: 'pages#contact'
+
 
   resources :organisations, only: [:index, :show, :new, :create, :edit, :update]
   mount Attachinary::Engine => "/attachinary"
