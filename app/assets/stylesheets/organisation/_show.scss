@@ -98,6 +98,14 @@
   border: solid 10px #eee;
 }
 
+.dashboard-user-feature-icon-container:hover {
+  border: solid 10px #ccc;
+}
+
+.active-feature {
+  border: solid 10px $brand-primary;
+}
+
 .dashboard-user-feature-icon {
   height: 40px;
   width: 40px;
@@ -105,7 +113,6 @@
 
 .dashboard-user-feature-text {
   text-align: center;
-  color: #eee;
   font-size: 14px;
   font-weight: bold;
   line-height: 50px;
