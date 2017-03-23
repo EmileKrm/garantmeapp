@@ -9,9 +9,8 @@
           <%= f.input :last_name %>
           <%= f.input :phone_number %>
           <%= f.input :home_address %>
-          <%= f.input :date_of_birth, as: :date, start_year: Date.today.year - 60,
-                              end_year: Date.today.year - 12, order: [:day, :month, :year] %>
           <%= f.input :photo, as: :attachinary %>
+          <input type="text" class="form-control datepicker" placeholder="Move-in date">
         <br>
           <%= f.submit %>
         <br><br><br><br>
