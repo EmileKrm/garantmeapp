@@ -10,6 +10,9 @@ Rails.application.routes.draw do
   resources :users, only: [:edit, :update]
   resources :interviews, only: [:show, :new, :create, :edit, :update]
 
+  get 'team', to: 'pages#team'
+  get 'contact', to: 'pages#contact'
+
   resources :organisations, only: [:index, :show, :new, :create, :edit, :update]
   mount Attachinary::Engine => "/attachinary"
 

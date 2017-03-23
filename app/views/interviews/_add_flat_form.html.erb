@@ -1,0 +1,16 @@
+<div class="add-flat-form">
+  <h5>Did you find a flat ?</h5>
+
+  <p>Attach the flat to your application</p>
+
+  <%= simple_form_for @interview, remote: true  do |f| %>
+    <%= f.error_notification %>
+    <%= f.input :address,  inline_label: 'Yes, remember me' %>
+    <%= f.input :city %>
+    <%= f.input :arrondissement %>
+    <%= f.input :landlord_email %>
+    <%= f.input :monthly_rent %>
+    <%= f.submit "Submit the flat", class: "btn btn-primary"%>
+  <% end %>
+
+</div>
