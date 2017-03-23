@@ -3,11 +3,17 @@
   border-color: $light-gray;
   border-radius: 10px;
   padding: 20px;
+  margin-top: 50px;
 }
 
 .questionnaire-head {
   border-bottom-style: solid;
   border-bottom-color: $green;
+  padding-bottom: 20px;
+
+  p {
+    margin-top: 25px;
+  }
 }
 
 .yes-no-form {
@@ -15,8 +21,6 @@
 }
 
 .question {
-  border-bottom-color: $light-gray;
-  border-bottom-style: solid;
 
   .btn {
     width: 200px;
@@ -96,7 +100,9 @@
     }
     .tab-pane {
         position: relative;
-        padding-top: 50px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        margin-left: 25px;
     }
     .round-tab {
         width: 25px;
