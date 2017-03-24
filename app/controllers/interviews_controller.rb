@@ -59,7 +59,7 @@ before_action :set_interview, only: [:show, :edit, :update, :edit_later]
   end
 
   def interview_params
-    params[:interview].nil? ? params.permit(:has_found_apartment, :interview_completed) : params.require(:interview).permit(:has_found_apartment, :arrondissement, :id_card, :address, :landlord_email, :monthly_rent, :monthly_budget, :move_in_date, :monthly_income, :has_a_cosigner, :organisation_id, :agreement_signed)
+    params[:interview].nil? ? params.permit(:has_found_apartment, :professional_status, :interview_completed) : params.require(:interview).permit(:has_found_apartment, :arrondissement, :id_card, :address, :landlord_email, :monthly_rent, :monthly_budget, :move_in_date, :monthly_income, :has_a_cosigner, :organisation_id, :agreement_signed)
   end
 
 end

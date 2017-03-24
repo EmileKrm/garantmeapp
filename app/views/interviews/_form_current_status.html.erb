@@ -1,6 +1,5 @@
-<div class="embedded-form">
-  <%= simple_form_for user, remote: true do |f| %>
-    <%= f.input :current_status %>
-    <%= f.submit 'Save', class: "btn btn-primary save-step" %>
-  <% end %>
+<div class="yes-no-form">
+  <%= button_to 'Student', {controller: "interviews", action: 'update', professional_status: 'Student'}, method: :patch, remote: true, class: "btn btn-primary save-step" %>
+  <%= button_to 'Working Student',{controller: "interviews", action: 'update', professional_status: 'Working Student'}, method: :patch, remote: true, class: "btn btn-primary save-step" %>
+  <%= button_to 'Other',{controller: "interviews", action: 'update', professional_status: 'Other'}, method: :patch, remote: true, class: "btn btn-primary save-step" %>
 </div>
