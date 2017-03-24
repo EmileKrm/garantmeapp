@@ -8,35 +8,35 @@
   model: "interview"
   field: 'has_found_apartment'
 
-- question_type: "address"
-  title: "Enter the address:"
-  description: "This address will appear on the contract"
-  answer_options: ""
-  next_question: 3
-  next_question_if_true: ""
-  next_question_if_false: ""
-  model: "interview"
-  field: "address"
+# - question_type: "address"
+#   title: "Enter the address:"
+#   description: "This address will appear on the contract"
+#   answer_options: ""
+#   next_question: 3
+#   next_question_if_true: ""
+#   next_question_if_false: ""
+#   model: "interview"
+#   field: "address"
 
-- question_type: "email"
-  title: "What the email address of the Landlord?"
-  description: "We will let him now that Garantme is backing your application"
-  answer_options: ""
-  next_question: 4
-  next_question_if_true: ""
-  next_question_if_false: ""
-  model: "interview"
-  field: "landlord_email"
+# - question_type: "email"
+#   title: "What the email address of the Landlord?"
+#   description: "We will let him now that Garantme is backing your application"
+#   answer_options: ""
+#   next_question: 4
+#   next_question_if_true: ""
+#   next_question_if_false: ""
+#   model: "interview"
+#   field: "landlord_email"
 
-- question_type: "number"
-  title: "What is your monthly rent?"
-  description: ""
-  answer_options: ""
-  next_question: 6
-  next_question_if_true: ""
-  next_question_if_false: ""
-  model: "interview"
-  field: "monthly_rent"
+# - question_type: "number"
+#   title: "What is your monthly rent?"
+#   description: ""
+#   answer_options: ""
+#   next_question: 6
+#   next_question_if_true: ""
+#   next_question_if_false: ""
+#   model: "interview"
+#   field: "monthly_rent"
 
 
 - question_type: "text"
