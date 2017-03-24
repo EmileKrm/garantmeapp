@@ -18,8 +18,8 @@
   </head>
   <body>
     <%= render 'shared/navbar' %>
-    <div class="pages-marged">
-      <%= render 'shared/flashes' %>
+    <div class="pages-marged" >
+      <div id="flash"><%= render 'shared/flashes' %></div>
       <%= yield %>
     </div>
     <%= javascript_include_tag 'application' %>
