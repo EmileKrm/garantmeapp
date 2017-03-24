@@ -9,9 +9,16 @@
           </div>
           <div class="separator"></div>
           <div class="interview-show-row">
-            <div class="user-show-full-name"><%=@user.first_name.capitalize %> <%=@user.last_name.capitalize %></div>
-            <div class="user-show-email"> <%= @user.email %></div>
-            <div class="user-show-organisation"> <%= @user.organisation.name.upcase %></div>
+
+            <div class="user-show-full-name">
+            <% if @user.first_name.nil? && @user.last_name.nil? %>
+              <%= link_to "Please complete your profile", edit_user_path, class: "navbar-wagon-link" %>
+            <% else %>
+              <%=@user.first_name.capitalize %> <%=@user.last_name.capitalize %>
+            <% end %>
+            </div>
+            <div class="user-show-organisation"> <%= @user.organisation.name.upcase unless @user.organisation.nil? %></div>
+
           </div>
           <%= link_to edit_user_path, class: "navbar-wagon-link" do %>
             <i class="fa fa-pencil fa-fw fa-pull-right"></i>
