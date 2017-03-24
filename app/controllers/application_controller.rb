@@ -25,7 +25,7 @@ class ApplicationController < ActionController::Base
   # end
 
   def after_sign_in_path_for(resource)
-    if @user.is_manager?
+    if resource.is_manager?
       organisations_path
     else
       interview_path(resource.interviews.last.id)
