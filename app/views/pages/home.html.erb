@@ -6,7 +6,11 @@
       <%= cl_image_tag("Garantme/logo-garantme") %>
     </div>
     <h2>Lease guarantees for international students</h2>
-    <%= link_to "Get a guarantor", new_interview_path, class: 'btn btn-primary'%>
+    <% if user_signed_in? %>
+      <%= link_to "Get a guarantor", new_interview_path, class: 'btn btn-primary'%>
+    <% else %>
+      <%= link_to "Get a garantor", new_user_registration_path, class: 'btn btn-primary'%>
+    <% end %>
   </div>
 </div>
 

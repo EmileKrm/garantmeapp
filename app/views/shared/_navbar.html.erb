@@ -42,7 +42,7 @@
               </li>
             <% end %>
             <% if current_user.interviews.empty? %>
-              <li>
+              <li class ="profile-one <%= "hidden" if current_user.is_manager == true  %>">
                 <%= link_to new_interview_path do %>
                   <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
                 <% end %>

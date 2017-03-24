@@ -24,6 +24,14 @@ class ApplicationController < ActionController::Base
   #   redirect_to(root_path)
   # end
 
+  def after_sign_in_path_for(resource)
+    if @user.is_manager?
+      organisations_path
+    else
+      interview_path(resource.interviews.last.id)
+    end
+  end
+
   private
 
   #skips pundit for devise and pages controller

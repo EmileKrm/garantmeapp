@@ -7,7 +7,9 @@ class InterviewsController < ApplicationController
 before_action :set_interview, only: [:show, :edit, :update, :edit_later, :create_pdf]
 
   def show
+    @interview = Interview.find(params[:id])
     @user= current_user
+    @messages = Message.where({sender_id: @user}).or(Message.where({receiver_id: @user}))
   end
 
   def new
@@ -82,7 +84,7 @@ before_action :set_interview, only: [:show, :edit, :update, :edit_later, :create
   end
 
   def interview_params
-    params[:interview].nil? ? params.permit(:has_found_apartment) : params.require(:interview).permit(:has_found_apartment, :arrondissement, :id_card, :address, :landlord_email, :monthly_rent, :monthly_budget, :move_in_date, :monthly_income, :has_a_cosigner, :organisation_id, :proof_of_revenue, :school_certificate)
+    params[:interview].nil? ? params.permit(:has_found_apartment, :professional_status, :interview_completed) : params.require(:interview).permit(:has_found_apartment, :arrondissement, :id_card, :address, :landlord_email, :monthly_rent, :monthly_budget, :move_in_date, :monthly_income, :has_a_cosigner, :organisation_id, :agreement_signed, :proof_of_revenue, :school_certificate)
   end
 
 end

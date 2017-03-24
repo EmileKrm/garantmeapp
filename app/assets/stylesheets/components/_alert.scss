@@ -12,10 +12,15 @@
   right: 0;
   border: 0;
   color: white;
+  z-index: 1000;
 }
 .alert-info {
   background: $green;
 }
 .alert-warning {
   background: $red;
+}
+
+.container-margin-top {
+  margin-top: 120px;
 }
