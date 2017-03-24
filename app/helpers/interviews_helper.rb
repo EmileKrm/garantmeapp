@@ -11,17 +11,17 @@ module InterviewsHelper
 
   def first_step(interview)
     if interview.interview_completed == true
-      "completed"
+      "completed-s"
     else
-      "reached"
+      "reached-s"
     end
   end
 
   def second_step(interview)
     if interview.agreement_signed == true
-      "completed"
+      "completed-s"
     elsif interview.interview_completed == true
-      "reached"
+      "reached-s"
     else
       " "
     end
@@ -29,7 +29,7 @@ module InterviewsHelper
 
    def third_step(interview)
     if interview.agreement_signed == true
-      "completed"
+      "completed-s"
     else
       " "
     end
