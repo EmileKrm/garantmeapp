@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   resources :users, only: [:edit, :update]
   resources :interviews, only: [:show, :new, :create, :edit, :update, :found_apartment]
   post 'interviews/:id/found_apartment', to: 'interviews#found_apartment'
+  get 'interviews/:id/edit_later', to: 'interviews#edit_later'
 
   get 'team', to: 'pages#team'
   get 'contact', to: 'pages#contact'
