@@ -2,7 +2,9 @@ class InterviewsController < ApplicationController
 before_action :set_interview, only: [:show, :edit, :update]
 
   def show
+    @interview = Interview.find(params[:id])
     @user= current_user
+    @messages = Message.where({sender_id: @user}).or(Message.where({receiver_id: @user}))
   end
 
   def new

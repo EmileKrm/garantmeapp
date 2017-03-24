@@ -57,7 +57,7 @@
           e.preventDefault();
           var content = "<div class=\"message\"><p class=\"message-sender\"><%= current_user.first_name %> <%= current_user.last_name %></p><p class=\"message-timestamp\">A few seconds ago</p><p class=\"message-content\">" + $("#message-area").val() + "</p></div>"
           $( ".messages-container" ).append(content);
-          var url = "/organisations/<%= @interview.id %>/edit?message=" + encodeURI($('#message-area').val())
+          var url = "/messages/<%= @interview.id %>/create?message=" + encodeURI($('#message-area').val())
           $('#message-area').val('');
         $.ajax({
           type: "GET",

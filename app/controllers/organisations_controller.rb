@@ -31,10 +31,6 @@ class OrganisationsController < ApplicationController
       @interview.save!
     end
     skip_authorization
-    if params[:message].present?
-      @message = Message.new(sender: current_user, receiver: @student, content: URI.unescape(params[:message]))
-      @message.save!
-    end
   end
 
   def update
