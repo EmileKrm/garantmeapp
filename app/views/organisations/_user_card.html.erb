@@ -1,0 +1,54 @@
+<div class="dashboard-user-card">
+  <div class="dashboard-user-card-left">
+    <%= user_picture_avatar(@student, "avatar-bordered-xl")  %>
+    <h5><%= @student.first_name.capitalize %> <%= @student.last_name.capitalize %></h5>
+    <p><%= @student.organisation.name.upcase %></p>
+    <%= link_to "See Interview", "/", class: "btn btn-primary btn-xs" %>
+  </div>
+
+  <div class="dashboard-user-card-separator">
+
+  </div>
+  <div class="dashboard-user-card-right">
+
+    <div class="dashboard-user-card-right-item">
+      <div class="dashboard-user-card-right-item-icon">
+        <i class="fa fa-check-circle-o"></i>
+      </div>
+      <div class="dashboard-user-card-right-item-text">
+      <span class="dashboard-user-card-right-item-text-title">Co-Signer</span>
+      <p>Has a co-signer</p>
+      </div>
+    </div>
+
+    <div class="dashboard-user-card-right-item">
+      <div class="dashboard-user-card-right-item-icon">
+        <i class="fa fa-calendar"></i>
+      </div>
+      <div class="dashboard-user-card-right-item-text">
+      <span class="dashboard-user-card-right-item-text-title">Move-in Date</span>
+      <p><%= @interview.move_in_date.present? ? @interview.move_in_date : '-' %></p>
+      </div>
+    </div>
+
+    <div class="dashboard-user-card-right-item">
+      <div class="dashboard-user-card-right-item-icon">
+        <i class="fa fa-calculator"></i>
+      </div>
+      <div class="dashboard-user-card-right-item-text">
+      <span class="dashboard-user-card-right-item-text-title">Budget</span>
+      <p><%= @interview.monthly_budget.present? ? @interview.monthly_budget : '-' %> €</p>
+      </div>
+    </div>
+
+    <div class="dashboard-user-card-right-item">
+      <div class="dashboard-user-card-right-item-icon">
+        <i class="fa fa-money"></i>
+      </div>
+      <div class="dashboard-user-card-right-item-text">
+      <span class="dashboard-user-card-right-item-text-title">Revenue</span>
+      <p><%= @interview.monthly_income.present? ? @interview.monthly_income : '-' %>  €</p>
+      </div>
+    </div>
+  </div>
+</div>
