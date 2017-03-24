@@ -1,0 +1,16 @@
+<div class="progress-wrap">
+  <div class="progress">
+    <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="70"
+    aria-valuemin="0" aria-valuemax="100" style="width: <%= progress_bar_percent(@interview) %> ">
+    </div>
+  </div>
+  <div class="progress_recieved <%= first_step(@interview) %>">
+    <i class="fa fa-file fa-1x" aria-hidden="true"></i>
+  </div>
+  <div class="progress_processing <%= second_step(@interview) %>">
+    <i class="fa fa-refresh fa-1x" aria-hidden="true"></i>
+  </div>
+  <div class="progress_certified <%= third_step(@interview) %>">
+    <i class="fa fa-certificate fa-1x" aria-hidden="true"></i>
+  </div>
+</div>

@@ -34,7 +34,7 @@ before_action :set_interview, only: [:show, :edit, :update]
       end
     else
       respond_to do |format|
-        format.html { redirect_to nterview_path(@interview)}
+        format.html { redirect_to interview_path(@interview)}
         format.js  # <-- idem
       end
     end
@@ -53,7 +53,7 @@ before_action :set_interview, only: [:show, :edit, :update]
   end
 
   def interview_params
-    params[:interview].nil? ? params.permit(:has_found_apartment) : params.require(:interview).permit(:has_found_apartment, :arrondissement, :id_card, :address, :landlord_email, :monthly_rent, :monthly_budget, :move_in_date, :monthly_income, :has_a_cosigner, :organisation_id)
+    params[:interview].nil? ? params.permit(:has_found_apartment, :interview_completed) : params.require(:interview).permit(:has_found_apartment, :arrondissement, :id_card, :address, :landlord_email, :monthly_rent, :monthly_budget, :move_in_date, :monthly_income, :has_a_cosigner, :organisation_id, :agreement_signed)
   end
 
 end
