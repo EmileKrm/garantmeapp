@@ -9,8 +9,8 @@ def true_false
   end
 end
 
-# User.destroy_all
-# Organisation.destroy_all
+User.destroy_all
+Organisation.destroy_all
 
 ###### HEC SEED ######
 
