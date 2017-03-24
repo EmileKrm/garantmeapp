@@ -1,0 +1,34 @@
+<div class="container">
+  <div class="questions-container">
+    <!-- Header -->
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="questionnaire-head">
+          <h1>My questionnaire</h1>
+          <p>You can edit the questionnaire below: don't forget to save each question that you change</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="done-button">
+      <%= link_to "I'm done!", interview_path(@interview), class: "btn btn-success btn-lg" %>
+    </div>
+    <!-- Getting the questions from the yml -->
+    <% questions_array = YAML.load(open('config/interview_questions.yml').read) %>
+
+    <!-- Starting the loop -->
+
+    <% questions_array.each_with_index do |question, index| %>
+      <div class="question">
+        <h3><%= question['title'] %></h3>
+        <p><%= question['description'] %></p>
+        <% if question['model'] == 'interview' %>
+          <%= render "form_#{question['field']}", interview: @interview %>
+        <% else %>
+          <%= render "form_#{question['field']}", user: @user %>
+        <% end %>
+      </div>
+    <% end %>
+
+  </div>
+</div>

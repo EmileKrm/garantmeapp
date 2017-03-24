@@ -10,6 +10,10 @@ class UsersController < ApplicationController
     redirect_to interview_path(@interview)
   end
 
+  def edit_later
+
+  end
+
   private
 
   def set_user
