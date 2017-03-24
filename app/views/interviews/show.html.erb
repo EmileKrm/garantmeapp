@@ -27,10 +27,10 @@
         <div class="interview-show-left-container">
           <div class="row">
             <div class="col-xs-3">
-              <%= link_to edit_user_path, class: "navbar-wagon-link" do %>
+              <%= link_to create_pdf_path(@interview), method: :post, class: "navbar-wagon-link" do %>
                 <i class="fa fa-share-square-o fa-3x" aria-hidden="true"></i></div>
               <% end %>
-            <div class="col-xs-9">Share my housing link on social platforms</div>
+            <div class="col-xs-9">Create a pdf of all my informations</div>
           </div>
           <div class="separator"></div>
           <div class="row">
@@ -103,7 +103,7 @@
               </div>
             </div>
             <div class="user-show-buttons">
-              <%= link_to "Update", edit_interview_path(@interview), class: "btn btn-primary float-right"%>
+              <%= link_to "Update", edit_later_path(@interview), class: "btn btn-primary float-right"%>
             </div>
           </div>
           <!-- supporting docs -->
