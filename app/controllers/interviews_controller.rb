@@ -25,6 +25,7 @@ before_action :set_interview, only: [:show, :edit, :update]
   end
 
   def update
+    @user = @interview.user
     @interview.update(interview_params)
     if @interview.save
       respond_to do |format|
@@ -37,6 +38,11 @@ before_action :set_interview, only: [:show, :edit, :update]
         format.js  # <-- idem
       end
     end
+
+    if interview_params[:organisation_id]
+      @user.organisation_id = interview_params[:organisation_id]
+      @user.save
+    end
   end
 
   private
@@ -47,7 +53,7 @@ before_action :set_interview, only: [:show, :edit, :update]
   end
 
   def interview_params
-    params[:interview].nil? ? params.permit(:has_found_apartment) : params.require(:interview).permit(:has_found_apartment, :arrondissement, :id_card, :address, :landlord_email, :monthly_rent, :monthly_budget, :move_in_date, :monthly_income, :has_a_cosigner)
+    params[:interview].nil? ? params.permit(:has_found_apartment) : params.require(:interview).permit(:has_found_apartment, :arrondissement, :id_card, :address, :landlord_email, :monthly_rent, :monthly_budget, :move_in_date, :monthly_income, :has_a_cosigner, :organisation_id)
   end
 
 end
