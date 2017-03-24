@@ -19,15 +19,15 @@ org.save!
 
 ###### ORG SEED ######
 
-# file = File.read(File.join(Rails.root, 'db', 'universities.json'))
-# data_hash = JSON.parse(file)
-# data_hash.each do |elt|
-#   if elt["alpha_two_code"] == "FR"
-#     p elt
-#     org = Organisation.new(name: elt["name"])
-#     org.save!
-#   end
-# end
+file = File.read(File.join(Rails.root, 'db', 'universities.json'))
+data_hash = JSON.parse(file)
+data_hash.each do |elt|
+  if elt["alpha_two_code"] == "FR"
+    p elt
+    org = Organisation.new(name: elt["name"])
+    org.save!
+  end
+end
 
 ###### ADMIN SEED ######
 
