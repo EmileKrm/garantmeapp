@@ -128,6 +128,11 @@
   vertical-align: middle;
   >i {
     color: $green;
-    padding: 15px;
+    padding: 20px;
   }
+}
+
+.supporting-docs {
+  display: flex;
+  justify-content: space-around;
 }

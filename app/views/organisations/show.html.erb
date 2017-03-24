@@ -62,11 +62,10 @@
             </div>
             <div class="row">
               <div class="col-xs-12">
-                <div class="requirements-title-container">
-                    <h4>Certification requirements</h4>
-                  </div>
                 <div class="dashboard-user-card">
-                  <h1>coucou</h1>
+                  <div class="requirements-title-container">
+                    <h4>Interview requirements</h4>
+                  </div>
                 </div>
               </div>
             </div>
@@ -156,11 +155,51 @@
                         </div>
                       </div>
                     </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-xs-12">
 
+                <div class="dashboard-user-card">
+                  <div class="container">
+                    <div class="row">
+                      <div class="col-xs-12">
+                        <div class="requirements-title-container">
+                          <h4>Conversation</h4>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-xs-12">
+
+                        <div class="messages-container">
+                          <% @messages.each do |message|%>
+                            <div class="message">
+                              <p class="message-sender"><%= message.sender.first_name %> <%= message.sender.last_name %></p>
+                              <p class="message-timestamp"><%= message.created_at %></p>
+                              <p class="message-content"><%= message.content %></p>
+                            </div>
+                          <% end %>
+                        </div>
+
+                        <div class="message-form-container">
+                          <form class="message-form" action="/">
+                            <div class="form-group">
+                              <textarea class="form-control" id="message-area" rows="3"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-xs btn-primary">Submit</button>
+                          </form>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
+        </div>
       </div>
     </div>
   </div>
@@ -171,21 +210,25 @@
     $(document).ready(function() {
       $( ".dashboard-user-feature-icon-container" ).click(function(e) {
         $(this).toggleClass( "active-feature" );
-        url = "/organisations/<%= @interview.id %>/edit?field=" + e.target.id
+        var url = "/organisations/<%= @interview.id %>/edit?field=" + e.target.id
         $.ajax({
           type: "GET",
-          url: url,
-          beforeSend: function(jqXHR, settings) {
-              jqXHR.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'));
-          },
-          error: function(){
-              alert("An error ocurred");
-          },
-          success: function(){
-              console.log("success")
-    }
-});
+          url: url
+        });
       });
+      $('.message-form').submit(function(e) {
+          e.preventDefault();
+          var content = "<div class=\"message\"><p class=\"message-sender\"><%= current_user.first_name %> <%= current_user.last_name %></p><p class=\"message-timestamp\">A few seconds ago</p><p class=\"message-content\">" + $("#message-area").val() + "</p></div>"
+          $( ".messages-container" ).append(content);
+          var url = "/organisations/<%= @interview.id %>/edit?message=" + encodeURI($('#message-area').val())
+          $('#message-area').val('');
+        $.ajax({
+          type: "GET",
+          url: url
+        });
+      })
     });
   <% end %>
 <% end %>
+
+
