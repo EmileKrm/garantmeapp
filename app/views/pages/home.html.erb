@@ -1,12 +1,12 @@
 <!-- Your banner code -->
 <div class="banner" style="background-image: linear-gradient(-225deg, rgba(236, 233, 230, 0.3) 0%, rgba(100, 100, 100,0.3) 50%), url(<%= asset_path 'paris-home.jpg' %>)">
-
   <div class="banner-content" id="home-banner">
-<!--     <div class="logo">
-      <%= cl_image_tag("Garantme/logo-garantme") %>
-    </div> -->
-    <h2>We can be your guarantors</h2>
-    <%= link_to "Get a guarantor", new_interview_path, id: 'home-button', class: "btn btn-primary"%>
+    <h2>We can be your guarantor</h2>
+    <% if user_signed_in? %>
+      <%= link_to "Get a guarantor", new_interview_path, id: 'home-button', class: 'btn btn-primary'%>
+    <% else %>
+      <%= link_to "Get a garantor", new_user_registration_path, id: 'home-button', class: 'btn btn-primary'%>
+    <% end %>
   </div>
 </div>
 

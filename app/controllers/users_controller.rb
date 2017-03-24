@@ -5,9 +5,12 @@ class UsersController < ApplicationController
 
   def update
     @user.update(user_params)
-     render 'interviews/update'
     @interview = @user.interviews.last
     redirect_to interview_path(@interview)
+  end
+
+  def edit_later
+
   end
 
   private

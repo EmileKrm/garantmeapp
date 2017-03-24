@@ -13,4 +13,12 @@ class InterviewPolicy < ApplicationPolicy
     record.user == user
   end
 
+  def edit_later?
+    record.user == user
+  end
+
+  def create_pdf?
+    record.user == user
+  end
+
 end

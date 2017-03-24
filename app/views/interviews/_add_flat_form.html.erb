@@ -1,12 +1,11 @@
 <div class="add-flat-form">
   <h5>Have you found an appartment ?</h5>
   <p>Add the details of the appartment to your application</p>
-  <a class="btn btn-primary" id="flat-found-btn">YES</a>
+  <%= button_to 'Yes', {controller: "interviews", action: 'update', has_found_apartment: true}, method: :patch, remote: true, class: "btn btn-primary save-step", id: "flat-found-btn"%>
 
   <div class="hidden" id="add-flat-form">
     <%= simple_form_for @interview do |f| %>
       <%= f.error_notification %>
-      <%= f.input :has_found_apartment, collection: [[true, 'Yes'] ,[false, 'No']], selected: [true, 'Yes'] %>
       <%= f.input :address,  placeholder: "address", label: false %>
       <%= f.input :city, placeholder: "city", label: false %>
       <%= f.input :arrondissement, placeholder: "arrondissement", label: false %>
