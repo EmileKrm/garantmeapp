@@ -1,5 +1,5 @@
 class InterviewsController < ApplicationController
-before_action :set_interview, only: [:show, :edit, :update]
+before_action :set_interview, only: [:show, :edit, :update, :edit_later]
 
   def show
     @user= current_user
@@ -17,6 +17,10 @@ before_action :set_interview, only: [:show, :edit, :update]
   end
 
   def edit
+    @user = @interview.user
+  end
+
+  def edit_later
     @user = @interview.user
   end
 
