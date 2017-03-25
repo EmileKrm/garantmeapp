@@ -20,6 +20,7 @@ org.save!
 ###### ORG SEED ######
 
 file = File.read(File.join(Rails.root, 'db', 'universities.json'))
+p file
 data_hash = JSON.parse(file)
 data_hash.each do |elt|
   if elt["alpha_two_code"] == "FR"
