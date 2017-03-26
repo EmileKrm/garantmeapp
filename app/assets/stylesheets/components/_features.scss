@@ -1,19 +1,13 @@
+.features h1 {
+  font-size: 30px;
+  color: $brand-color;
+}
 .features h2 {
   padding: 10px;
   margin: 0;
   font-size: 20px;
   font-family: Raleway, Helvetica, sans-serif;
   color: $brand-color;
-}
-
-.features h1 {
-  font-size: 30px;
-  color: $brand-color;
-}
-
-.features img {
-  height: 85px;
-  width: 85px;
 }
 
 .features h3 {
@@ -31,3 +25,9 @@
   color: $gray;
   margin-bottom: 20px;
 }
+
+.features img {
+  height: 85px;
+  width: 85px;
+}
+
