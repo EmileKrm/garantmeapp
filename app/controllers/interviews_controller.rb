@@ -57,6 +57,8 @@ before_action :set_interview, only: [:show, :edit, :update, :edit_later, :create
   end
 
   def create_pdf
+    # see link below for doc of the combine pdf gem
+    # https://github.com/boazsegev/combine_pdf/blob/master/README.md
     @user = @interview.user
     pdf = CombinePDF.new
     # photo = CombinePDF.parse Net::HTTP.get_response(URI.parse('http://res.cloudinary.com/di7e0fdiq/image/upload/' + @interview.id_card.path)).body
@@ -68,11 +70,19 @@ before_action :set_interview, only: [:show, :edit, :update, :edit_later, :create
     key = SecureRandom.base64
     file_name = "#{@user.first_name}_#{@user.last_name}_key.pdf"
     pdf.save file_name
+
+    pdf = MergedPdf.new(@interview, @user, file_name)
+        send_data pdf.render, filename: 'report.pdf', type: 'application/pdf'
+
     Cloudinary::Uploader.upload(file_name, :public_id => key)
     # everything is working until here, left to do is associate it with the model
     # then I need to associate the URL of that picture with the instance @interview
     url = 'http://res.cloudinary.com/di7e0fdiq/image/upload/' + key
     @interview.combined_pdf_url = url
+
+
+
+
     redirect_to url
   end
 
