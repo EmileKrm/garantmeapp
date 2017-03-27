@@ -11,7 +11,6 @@
           <h1>My Profile</h1>
           <p>You can edit your profile here</p>
         </div>
-
         <!-- Starting profile edit -->
 
         <%= simple_form_for(@user) do |f| %>
@@ -24,7 +23,9 @@
             <h4><%= f.input :home_address %></h4>
             <h4><%= f.input :date_of_birth, as: :string, input_html:{class: "datepicker"} %></h4>
             <h4><%= f.input :photo, as: :attachinary %></h4s>
-            <h4><%= f.submit "Update profile", class: "" %></h4>
+            <div class="done-button">
+              <h3><%= f.submit "I'm done!", class: "btn btn-success btn-lg" %></h3>
+            </div>
           <br><br><br><br>
           </div>
         <% end %>
