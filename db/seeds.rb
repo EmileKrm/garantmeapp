@@ -44,7 +44,7 @@ manager.save!
 
 ###### USER SEED ######
 i = 0
-7.times do
+1.times do
   ###### USER CREATION ######
   i += 1
   avatar_url = "https://maxcdn.icons8.com/Share/icon/Cinema//avatar1600.png"
