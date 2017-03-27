@@ -50,6 +50,11 @@ gem 'devise'
 #pundit setup
 gem "pundit"
 
+#chosen setup
+source 'https://rails-assets.org' do
+  gem 'rails-assets-chosen'
+end
+
 #datepicker
 source "https://rails-assets.org" do
   gem 'rails-assets-bootstrap-datepicker'
