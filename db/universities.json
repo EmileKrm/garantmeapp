@@ -1,5 +1,12 @@
 [
   {
+      "alpha_two_code": "FR",
+      "country": "France",
+      "domain": "stevenson.edu",
+      "name": "Other",
+      "web_page": "http://www.stevenson.edu/"
+  },
+  {
       "alpha_two_code": "US",
       "country": "United States",
       "domain": "stevenson.edu",

@@ -2,8 +2,6 @@
   border-style: solid;
   border-color: $light-gray;
   border-radius: 10px;
-  padding: 20px;
-  margin: 50px 0px;
 }
 
 .questionnaire-head {
@@ -16,11 +14,27 @@
   }
 }
 
+.submit-all-form {
+  margin-top: 30px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.fallback {
+  ul {
+    padding: 20px 0px;
+    list-style-type: none;
+  }
+}
+
 .yes-no-form {
   display: flex;
 }
 
 .question {
+
+  min-height: 270px;
+
   .btn {
     width: 200px;
     margin-right: 20px;
