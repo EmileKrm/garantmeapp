@@ -19,6 +19,8 @@ gem 'faker'
 
 # to merge pdf
 gem 'combine_pdf'
+# to be able to add images and texts to the merged pdf
+gem 'prawn'
 
 #Heroku setup
 ruby '2.3.3'

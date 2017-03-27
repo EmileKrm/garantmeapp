@@ -27,7 +27,7 @@
         <div class="interview-show-left-container">
           <div class="row">
             <div class="col-xs-3">
-              <%= link_to create_pdf_path(@interview), method: :post, class: "navbar-wagon-link" do %>
+              <%= link_to interview_path(@interview, :format => 'pdf'), method: :get, class: "navbar-wagon-link" do %>
                 <i class="fa fa-share-square-o fa-3x" aria-hidden="true"></i></div>
               <% end %>
             <div class="col-xs-9">Create a pdf of all my informations</div>
