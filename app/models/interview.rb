@@ -5,6 +5,7 @@ class Interview < ApplicationRecord
   has_attachment :id_card
   has_attachment :proof_of_revenue
   has_attachment :school_certificate
+  has_attachment :combined_pdf
 
   def name
     id

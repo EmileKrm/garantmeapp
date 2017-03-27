@@ -17,6 +17,9 @@ gem 'autoprefixer-rails'
 
 gem 'faker'
 
+# to merge pdf
+gem 'combine_pdf'
+
 #Heroku setup
 ruby '2.3.3'
 

@@ -11,6 +11,18 @@
   z-index: 1000;
 }
 
+.navbar-home{
+  position: absolute;
+  background-color: transparent;
+  box-shadow: none;
+  width: 100%;
+  .navbar-wagon-link {
+  color: white;
+  font-size: 14px;
+}
+
+}
+
 /* Optional class to fix the navbar on top */
 .navbar-wagon-fixed {
   position: fixed;
@@ -45,8 +57,9 @@
   font-size: 14px;
 }
 .navbar-wagon-link:hover {
-  color: #da552f;
+  color: $brand-light-color;
   text-decoration: none;
+  font-style: bold;
 }
 
 /* Navbar right button */

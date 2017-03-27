@@ -1,12 +1,17 @@
-<!-- Your banner code -->
-<div class="banner" style="background-image: linear-gradient(-225deg, rgba(236, 233, 230,0.6) 0%, rgba(255, 255, 255,0.6) 50%), url('<%= cl_image_path("Garantme/card-paris") %>')">
+<!-- Transparent navbar for home -->
+<% content_for(:navbar_class, "navbar-home") %>
 
+
+<!-- Your banner code -->
+<div class="banner" >
   <div class="banner-content" id="home-banner">
-    <div class="logo">
-      <%= cl_image_tag("Garantme/logo-garantme") %>
-    </div>
-    <h2>Lease guarantees for international students</h2>
-    <%= link_to "Get a guarantor", new_interview_path, class: 'btn btn-primary'%>
+    <h1>We can be your guarantor</h1>
+    <p>Garantme lease guarantees can help you secure housing in Paris</p>
+    <% if user_signed_in? %>
+      <%= link_to "Be my guarantor!", new_interview_path, id: 'home-button', class: 'btn btn-primary'%>
+    <% else %>
+      <%= link_to "Be my guarantor!", new_user_registration_path, id: 'home-button', class: 'btn btn-primary'%>
+    <% end %>
   </div>
 </div>
 
@@ -20,21 +25,21 @@
       <div class="row">
         <!-- first feature -->
         <div class="col-xs-12 col-sm-4 col-md-4">
-          <%= cl_image_tag("Garantme/curriculum") %>
+           <%= image_tag "curriculum.svg" %>
           <h2>APPLY</h2>
           <p>Build your online application and upload supporting documents in English</p>
         </div>
 
         <!-- second feature -->
         <div class="col-xs-12 col-sm-4 col-md-4">
-          <%= cl_image_tag("Garantme/certificate") %>
+          <%= image_tag "certificate.svg" %>
           <h2>GET CERTIFIED</h2>
           <p>Receive your Garantme guarantee in 12 hours</p>
         </div>
 
         <!-- third feature -->
         <div class="col-xs-12 col-sm-4 col-md-4">
-          <%= cl_image_tag("Garantme/house") %>
+            <%= image_tag "house.svg" %>
             <h2>FIND YOUR HOME</h2>
             <p>Increase your chance to find a flat with your certified digital application form in French and your guarantee</p>
         </div>

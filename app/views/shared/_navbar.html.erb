@@ -1,8 +1,8 @@
-<div class="navbar-wagon navbar-wagon-fixed">
+<div class="navbar-wagon <%= yield(:navbar_class) %>">
   <!-- Logo -->
   <div class="navbar-wagon-brand">
     <%= link_to root_path do %>
-      <%= cl_image_tag("Garantme/logo-garantme") %>
+      <%= image_tag "logo-garantme.png" %>
     <% end %>
   </div>
 
@@ -42,7 +42,7 @@
               </li>
             <% end %>
             <% if current_user.interviews.empty? %>
-              <li>
+              <li class ="profile-one <%= "hidden" if current_user.is_manager == true  %>">
                 <%= link_to new_interview_path do %>
                   <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
                 <% end %>

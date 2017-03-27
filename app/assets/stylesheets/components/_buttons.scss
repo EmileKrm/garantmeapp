@@ -1,0 +1,17 @@
+#home-button {
+  padding: 14px;
+  font-size: 25px;
+  margin-top: 10px;
+  transition: all 0.3s ease 0s;
+  color: white;
+  background-color: #6EB6FF;
+  border: solid 2.5px #6EB6FF;
+  margin-top: 20px;
+  border-radius: 5px;
+
+  &:hover {
+    background-color: white;
+    color: #6EB6FF;
+    text-decoration: none;
+  }
+}
