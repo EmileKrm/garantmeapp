@@ -1,8 +1,7 @@
-
 <div class="embedded-form">
   <%= simple_form_for interview, remote: true do |f| %>
     <div class="fallback">
-      <%= f.input :school_certificate, as: :attachinary, label: false %><br>
+      <%= f.attachinary_file_field :school_certificate, as: :attachinary, label: false, html: {class: "dropzone"} %><br>
       <%= f.submit 'Save', class: "btn btn-primary save-step" %>
     </div>
   <% end %>
