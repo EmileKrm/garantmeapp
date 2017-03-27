@@ -7,7 +7,6 @@ class InterviewsController < ApplicationController
 before_action :set_interview, only: [:show, :edit, :update, :edit_later, :create_pdf]
 
   def show
-
     respond_to do |format|
       format.html do
         @interview = Interview.find(params[:id])
@@ -15,9 +14,38 @@ before_action :set_interview, only: [:show, :edit, :update, :edit_later, :create
         @messages = Message.where({sender_id: @user}).or(Message.where({receiver_id: @user}))
       end
       format.pdf do
-        pdf = MergedPdf.new(@interview, @interview.user)
-        pdf.generate
-        send_data pdf.render, filename: 'report.pdf', type: 'application/pdf'
+        @user = @interview.user
+
+        # Here, I generate the first part of the pdf, with pictures, text, etc with Prawn
+        prawn_pdf = MergedPdf.new(@interview, @user)
+        prawn_pdf.generate
+        pdf_data = prawn_pdf.render # Import PDF data from Prawn
+        prawn_pdf_converted = CombinePDF.parse(pdf_data)
+
+        pdf = CombinePDF.new
+        # Here, I add to the merged pdf the pdf created with prawn in the first part
+        pdf << prawn_pdf_converted
+
+        # Here I combine the attachements that are already pdf
+        pdf1 = CombinePDF.parse Net::HTTP.get_response(URI.parse('http://res.cloudinary.com/di7e0fdiq/image/upload/' + @interview.proof_of_revenue.path)).body
+        pdf2 = CombinePDF.parse Net::HTTP.get_response(URI.parse('http://res.cloudinary.com/di7e0fdiq/image/upload/' + @interview.school_certificate.path)).body
+        pdf << pdf1
+        pdf << pdf2
+
+        # Now that the pdf is created, I save it, upload it to cloudinary, and attach it to my model with attachinary
+        key = SecureRandom.base64
+        file_name = "#{@user.first_name}_#{@user.last_name}_#{key}.pdf"
+        pdf.save file_name
+
+        Cloudinary::Uploader.upload(file_name, :public_id => key)
+        # then I need to associate the URL of that picture with the instance @interview
+        url = 'http://res.cloudinary.com/di7e0fdiq/image/upload/' + key
+        @interview.combined_pdf_url = url
+
+        # redirect_to url
+
+        # Here I need to render the full pdf
+        send_data pdf.to_pdf, filename: file_name, type: 'application/pdf'
       end
     end
   end
@@ -69,22 +97,21 @@ before_action :set_interview, only: [:show, :edit, :update, :edit_later, :create
   def create_pdf
     # see link below for doc of the combine pdf gem
     # https://github.com/boazsegev/combine_pdf/blob/master/README.md
-    @user = @interview.user
-    pdf = CombinePDF.new
-    pdf1 = CombinePDF.parse Net::HTTP.get_response(URI.parse('http://res.cloudinary.com/di7e0fdiq/image/upload/' + @interview.proof_of_revenue.path)).body
-    pdf2 = CombinePDF.parse Net::HTTP.get_response(URI.parse('http://res.cloudinary.com/di7e0fdiq/image/upload/' + @interview.school_certificate.path)).body
-    pdf << pdf1
-    pdf << pdf2
+    # @user = @interview.user
+    # pdf = CombinePDF.new
+    # pdf1 = CombinePDF.parse Net::HTTP.get_response(URI.parse('http://res.cloudinary.com/di7e0fdiq/image/upload/' + @interview.proof_of_revenue.path)).body
+    # pdf2 = CombinePDF.parse Net::HTTP.get_response(URI.parse('http://res.cloudinary.com/di7e0fdiq/image/upload/' + @interview.school_certificate.path)).body
+    # pdf << pdf1
+    # pdf << pdf2
     # I will put the 3rd pdf coming from prawn here
-    key = SecureRandom.base64
-    file_name = "#{@user.first_name}_#{@user.last_name}_key.pdf"
-    pdf.save file_name
+    # key = SecureRandom.base64
+    # file_name = "#{@user.first_name}_#{@user.last_name}_key.pdf"
+    # pdf.save file_name
 
-    Cloudinary::Uploader.upload(file_name, :public_id => key)
-    # everything is working until here, left to do is associate it with the model
-    # then I need to associate the URL of that picture with the instance @interview
-    url = 'http://res.cloudinary.com/di7e0fdiq/image/upload/' + key
-    @interview.combined_pdf_url = url
+    # Cloudinary::Uploader.upload(file_name, :public_id => key)
+    # # then I need to associate the URL of that picture with the instance @interview
+    # url = 'http://res.cloudinary.com/di7e0fdiq/image/upload/' + key
+    # @interview.combined_pdf_url = url
 
 
 

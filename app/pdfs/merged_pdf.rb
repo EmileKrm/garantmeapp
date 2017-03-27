@@ -20,16 +20,29 @@ class MergedPdf < Prawn::Document
     end
 
   def generate
-    #This inserts an image in the pdf file and sets the size of the image
-    image (open ('http://res.cloudinary.com/di7e0fdiq/image/upload/' + @user.photo.path)), width: 100, height: 100
+    # I put here the logos and the text "en partenariat..."
+    y_position = cursor - 30
+    image 'app/assets/images/logo_garantme.png', width: 60, height: 60, :position => :left
+    text_box "Garantme en partenariat avec Axa",
+    :at => [70, y_position], :width => 200, size: 10, style: :bold
+    image 'app/assets/images/axa_logo.png', width: 60, height: 60, :position => :center, :vposition => 0
 
-    # This inserts wanted text into the pdf
-    y_position = cursor - 50
+    # I go a bit below and put the title
+    y_position = cursor + 10
+    draw_text "Fiche de candidature locative", size: 25, style: :bold, :color => '005B66', :at => [100, y_position]
 
-    # The bounding_box takes the x and y coordinates for positioning its content and some options to style it
-    bounding_box([0, y_position], :width => 540, :height => 300) do
-      text "My profile", size: 15, style: :bold
-      text @user.first_name + ' ' + @user.last_name
-    end
+    move_down 30
+
+    # Pic
+    y_position = cursor
+    image (open ('http://res.cloudinary.com/di7e0fdiq/image/upload/' + @user.photo.path)), width: 100, height: 100, :position => :left
+
+    # I create a text box to put the main text
+    text_box "Bonjour," + "\n#{Prawn::Text::NBSP }" + "\n#{Prawn::Text::NBSP }" + "Etudiant de #{Organisation.find(@user.organisation_id).name
+    }, " + "je suis a la recherche d'une location. J'espere avoir l'occasion de vous rencontrer, n'hesitez pas a me contacter. Vous trouverez dans ce document mon certificat de scolarite, une preuve de revenue ainsi que mes papiers d'identite" +
+    "\n#{Prawn::Text::NBSP }" + "\n#{Prawn::Text::NBSP }" + @user.first_name + ' ' + @user.last_name +
+    "\n#{Prawn::Text::NBSP }" + "\n#{Prawn::Text::NBSP }" + 'Mon email: ' + @user.email +
+    "\n#{Prawn::Text::NBSP }" + 'Mon numero de telephone: ' + @user.phone_number,
+    :at => [130, y_position], :width => 400, size: 12, style: :bold, :align => :justify
   end
 end
