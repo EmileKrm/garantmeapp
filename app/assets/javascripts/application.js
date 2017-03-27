@@ -1,3 +1,5 @@
+// GEMS
+
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap-sprockets
@@ -5,4 +7,12 @@
 //= require cloudinary/jquery.cloudinary
 //= require attachinary
 //= require dropzone
-//= require_tree
+//= require bootstrap-datepicker
+
+// VENDORS
+
+//= require_tree ./vendors
+
+// CUSTOM JS
+
+//= require_tree ./front

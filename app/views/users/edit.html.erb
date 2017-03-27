@@ -1,24 +1,34 @@
 <% content_for(:title_tag) do %>
   Edit Profile - <%= @user.last_name + " " + @user.first_name %>
 <% end %>
+
 <div class="container body-container-no-footer">
-  <div class="row">
-    <div class="col-xs-12 col-md-8 col-md-offset-2 ">
-      <%= simple_form_for(@user) do |f| %>
-        <br>
-    <div class ="user-edit-form">
-          <%= f.input :email %>
-          <%= f.input :first_name %>
-          <%= f.input :last_name %>
-          <%= f.input :phone_number %>
-          <%= f.input :home_address %>
-          <%= f.input :date_of_birth, as: :date, start_year: Date.today.year - 60,
-            end_year: Date.today.year - 12, order: [:day, :month, :year] %>
-          <%= f.input :photo, as: :attachinary %>
-          <%= f.submit "Update profile", class: "" %>
-        <br><br><br><br>
+  <div class="questions-container">
+    <!-- Header -->
+    <div class="row">
+      <div class="col-xs-12 col-md-8 col-md-offset-2 ">
+        <div class="questionnaire-head">
+          <h1>My Profile</h1>
+          <p>You can edit your profile here</p>
         </div>
-      <% end %>
+
+        <!-- Starting profile edit -->
+
+        <%= simple_form_for(@user) do |f| %>
+        <br>
+        <div class ="user-edit-form">
+            <h4><%= f.input :email %></h4>
+            <h4><%= f.input :first_name %></h4>
+            <h4><%= f.input :last_name %></h4>
+            <h4><%= f.input :phone_number %></h4>
+            <h4><%= f.input :home_address %></h4>
+            <h4><%= f.input :date_of_birth, as: :string, input_html:{class: "datepicker"} %></h4>
+            <h4><%= f.input :photo, as: :attachinary %></h4s>
+            <h4><%= f.submit "Update profile", class: "" %></h4>
+          <br><br><br><br>
+          </div>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
