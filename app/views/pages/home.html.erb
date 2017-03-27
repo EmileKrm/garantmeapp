@@ -1,11 +1,16 @@
+<!-- Transparent navbar for home -->
+<% content_for(:navbar_class, "navbar-home") %>
+
+
 <!-- Your banner code -->
-<div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.4) 0%, rgba(0,36,61,0.3) 50%), url(<%= asset_path 'paris-home.jpg' %>)">
+<div class="banner" >
   <div class="banner-content" id="home-banner">
-    <h2>We can be your guarantor</h2>
+    <h1>We can be your guarantor</h1>
+    <p>Garantme lease guarantees can help you secure housing in Paris</p>
     <% if user_signed_in? %>
-      <%= link_to "Get a guarantor", new_interview_path, id: 'home-button', class: 'btn btn-primary'%>
+      <%= link_to "Be my guarantor!", new_interview_path, id: 'home-button', class: 'btn btn-primary'%>
     <% else %>
-      <%= link_to "Get a garantor", new_user_registration_path, id: 'home-button', class: 'btn btn-primary'%>
+      <%= link_to "Be my guarantor!", new_user_registration_path, id: 'home-button', class: 'btn btn-primary'%>
     <% end %>
   </div>
 </div>
