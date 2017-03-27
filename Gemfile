@@ -48,6 +48,11 @@ gem 'devise'
 #pundit setup
 gem "pundit"
 
+#datepicker
+source "https://rails-assets.org" do
+  gem 'rails-assets-bootstrap-datepicker'
+end
+
 #linkedin
 gem 'omniauth-oauth2', '~> 1.3.1'
 gem 'omniauth-linkedin-oauth2'
