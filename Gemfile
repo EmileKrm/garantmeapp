@@ -19,6 +19,8 @@ gem 'faker'
 
 # to merge pdf
 gem 'combine_pdf'
+# to be able to add images and texts to the merged pdf
+gem 'prawn'
 
 #Heroku setup
 ruby '2.3.3'
@@ -47,6 +49,16 @@ gem 'devise'
 
 #pundit setup
 gem "pundit"
+
+#chosen setup
+source 'https://rails-assets.org' do
+  gem 'rails-assets-chosen'
+end
+
+#datepicker
+source "https://rails-assets.org" do
+  gem 'rails-assets-bootstrap-datepicker'
+end
 
 #linkedin
 gem 'omniauth-oauth2', '~> 1.3.1'
