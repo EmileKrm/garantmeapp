@@ -55,7 +55,7 @@
                 <tr>
                   <th scope="row"><%= i+1 %></th>
                   <td><%=  itw.user.first_name.capitalize %> <%= itw.user.last_name.capitalize %></td>
-                  <td>60%</td>
+                  <td><%= compute_student_stage(itw.user) %></td>
                   <td><%= itw.move_in_date.strftime("%F") unless itw.move_in_date.nil? %></td>
                   <td>Pending</td>
                   <td>
