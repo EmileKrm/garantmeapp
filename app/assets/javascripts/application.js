@@ -8,6 +8,7 @@
 //= require attachinary
 //= require dropzone
 //= require bootstrap-datepicker
+//= require chosen
 
 // VENDORS
 
