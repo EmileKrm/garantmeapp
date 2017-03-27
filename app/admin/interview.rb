@@ -1,7 +1,8 @@
 ActiveAdmin.register Interview do
   permit_params :professional_status, :city, :move_in_date, :monthly_budget,
   :monthly_income, :unique_signator, :has_found_apartment, :arrondissement,
-  :has_a_cosigner
+  :has_a_cosigner, :address, :status, :landlord_email, :monthly_rent, :interview_completed,
+  :documents_submitted, :documents_validated, :agreement_signed, :lease_provided, :lease_signed
 
   index do
     selectable_column
