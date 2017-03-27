@@ -53,17 +53,16 @@ module OrganisationsHelper
       "monthly_budget",
       "monthly_income",
       "unique_signator",
-      "organisation_id",
-      "id_card",
-      "proof_of_revenue",
-      "school_certificate"
+      "organisation_id"
     ]
     score = 0
+    interview = student.interviews.last
     fields.each do |field|
-      interview = student.interviews.last
-      p interview[field]
       score += 0.1 unless interview[field].nil?
     end
+    score += 0.1 unless interview.id_card.present?
+    score += 0.1 unless interview.proof_of_revenue.present?
+    score += 0.1 unless interview.school_certificate.present?
     return score
   end
 end

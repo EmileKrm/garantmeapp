@@ -17,7 +17,12 @@
       </div>
       <div class="dashboard-user-card-right-item-text">
       <span class="dashboard-user-card-right-item-text-title">Co-Signer</span>
-      <p>Has a co-signer</p>
+        <% if @interview.has_a_cosigner == true %>
+          <p>Has a co-signer</p>
+        <% else %>
+          <p>Does not have a co-signer</p>
+        <% end %>
+
       </div>
     </div>
 
