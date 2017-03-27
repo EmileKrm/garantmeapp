@@ -20,16 +20,16 @@ class MergedPdf < Prawn::Document
     end
 
   def generate
-      #This inserts an image in the pdf file and sets the size of the image
-      image (open ('http://res.cloudinary.com/di7e0fdiq/image/upload/' + @user.photo.path)), width: 100, height: 100
+    #This inserts an image in the pdf file and sets the size of the image
+    image (open ('http://res.cloudinary.com/di7e0fdiq/image/upload/' + @user.photo.path)), width: 100, height: 100
 
-      # This inserts wanted text into the pdf
-      y_position = cursor - 50
+    # This inserts wanted text into the pdf
+    y_position = cursor - 50
 
-      # The bounding_box takes the x and y coordinates for positioning its content and some options to style it
-      bounding_box([0, y_position], :width => 540, :height => 300) do
-        text "My profile", size: 15, style: :bold
-        text @user.first_name + ' ' + @user.last_name
-      end
+    # The bounding_box takes the x and y coordinates for positioning its content and some options to style it
+    bounding_box([0, y_position], :width => 540, :height => 300) do
+      text "My profile", size: 15, style: :bold
+      text @user.first_name + ' ' + @user.last_name
+    end
   end
 end
