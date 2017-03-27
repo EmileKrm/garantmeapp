@@ -4,16 +4,22 @@ ActiveAdmin.register Interview do
   :has_a_cosigner
 
   index do
-      selectable_column
-      column :id
-      column :move_in_date
-      column :city
-      column :professional_status
-      column :monthly_income
-      column :monthly_budget
-      column :organisation
-      column :user
-      actions
+    selectable_column
+    column :id
+    column :move_in_date
+    column :city
+    column :professional_status
+    column :monthly_income
+    column :monthly_budget
+    column :organisation
+    column "User id" do |itw|
+      unless itw.user_id.nil?
+        link_to "#{itw.user_id}", admin_user_path(itw.user)
+      else
+        "No name submitted"
+      end
+    end
+    actions
   end
 
   form do |f|

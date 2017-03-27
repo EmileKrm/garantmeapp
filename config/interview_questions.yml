@@ -111,7 +111,7 @@
 
 - question_type: "dropdown"
   title: "What is your school's name?"
-  description: "pre-filled by linkedin, you can edit or press enter"
+  description: "Select other if your school is not in the list"
   answer_options: ""
   next_question: 13
   next_question_if_true: ""
@@ -178,5 +178,3 @@
   next_question_if_false: ""
   model: "interview"
   field: "school_certificate"
-
-

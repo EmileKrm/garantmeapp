@@ -1,3 +1,9 @@
+
+<!-- Page title-->
+<% content_for(:title_tag) do %>
+  Dashboard
+<% end %>
+<!-- End of page title-->
 <div class="wrapper bg-light-gray show-container-padding">
   <div class="container-fluid">
     <div class="row">
@@ -5,6 +11,7 @@
         <div class="interview-show-top-left-container">
           <%= render "interviews_show_user" %>
         </div>
+
         <div class="interview-show-top-left-container">
         <%= render "interviews-show-my-interview" %>
         </div>

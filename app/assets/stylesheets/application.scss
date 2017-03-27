@@ -3,6 +3,10 @@
  *= require dropzone
  */
 
+/*
+ *= require chosen
+ */
+
 // Graphical variables
 @import "config/variables";
 @import "config/bootstrap_variables";
@@ -14,6 +18,7 @@
 @import "font-awesome-sprockets";
 @import "font-awesome";
 @import "vendor/index";
+@import "bootstrap-datepicker";
 
 // Your CSS
 @import "layout/index";
