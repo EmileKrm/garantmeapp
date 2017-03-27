@@ -7,9 +7,19 @@ class InterviewsController < ApplicationController
 before_action :set_interview, only: [:show, :edit, :update, :edit_later, :create_pdf]
 
   def show
-    @interview = Interview.find(params[:id])
-    @user= current_user
-    @messages = Message.where({sender_id: @user}).or(Message.where({receiver_id: @user}))
+
+    respond_to do |format|
+      format.html do
+        @interview = Interview.find(params[:id])
+        @user= current_user
+        @messages = Message.where({sender_id: @user}).or(Message.where({receiver_id: @user}))
+      end
+      format.pdf do
+        pdf = MergedPdf.new(@interview, @interview.user)
+        pdf.generate
+        send_data pdf.render, filename: 'report.pdf', type: 'application/pdf'
+      end
+    end
   end
 
   def new
@@ -61,18 +71,14 @@ before_action :set_interview, only: [:show, :edit, :update, :edit_later, :create
     # https://github.com/boazsegev/combine_pdf/blob/master/README.md
     @user = @interview.user
     pdf = CombinePDF.new
-    # photo = CombinePDF.parse Net::HTTP.get_response(URI.parse('http://res.cloudinary.com/di7e0fdiq/image/upload/' + @interview.id_card.path)).body
     pdf1 = CombinePDF.parse Net::HTTP.get_response(URI.parse('http://res.cloudinary.com/di7e0fdiq/image/upload/' + @interview.proof_of_revenue.path)).body
     pdf2 = CombinePDF.parse Net::HTTP.get_response(URI.parse('http://res.cloudinary.com/di7e0fdiq/image/upload/' + @interview.school_certificate.path)).body
-    # pdf << photo
     pdf << pdf1
     pdf << pdf2
+    # I will put the 3rd pdf coming from prawn here
     key = SecureRandom.base64
     file_name = "#{@user.first_name}_#{@user.last_name}_key.pdf"
     pdf.save file_name
-
-    pdf = MergedPdf.new(@interview, @user, file_name)
-        send_data pdf.render, filename: 'report.pdf', type: 'application/pdf'
 
     Cloudinary::Uploader.upload(file_name, :public_id => key)
     # everything is working until here, left to do is associate it with the model
