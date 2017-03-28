@@ -51,7 +51,7 @@
 <% content_for(:js) do %>
   <%= javascript_tag do %>
     $(document).ready(function() {
-      $( ".dashboard-user-feature-icon-container" ).click(function(e) {
+      $( ".activable-feature" ).click(function(e) {
         $(this).toggleClass( "active-feature" );
         var url = "/organisations/<%= @interview.id %>/edit?field=" + e.target.id
         $.ajax({
