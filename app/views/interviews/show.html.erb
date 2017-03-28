@@ -7,44 +7,54 @@
 <div class="wrapper bg-light-gray show-container-padding">
   <div class="container-fluid">
     <div class="row">
+      
       <div class="col-xs-12 col-md-6">
         <div class="interview-show-top-left-container">
           <%= render "interviews_show_user" %>
         </div>
-
+        
         <div class="interview-show-top-left-container">
-        <%= render "interviews-show-my-interview" %>
+          <%= render "interviews-show-my-interview" %>
         </div>
-        <div class="interview-show-bottom-left-container">
-          <!--  -->
-          <div class="messages-container">
-           <h5>Talk to us</h5>
-            <% @messages.each do |message|%>
-              <div class="message">
-                <p class="message-sender"><%= message.sender.first_name %> <%= message.sender.last_name %></p>
-                <p class="message-timestamp"><%= message.created_at %></p>
-                <p class="message-content"><%= message.content %></p>
-              </div>
-            <% end %>
-          </div>
-          <div class="message-form-container">
-            <form class="message-form" action="/">
-              <div class="form-group">
-                <textarea class="form-control" id="message-area" rows="3"></textarea>
-              </div>
-              <button type="submit" class="btn btn-xs btn-primary">Submit</button>
-            </form>
-          </div>
-        </div>
-      </div>
-      <div class="col-xs-12 col-md-6">
-        <div class="interview-show-top-right-container">
-          <%= render "interviews-show-supporting-docs" %>
-        </div>
+        
       </div>
     </div>
   </div>
+
+      
+   
+
+
+<%= link_to "#", id:"show-chat" do %>
+  <div class="chat-button" >
+    <%= image_tag "chat.svg" %>
+  </div>
+<% end %>
+
+<!-- chat div  -->
+<div class= "chat-container hidden" id="chat">
+  <div class="chat-title">How can we help?</div>
+  <div class="chat-sub-title">you can ask your question in french or english</div>
+  <div class="messages-container">
+    <% @messages.each do |message|%>
+      <div class="message">
+        <p class="message-sender"><%= message.sender.first_name %> <%= message.sender.last_name %></p>
+        <p class="message-timestamp"><%= message.created_at %></p>
+        <p class="message-content"><%= message.content %></p>
+      </div>
+    <% end %>
+  </div>
+  <div class="message-form-container">
+    <form class="message-form" action="/">
+      <div class="form-group">
+        <textarea class="form-control" id="message-area" rows="3"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
 </div>
+<!-- end of chat div -->
+
 
 <% content_for(:js) do %>
   <%= javascript_tag do %>
