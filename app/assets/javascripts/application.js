@@ -6,9 +6,9 @@
 //= require jquery-fileupload/basic
 //= require cloudinary/jquery.cloudinary
 //= require attachinary
-//= require dropzone
 //= require bootstrap-datepicker
 //= require chosen
+//= require dropzone
 
 // VENDORS
 

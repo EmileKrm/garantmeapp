@@ -1,0 +1,38 @@
+<div class="col-xs-12 col-md-12">
+<h3>I provide my documents</h1>
+  <div class="embedded-form">
+    <%= simple_form_for interview, action: :update, controller: :interview do |f| %>
+      <div class="fallback">
+        <% if @interview.proof_of_revenue.nil? %>
+          <%= f.label "Proof of revenue" %>
+          <%= f.attachinary_file_field :proof_of_revenue, html: { class: "dropzone" } %>
+        <% elsif %>
+          <div class="green-tick">
+            <p>Proof of revenue</p><i class="fa fa-check" aria-hidden="true" style='color: green'></i>
+          </div>
+        <% end %>
+        <br>
+        <% if @interview.school_certificate.nil? %>
+          <%= f.label "School certificate" %>
+          <%= f.attachinary_file_field :school_certificate, label: false, html: { class: "dropzone" } %>
+        <% elsif %>
+        <div class="green-tick">
+          <p>School certificate</p><i class="fa fa-check" aria-hidden="true" style='color: green'></i>
+        </div>
+        <% end %>
+        <br>
+        <% if @interview.id_card.nil? %>
+          <%= f.label "Identity card" %>
+          <%= f.attachinary_file_field :id_card, label: false, html: { class: "dropzone" } %>
+        <% elsif %>
+        <div class="green-tick">
+          <p>Identity card</p><i class="fa fa-check" aria-hidden="true" style='color: green'></i>
+        </div>
+        <% end %>
+        <% if @interview.proof_of_revenue.nil? || @interview.school_certificate.nil? || @interview.id_card.nil? %>
+          <%= f.submit 'Save', class: "btn btn-primary save-step" %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>
