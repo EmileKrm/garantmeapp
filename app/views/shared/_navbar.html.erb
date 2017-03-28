@@ -93,18 +93,20 @@
                 </li>
               <% end %>
             <% end %>
-            <% if current_user.interviews.empty? %>
-              <li class ="profile-one <%= "hidden" if current_user.is_manager == true  %>">
-                <%= link_to new_interview_path do %>
-                  <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
-                <% end %>
-              </li>
-            <% else %>
-              <li>
-                <%= link_to interview_path (current_user.interviews.last.id) do %>
-                  <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
-                <% end %>
-              </li>
+            <% if user_signed_in? %>
+              <% if current_user.interviews.empty? %>
+                <li class ="profile-one <%= "hidden" if current_user.is_manager == true  %>">
+                  <%= link_to new_interview_path do %>
+                    <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
+                  <% end %>
+                </li>
+              <% else %>
+                <li>
+                  <%= link_to interview_path (current_user.interviews.last.id) do %>
+                    <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
+                  <% end %>
+                </li>
+              <% end %>
             <% end %>
             <li>
               <%= link_to root_path do %>
