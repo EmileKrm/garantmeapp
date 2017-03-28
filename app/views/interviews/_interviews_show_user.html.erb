@@ -1,0 +1,43 @@
+
+<div class="show-user-left">
+  <div class="user-show-photo"><%= user_picture_avatar(current_user, "interview-show-avatar avatar-bordered-xl") %></div>
+  <div class="user-show-full-name">
+    <% if @user.first_name.nil? && @user.last_name.nil? %>
+      <%= link_to "Please complete your profile", edit_user_path, class: "navbar-wagon-link" %>
+    <% else %>
+      <%=@user.first_name.capitalize %> <%=@user.last_name.capitalize %>
+    <% end %>
+  </div>
+  <%= @user.email unless @user.email.nil? %>
+  <%= @user.date_of_birth unless @user.date_of_birth.nil? %>
+  <div class="user-show-organisation"> <%= @user.organisation.name.upcase unless @user.organisation.nil? %></div>
+  <div class="interviews-show-links">
+    <%= link_to create_pdf_path(@interview), method: :post, class: "interview-link" do %>
+      <i class="fa fa-share-square-o fa-fw" aria-hidden="true"></i>
+    <% end %>
+    <%= link_to edit_user_path, class: "interview-link"  do %>
+      <i class="fa fa-print fa-fw" aria-hidden="true"></i>
+    <% end %>
+    <%= link_to edit_user_path, class: "interview-link"  do %>
+    <i class="fa fa-pencil fa-fw"></i>
+    <% end %>
+  </div>
+</div>
+
+
+<div class="v-separator"></div>
+
+<div class="show-user-right">
+  <div class="interview-show-status">
+  <!-- progress bar bootstrap -->
+    <%= render "status_bar_logic" %>
+  </div>
+  <div class="column-content">
+    <h5>We received your application</h5>
+    <p>We will get back to you in 12 hours. In the meantime you can share, print and  strengthen your profile</p>
+  </div>
+</div>
+
+
+
+

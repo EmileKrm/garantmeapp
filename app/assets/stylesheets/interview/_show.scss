@@ -1,49 +1,23 @@
 .interview-show-top-left-container {
-  border-style: solid;
-  border-width: 1px;
-  border-color: #eeeeee;
-  padding: 20px;
   background-color: white;
-  text-align: center;
-  margin-bottom: 20px;
-}
-.interview-show-left-container {
-  border-style: solid;
-  border-width: 1px;
-  border-color: #eeeeee;
-  padding: 20px;
-  background-color: white;
-  text-align: left;
-  margin-bottom: 20px;
+  width: 100%;
+  display: flex;
+  border: solid 1px #eeeeee;
+  box-shadow: 0px 2px 7px rgb(230, 230,230);
+  margin: 10px 5px 10px 0px;
+  flex-direction: row;
+  padding: 15px;
+  transition: box-shadow .2s ease-in-out;
 }
 
-.interview-show-bottom-left-container {
-  border-style: solid;
-  border-width: 1px;
-  border-color: #eeeeee;
-  padding: 20px;
+.interview-show-top-right-container {
   background-color: white;
-  text-align: left;
-  margin-bottom: 20px;
-  & h4 {
-    color: $green;
-  }
-}
-
-.interview-show-middle-container {
-  border-style: solid;
-  border-width: 1px;
-  border-color: #eeeeee;
-  padding: 20px;
-  background-color: white;
-  margin-bottom: 20px;
-  & h4 {
-    color: $green;
-  }
-  & h5{
-    color: $green;
-    font-weight: bolder;
-  }
+  width: 100%;
+  border: solid 1px #eeeeee;
+  box-shadow: 0px 2px 7px rgb(230, 230,230);
+  margin: 10px 0px;
+  padding: 15px;
+  transition: box-shadow .2s ease-in-out;
 }
 
 .separator {
@@ -54,19 +28,43 @@
   margin-bottom: 10px;
 }
 
-.interview-show-right-container {
+.interview-link {
+  color: #6c6c6c !important;
   border-style: solid;
-  border-width: 1px;
-  border-color: #eeeeee;
-  padding: 20px;
-  background-color: white;
-  text-align: left;
-  margin-bottom: 20px;
-   & h5{
-    color: $green;
-    font-weight: bolder;
+  border-width: 0px;
+  border-radius: 20px;
+  padding: 5px;
+  &:hover {
+    color: $brand-color !important;
   }
 }
+
+.v-separator {
+  width: 1px;
+  background-color: #eee;
+  margin: 20px 0 20px 0;
+}
+
+.show-user-left {
+  text-align: center;
+  flex: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 10px;
+  min-width: 260px;
+}
+
+.show-user-right {
+  flex: 3;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: 10px 0 10px 30px;
+}
+
+
 
 .scroll-container {
   overflow: scroll;
@@ -76,50 +74,13 @@
 .noscroll {
   overflow: hidden;
 }
-.show-container-padding {
-  padding-top: 30px;
-}
+
 
 .user-show-full-name{
-  font-weight: bolder;
-}
-
-.green-container {
-  border: solid;
-  border-width: 1px;
-  border-color: $green;
-  padding: 10px;
-  margin-bottom: 20px;
-}
-
-.user-show-buttons {
-  color: $gray;
-  text-align: right;
-  :hover{
-    text-decoration: none;
-  }
-}
-
-.social-links-cases {
-  margin-bottom: 10px;
-  & img {
-    height: 22px;
-    width: 22px;
-    filter: grayscale(100%);
-    object-fit: cover;
-  }
-}
-
-.show-icons{
-  color: $green;
+  color: $brand-color;
 }
 
 
-.stars >span {
-  margin-left: 5px;
-  margin-right: 5px;
-  margin-bottom: 10px;
-}
 
 .flat_info >ul {
   list-style-type: none;
@@ -127,24 +88,61 @@
   font-size: 14px;
 }
 
-.add-flat-form{
+.add-flat-form {
   font-size: 14px;
 }
-.green-dotted {
-  border-style: dotted;
-  border-color: $green;
-  border-radius: 20px;
-  width: 100px;
-  height: 100px;
-  text-align: center;
-  vertical-align: middle;
-  >i {
-    color: $green;
-    padding: 20px;
-  }
-}
+
 
 .supporting-docs {
   display: flex;
   justify-content: space-around;
+}
+
+
+.column-content h5 {
+  font-weight: bolder;
+  font-color: #2A2A2A;
+}
+
+.interviews-show-user-card-right-item {
+  display: flex;
+  flex-direction: row;
+  padding: 8px;
+}
+
+.interviews-show-user-card-right-item-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 15px 0 15px;
+  font-size: 25px;
+  color: $brand-primary;
+}
+
+.interviews-show-user-card-right-item-text-title {
+  color: $brand-title;
+}
+.interviews-show-user-card-right-item-text {
+  p {
+    margin: 0;
+    font-size: 12px;
+  }
+}
+
+.interview-show-bottom-left-container {
+  background-color: white;
+  width: 100%;
+  border: solid 1px #eeeeee;
+  box-shadow: 0px 2px 7px rgb(230, 230,230);
+  margin: 10px 5px 10px 0px;
+  padding: 15px;
+  transition: box-shadow .2s ease-in-out;
+}
+
+.green-dotted {
+  border-color: $brand-primary;
+  border-style: dotted;
+  width: 100%;
+  margin: 5px 0;
+  text-align: center;
 }

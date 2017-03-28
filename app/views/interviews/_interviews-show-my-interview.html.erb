@@ -1,0 +1,54 @@
+
+<div class="show-user-left">
+  <%= image_tag "file.svg", class: "avatar-bordered-xl " %>
+  <h5>My Interview</h5>
+  <%= link_to edit_later_path(@interview), class: "interview-link"  do %>
+  <i class="fa fa-pencil fa-fw"></i>
+  <% end %>
+</div>
+
+
+<div class="v-separator"></div>
+
+<div class="show-user-right">
+ <div class="interviews-show-user-card-right-item">
+    <div class="interviews-show-user-card-right-item-icon">
+      <i class="fa fa-check-circle-o"></i>
+    </div>
+    <div class="interviews-show-user-card-right-item-text">
+    <span class="interviews-show-user-card-right-item-text-title">Co-Signer</span>
+    <p>Has a co-signer</p>
+    </div>
+  </div>
+
+  <div class="interviews-show-user-card-right-item">
+    <div class="interviews-show-user-card-right-item-icon">
+      <i class="fa fa-calendar"></i>
+    </div>
+    <div class="interviews-show-user-card-right-item-text">
+    <span class="interviews-show-user-card-right-item-text-title">Move-in Date</span>
+    <p><%= @interview.move_in_date.present? ? @interview.move_in_date : '-' %></p>
+    </div>
+  </div>
+
+  <div class="interviews-show-user-card-right-item">
+    <div class="interviews-show-user-card-right-item-icon">
+      <i class="fa fa-calculator"></i>
+    </div>
+    <div class="interviews-show-user-card-right-item-text">
+    <span class="interviews-show-user-card-right-item-text-title">Budget</span>
+    <p><%= @interview.monthly_budget.present? ? @interview.monthly_budget : '-' %> €</p>
+    </div>
+  </div>
+
+  <div class="interviews-show-user-card-right-item">
+    <div class="interviews-show-user-card-right-item-icon">
+      <i class="fa fa-money"></i>
+    </div>
+    <div class="interviews-show-user-card-right-item-text">
+      <span class="interviews-show-user-card-right-item-text-title">Revenue</span>
+      <p><%= @interview.monthly_income.present? ? @interview.monthly_income : '-' %>  €</p>
+    </div>
+  </div>
+</div>
+
