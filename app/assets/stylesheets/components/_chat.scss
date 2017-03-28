@@ -31,6 +31,13 @@
   }
 }
 
+.chat-button:hover {
+  background-color: white;
+  & i {
+  color: $brand-color;
+  }
+}
+
 .chat-title {
   color: white;
   background-color: #00C8CF;
