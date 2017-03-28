@@ -1,6 +1,6 @@
 <div class="embedded-form">
   <%= simple_form_for user, remote: true do |f| %>
-    <%= f.input :date_of_birth, as: :string, input_html:{ class:"datepicker" } %>
+    <%= f.input :date_of_birth, as: :string, input_html:{ class:"birth_datepicker" } %>
     <%= f.submit 'Save', class: "btn btn-primary save-step" %>
   <% end %>
 </div>
