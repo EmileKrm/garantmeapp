@@ -84,6 +84,9 @@
 
 .requirements-title-container {
   text-align: center;
+  h4 {
+    color: $brand-title;
+  }
 }
 
 .dashboard-user-feature-icon-container {
@@ -166,4 +169,23 @@
 
 #message-area {
   font-size: 12px;
+}
+
+.message-form-container form input[type="submit"]{
+    background: none;
+    font-family: 'Open Sans', 'Helvetica';
+    border: none;
+    font-weight: bold;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.message-form-container form input[type="submit"]:hover{
+  color: $brand-light-color;
+}
+
+.message-form-container i {
+    font-weight: bold;
+    font-size: 12px;
+    cursor: pointer;
 }
