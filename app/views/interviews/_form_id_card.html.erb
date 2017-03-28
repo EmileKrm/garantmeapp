@@ -5,7 +5,8 @@ https://github.com/ncuesta/dropzonejs-rails -->
 <div class="embedded-form">
   <%= simple_form_for interview, remote: true do |f| %>
     <div class="fallback">
-      <%= f.attachinary_file_field :id_card, label: false, html: {class: "dropzone"} %>
+      <%= f.label "Identity card" %>
+      <%= f.attachinary_file_field :id_card, label: false, html: { class: "dropzone" } %>
       <%= f.submit 'Save', class: "btn btn-primary save-step" %>
     </div>
   <% end %>
