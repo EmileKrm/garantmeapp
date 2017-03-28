@@ -4,15 +4,12 @@
 }
 
 .body-container-footer {
-  position: relative;
-  margin-top: 70px;
   height: calc(100vh - 154px);
   width: 100vw;
   overflow: scroll;
 }
 
 .body-container-no-footer {
-  margin-top: 70px;
   height: calc(100vh - 70px);
   width: 100vw;
   padding: 20px 0 20px 0;
@@ -31,4 +28,12 @@
 
 .gray {
   background-color: #F5F5F5;
+}
+
+.body-container-flex {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

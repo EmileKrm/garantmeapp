@@ -41,18 +41,20 @@
                 <% end %>
               </li>
             <% end %>
-            <% if current_user.interviews.empty? %>
-              <li class ="profile-one <%= "hidden" if current_user.is_manager == true  %>">
-                <%= link_to new_interview_path do %>
-                  <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
-                <% end %>
-              </li>
-            <% else %>
-              <li>
-                <%= link_to interview_path (current_user.interviews.last.id) do %>
-                  <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
-                <% end %>
-              </li>
+            <% if user_signed_in? %>
+              <% if current_user.interviews.empty? %>
+                <li class ="profile-one <%= "hidden" if current_user.is_manager == true  %>">
+                  <%= link_to new_interview_path do %>
+                    <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
+                  <% end %>
+                </li>
+              <% else %>
+                <li>
+                  <%= link_to interview_path (current_user.interviews.last.id) do %>
+                    <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
+                  <% end %>
+                </li>
+              <% end %>
             <% end %>
             <li>
               <%= link_to root_path do %>
@@ -82,9 +84,40 @@
     <div class="dropdown">
       <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
       <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-        <li><a href="#">Some mobile link</a></li>
-        <li><a href="#">Other one</a></li>
-        <li><a href="#">Other one</a></li>
+            <% if user_signed_in? %>
+              <% if current_user.is_manager %>
+                <li>
+                  <%= link_to organisations_path do %>
+                    <i class="fa fa-tachometer"></i> <%= t(".dashboard", default: "Dashboard") %>
+                  <% end %>
+                </li>
+              <% end %>
+            <% end %>
+            <% if user_signed_in? %>
+              <% if current_user.interviews.empty? %>
+                <li class ="profile-one <%= "hidden" if current_user.is_manager == true  %>">
+                  <%= link_to new_interview_path do %>
+                    <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
+                  <% end %>
+                </li>
+              <% else %>
+                <li>
+                  <%= link_to interview_path (current_user.interviews.last.id) do %>
+                    <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
+                  <% end %>
+                </li>
+              <% end %>
+            <% end %>
+            <li>
+              <%= link_to root_path do %>
+                <i class="fa fa-home"></i>  <%= t(".profile", default: "Home") %>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to destroy_user_session_path, method: :delete do %>
+                <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
+              <% end %>
+            </li>
       </ul>
     </div>
   </div>

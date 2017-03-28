@@ -13,14 +13,29 @@
 }
 
 .chat-button{
-  border-radius: 3px;
-  box-shadow: 1px 1px 2px rgba(0,0,0,0.1);
-  background: white;
+  border-radius: 10px;
+  box-shadow: 2px 4px 2px rgba(0,0,0,0.1);
+  background: $brand-color;
   width: 50px;
-  padding: 5px;
+  height: 50px;
+  padding: 5px 5px 10px 5px;
   position: fixed;
   right: 25px;
   bottom: 25px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  & i {
+    font-size: 35px;
+    color: white;
+  }
+}
+
+.chat-button:hover {
+  background-color: white;
+  & i {
+  color: $brand-color;
+  }
 }
 
 .chat-title {
@@ -31,51 +46,93 @@
   height: 50px;
   display: flex;
   justify-content: space-around;
-  align-items: center
+  align-items: center;
 }
 
+
+
 .chat-sub-title {
-  font-size: 12px;
+  font-size: 10px;
   color: #6c6c6c;
   padding: 10px;
   display: flex;
   justify-content: center;
   border-bottom: 1px;
   border-bottom-style: solid;
-  border-bottom-color: #C1C1C1;
+  border-bottom-color: #eee;
 }
 
 
-.message {
+//////////////////////////////////////////////////////////
+
+
+.chat-message {
   padding: 10px 0 5px 0;
   border-bottom: solid 1px #eee;
 }
 
-.message-form {
+.chat-message-form {
   display: felx;
   justify-content: space-around;
 }
 
-.message-sender {
-  font-size: 14px;
+.chat-message-sender {
+  font-size: 13px;
   font-weight: bold;
   color: $brand-primary;
   margin: 0;
 }
 
-.message-timestamp {
+.chat-message-timestamp {
   font-size: 10px;
 }
 
-.message-content {
-  font-size: 12px;
+.chat-messages-container {
+  padding: 0 20px 0 20px;
+  max-height: 40vh;
+  overflow: scroll;
+}
+
+.chat-message-content {
+  font-size: 11px;
   margin-left: 15px;
 }
 
-.message-form-container {
+.chat-message-form-container {
   margin-top: 20px;
+  padding: 0 20px 0 20px;
 }
 
-#message-area {
+#chat-message-area {
   font-size: 12px;
+}
+
+.submit-container {
+  float: right;
+  padding-bottom: 10px;
+  color: $brand-primary;
+  transition: all 0.3s ease 0s;
+}
+
+.submit-container:hover {
+  color: $brand-light-color;
+}
+
+.chat-message-form-container form input[type="submit"]{
+    background: none;
+    font-family: 'Open Sans', 'Helvetica';
+    border: none;
+    font-weight: bold;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.chat-message-form-container form input[type="submit"]:hover{
+  color: $brand-light-color;
+}
+
+.chat-message-form-container i {
+    font-weight: bold;
+    font-size: 12px;
+    cursor: pointer;
 }
