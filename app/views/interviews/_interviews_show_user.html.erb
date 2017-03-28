@@ -12,13 +12,13 @@
   <%= @user.date_of_birth unless @user.date_of_birth.nil? %>
   <div class="user-show-organisation"> <%= @user.organisation.name.upcase unless @user.organisation.nil? %></div>
   <div class="interviews-show-links">
-    <%= link_to create_pdf_path(@interview), method: :post, class: "interview-link" do %>
+    <%= link_to interview_path(@interview), method: :get, class: "interview-link" do %>
       <i class="fa fa-share-square-o fa-fw" aria-hidden="true"></i>
     <% end %>
-    <%= link_to edit_user_path, class: "interview-link"  do %>
+    <%= link_to interview_path(@interview, format: :pdf), method: :get, class: "interview-link" do %>
       <i class="fa fa-print fa-fw" aria-hidden="true"></i>
     <% end %>
-    <%= link_to edit_user_path, class: "interview-link"  do %>
+    <%= link_to edit_user_path, class: "interview-link" do %>
     <i class="fa fa-pencil fa-fw"></i>
     <% end %>
   </div>
