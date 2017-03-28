@@ -9,6 +9,11 @@ class InterviewPolicy < ApplicationPolicy
     true
   end
 
+  def show?
+    record.user == user
+    # scope.where(:id => record.id).exists?
+  end
+
   def update?
     record.user == user
   end
