@@ -39,7 +39,7 @@
   }
 
   h5 {
-    color: $brand-primary;
+    color: $brand-title;
   }
 }
 
@@ -64,16 +64,17 @@
   justify-content: center;
   padding: 0 15px 0 15px;
   font-size: 25px;
-  color: $brand-primary;
+  color: $brand-icons;
 }
 
 .dashboard-user-card-right-item-text-title {
-  color: $brand-primary;
+  color: $brand-title;
 }
 .dashboard-user-card-right-item-text {
   p {
     margin: 0;
     font-size: 12px;
+    color: $brand-title;
   }
 }
 
@@ -121,6 +122,7 @@
 .student-info-container {
   display: flex;
   align-items: center;
+  justify-content: space-around;
   width: 100%;
 }
 
@@ -133,7 +135,7 @@
 
 .student-info-container i {
   letter-spacing: 15px;
-  color: $brand-primary;
+  color: $brand-icons;
   font-size: 15px;
 }
 
