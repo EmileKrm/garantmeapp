@@ -1,8 +1,14 @@
 <div class="navbar-wagon <%= yield(:navbar_class) %>">
   <!-- Logo -->
   <div class="navbar-wagon-brand">
-    <%= link_to root_path do %>
-      <%= image_tag "logo-garantme.png" %>
+    <% if controller_name == "pages" && action_name == "home" %>
+      <%= link_to root_path do %>
+        <%= image_tag "Garantme-logo-white.png" %>
+      <% end %>
+    <% else %>
+      <%= link_to root_path do %>
+        <%= image_tag "Garantme-logo-black.png" %>
+      <% end %>
     <% end %>
   </div>
 
