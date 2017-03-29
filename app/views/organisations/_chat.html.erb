@@ -10,7 +10,7 @@
     <div class="row">
       <div class="col-xs-12">
 
-        <div class="messages-container">
+        <div class="messages-container" id="m-container">
           <% @messages.each do |message|%>
             <div class="message">
               <p class="message-sender"><%= message.sender.first_name %> <%= message.sender.last_name %></p>
