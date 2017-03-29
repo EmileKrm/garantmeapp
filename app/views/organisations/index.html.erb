@@ -1,12 +1,12 @@
 <% content_for(:title_tag) do %>
-  <% @organisation.name %>
+  Manager view
 <% end %>
 
 <div class="container no-padding body-container-no-footer">
   <div class="header">
     <div class="profile">
     <div class="user-show-photo"><%= user_picture_avatar(current_user, "avatar organisation-avatar") %></div>
-      <h1><%= @organisation.name %></h1>
+      <h1><%= @user.first_name %>, Manager @Garantme</h1>
     </div>
     <div class="container-fluid no-padding">
       <div class="row">

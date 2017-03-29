@@ -5,6 +5,7 @@ class OrganisationsController < ApplicationController
   def index
     @organisations = policy_scope(Organisation)
     @interviews = helpers.fetch_interviews(params[:tab])
+    @user = current_user
   end
 
   def show
