@@ -1,0 +1,68 @@
+<div class="summary-interview-info">
+  <!-- Getting the questions from the yml -->
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-6">
+        <div class="edit-later-container">
+          <div class="show-user-left">
+          <%= user_picture_avatar(current_user, "interview-show-avatar avatar-bordered-xl") %>
+          <h2>Personal Information</h2>
+          <%= link_to edit_later_path(@interview), class: "interview-link"  do %>
+          <i class="fa fa-pencil fa-fw"></i>
+          <% end %>
+          </div>
+          <div class="v-separator"></div>
+          <div class="show-user-right">
+            <%= render "category_questions", category: "personal_info" %>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-6">
+        <div class="edit-later-container">
+          <div class="show-user-left">
+          <%= image_tag "cash.svg", class: "interview-image" %>
+          <h2>Financial Information</h2>
+          <%= link_to edit_later_path(@interview), class: "interview-link"  do %>
+          <i class="fa fa-pencil fa-fw"></i>
+          <% end %>
+          </div>
+          <div class="v-separator"></div>
+          <div class="show-user-right">
+            <%= render "category_questions", category: "financial_info" %>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xs-12 col-sm-6">
+        <div class="edit-later-container">
+          <div class="show-user-left">
+            <%= image_tag "house.svg", class: "interview-image" %>
+            <h2>Apartment Information</h2>
+            <%= link_to edit_later_path(@interview), class: "interview-link"  do %>
+            <i class="fa fa-pencil fa-fw"></i>
+            <% end %>
+          </div>
+          <div class="v-separator"></div>
+          <div class="show-user-right">
+            <%= render "category_questions", category: "apartment_info" %>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-6">
+        <div class="edit-later-container">
+          <div class="show-user-left">
+            <%= image_tag "folder.png", class: "interview-image" %>
+           <h2>Supporting Documents</h2>
+           <%= link_to edit_later_path(@interview), class: "interview-link"  do %>
+            <i class="fa fa-pencil fa-fw"></i>
+            <% end %>
+          </div>
+          <div class="v-separator"></div>
+          <div class="show-user-right">
+            <%= render "category_questions", category: "supporting_doc" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
