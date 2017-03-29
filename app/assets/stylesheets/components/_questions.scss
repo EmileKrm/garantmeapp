@@ -35,7 +35,12 @@
 }
 
 .dropzone {
+  min-height: 127px;
   border: 2px dashed $border-gray;
+}
+
+#dropzone-container {
+  padding-left: 113px;
 }
 
 .submit-all-form {
