@@ -35,7 +35,7 @@
 }
 
 .dropzone {
-  min-height: 127px;
+  min-height: 110px;
   border: 2px dashed $border-gray;
 }
 
@@ -189,7 +189,7 @@
         background: #fff;
         border: 2px solid #34bc9b;
         color: #34bc9b;
-        z-index: 2;
+        z-index: 10;
         position: absolute;
         left: 0;
         text-align: center;
@@ -251,4 +251,8 @@
     color: $brand-color !important;
     text-align: center;
   }
+}
+
+.round-tab {
+  z-index: 10;
 }
