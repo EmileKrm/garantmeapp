@@ -35,6 +35,7 @@ before_action :set_interview, only: [:show, :edit, :update, :edit_later, :create
         # Now that the pdf is created, I save it, upload it to cloudinary, and attach it to my model with attachinary
         key = SecureRandom.base64
         file_name = "#{@user.first_name}_#{@user.last_name}_#{key}.pdf"
+        # raise
         pdf.save file_name
 
         Cloudinary::Uploader.upload(file_name, :public_id => key)
