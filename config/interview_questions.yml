@@ -105,18 +105,18 @@
   short_title: "Last Name"
 
 
-- question_type: "date"
-  title: "What is your date of birth?"
-  description: "pre-filled by linkedin, you can edit or press enter"
-  answer_options: ""
-  next_question: 11
-  next_question_if_true: ""
-  next_question_if_false: ""
-  model: "user"
-  field: "date_of_birth"
-  category: "personal_info"
-  icon: '<i class="fa fa-birthday-cake" aria-hidden="true"></i>'
-  short_title: "DOB"
+# - question_type: "date"
+#   title: "What is your date of birth?"
+#   description: "pre-filled by linkedin, you can edit or press enter"
+#   answer_options: ""
+#   next_question: 11
+#   next_question_if_true: ""
+#   next_question_if_false: ""
+#   model: "user"
+#   field: "date_of_birth"
+#   category: "personal_info"
+#   icon: '<i class="fa fa-birthday-cake" aria-hidden="true"></i>'
+#   short_title: "DOB"
 
 
 - question_type: "phone"
