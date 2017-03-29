@@ -4,6 +4,7 @@ ActiveAdmin.register Interview do
   :has_a_cosigner, :address, :status, :landlord_email, :monthly_rent, :interview_completed,
   :documents_submitted, :documents_validated, :agreement_signed, :lease_provided, :lease_signed
 
+  # Displayed columns in interview index
   index do
     selectable_column
     column :id
@@ -13,16 +14,19 @@ ActiveAdmin.register Interview do
     column :monthly_income
     column :monthly_budget
     column :organisation
+    # linked user email to user show
     column "User id" do |itw|
       unless itw.user_id.nil?
-        link_to "#{itw.user_id}", admin_user_path(itw.user)
+        link_to "#{itw.user.email}", admin_user_path(itw.user)
       else
         "No name submitted"
       end
     end
+    # allows edit view and delete
     actions
   end
 
+  # View of edit
   form do |f|
     f.inputs "Logistics" do
       f.input :move_in_date

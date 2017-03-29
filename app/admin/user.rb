@@ -31,7 +31,7 @@ ActiveAdmin.register User do
       f.input :linkedin_first_name
       f.input :last_name
       f.input :linkedin_last_name
-      f.input :date_of_birth
+      f.input :date_of_birth, :start_year => 1950
       f.input :linkedin_picture_url
       f.input :current_status
       f.input :organisation_id
