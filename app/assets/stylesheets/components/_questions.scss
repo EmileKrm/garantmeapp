@@ -19,6 +19,7 @@
     font-size: 1.3rem;
     color: #b2b2bd;
   }
+
 }
 
 .green-tick {
@@ -62,7 +63,7 @@
 
 .question {
 
-  min-height: 270px;
+  min-height: 280px;
 
   .btn {
     width: 200px;
@@ -117,7 +118,7 @@
         position: relative;
     }
     .nav-tabs > li {
-        width: 5.5%;
+        width: 6.5%;
         position: relative;
         &:after {
             content: '';
