@@ -24,6 +24,8 @@
 #dropzone-div {
   height: 87vh;
   overflow: scroll;
+  display: flex;
+  justify-content: space-around;
 }
 
 .interviews-show-links {
