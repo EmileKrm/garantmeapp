@@ -20,6 +20,12 @@
   transition: box-shadow .2s ease-in-out;
 }
 
+.interviews-show-links {
+  a {
+    text-decoration: none;
+  }
+}
+
 .separator {
   border-style: solid;
   border-width: 1px;
@@ -77,7 +83,7 @@
 
 
 .user-show-full-name{
-  color: $brand-color;
+  color: $brand-title;
 }
 
 
@@ -148,4 +154,6 @@
 
 .interview-image {
   width: 100px;
+  border-bottom: 2px solid $border-gray;
+  padding-bottom: 15px;
 }

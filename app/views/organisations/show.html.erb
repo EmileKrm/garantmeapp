@@ -50,6 +50,11 @@
 
 <% content_for(:js) do %>
   <%= javascript_tag do %>
+   function updateScroll(){
+    var element = document.getElementById("m-container");
+    element.scrollTop = element.scrollHeight;
+    }
+
     $(document).ready(function() {
       $( ".activable-feature" ).click(function(e) {
         $(this).toggleClass( "active-feature" );
@@ -69,9 +74,11 @@
           type: "GET",
           url: url
         });
+        updateScroll()
       })
     });
   <% end %>
 <% end %>
+
 
 

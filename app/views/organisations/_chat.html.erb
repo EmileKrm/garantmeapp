@@ -10,7 +10,7 @@
     <div class="row">
       <div class="col-xs-12">
 
-        <div class="messages-container">
+        <div class="messages-container" id="m-container">
           <% @messages.each do |message|%>
             <div class="message">
               <p class="message-sender"><%= message.sender.first_name %> <%= message.sender.last_name %></p>
@@ -24,10 +24,17 @@
             <div class="form-group">
               <textarea class="form-control" id="message-area" rows="3"></textarea>
             </div>
-            <button type="submit" class="btn btn-xs btn-primary">Submit</button>
+             <div class="submit-container">
+                <i class="fa fa-send"></i><input type="submit" value="Send Message"></input>
+            </div>
           </form>
         </div>
       </div>
     </div>
   </div>
 </div>
+
+
+
+
+

@@ -21,6 +21,23 @@
   }
 }
 
+.green-tick {
+  display: flex;
+
+  i {
+    font-size: 25;
+    margin-left: 10px;
+  }
+
+  p {
+    margin: 0;
+  }
+}
+
+.dropzone {
+  border: 2px dashed $border-gray;
+}
+
 .submit-all-form {
   margin-top: 30px;
   display: flex;
@@ -67,6 +84,13 @@
 
 .embedded-form {
   width: 300px;
+
+  .btn {
+  width: 200px;
+  margin-right: 20px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
 }
 
 .done-button {

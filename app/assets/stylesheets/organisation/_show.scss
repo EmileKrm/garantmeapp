@@ -39,7 +39,7 @@
   }
 
   h5 {
-    color: $brand-primary;
+    color: $brand-title;
   }
 }
 
@@ -64,16 +64,17 @@
   justify-content: center;
   padding: 0 15px 0 15px;
   font-size: 25px;
-  color: $brand-primary;
+  color: $brand-icons;
 }
 
 .dashboard-user-card-right-item-text-title {
-  color: $brand-primary;
+  color: $brand-title;
 }
 .dashboard-user-card-right-item-text {
   p {
     margin: 0;
     font-size: 12px;
+    color: $brand-title;
   }
 }
 
@@ -83,6 +84,9 @@
 
 .requirements-title-container {
   text-align: center;
+  h4 {
+    color: $brand-title;
+  }
 }
 
 .dashboard-user-feature-icon-container {
@@ -121,6 +125,7 @@
 .student-info-container {
   display: flex;
   align-items: center;
+  justify-content: space-around;
   width: 100%;
 }
 
@@ -133,7 +138,7 @@
 
 .student-info-container i {
   letter-spacing: 15px;
-  color: $brand-primary;
+  color: $brand-icons;
   font-size: 15px;
 }
 
@@ -164,4 +169,29 @@
 
 #message-area {
   font-size: 12px;
+}
+
+.message-form-container form input[type="submit"]{
+    background: none;
+    font-family: 'Open Sans', 'Helvetica';
+    border: none;
+    font-weight: bold;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.message-form-container form input[type="submit"]:hover{
+  color: $brand-light-color;
+}
+
+.message-form-container i {
+    font-weight: bold;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.messages-container {
+  max-height: 40vh;
+  overflow: scroll;
+  padding: 0 20px 0 20px;
 }

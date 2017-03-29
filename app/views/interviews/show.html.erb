@@ -4,30 +4,34 @@
   Dashboard
 <% end %>
 <!-- End of page title-->
-<div class="wrapper bg-light-gray show-container-padding">
-  <div class="container-fluid">
-    <div class="row">
+<div class="container-fluid">
+  <div class="wrapper bg-light-gray show-container-padding">
+      <div class="row">
 
-      <div class="col-xs-12 col-md-6">
-        <div class="interview-show-top-left-container">
-          <%= render "interviews_show_user" %>
+        <div class="col-xs-12 col-md-7">
+          <div class="interview-show-top-left-container">
+            <%= render "interviews_show_user" %>
+          </div>
+
+          <div class="interview-show-top-left-container">
+            <%= render "interviews-show-my-interview" %>
+          </div>
+
         </div>
-
-        <div class="interview-show-top-left-container">
-          <%= render "interviews-show-my-interview" %>
+        <div class="col-xs-12 col-md-5">
+          <div class="interview-show-top-left-container">
+            <div class="row">
+              <%= render "form_show_interview", interview: @interview %>
+            </div>
+          </div>
         </div>
-
       </div>
-    </div>
   </div>
-
-
-
-
+</div>
 
 <%= link_to "#", id:"show-chat" do %>
   <div class="chat-button" >
-    <%= image_tag "chat.svg" %>
+    <i class="fa fa-commenting-o"></i>
   </div>
 <% end %>
 
