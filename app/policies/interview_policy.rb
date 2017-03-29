@@ -10,7 +10,7 @@ class InterviewPolicy < ApplicationPolicy
   end
 
   def show?
-    record.user == user
+    record.user == user || user.is_manager
     # scope.where(:id => record.id).exists?
   end
 
