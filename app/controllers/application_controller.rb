@@ -29,7 +29,7 @@ class ApplicationController < ActionController::Base
       admin_dashboard_path
     elsif resource.is_manager?
       organisations_path
-    elsif resource.provider == "linkedin" && resource.interviews.last.id.nil?
+    elsif resource.provider == "linkedin" && resource.interviews.last.nil?
       new_interview_path
     else
       interview_path(resource.interviews.last.id)
