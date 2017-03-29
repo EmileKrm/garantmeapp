@@ -5,12 +5,19 @@
 }
 
 .questionnaire-head {
-  border-bottom-style: solid;
-  border-bottom-color: $green;
-  padding-bottom: 20px;
+
+  padding-bottom: 15px;
+  text-align: center;
+  h1 {
+    font-size: 2rem;
+    color: #1b1b1b;
+    font-weight:bolder;
+  }
 
   p {
-    margin-top: 25px;
+    margin-top: 15px;
+    font-size: 1.3rem;
+    color: #b2b2bd;
   }
 }
 
@@ -58,6 +65,21 @@
     margin-top: 15px;
     margin-bottom: 15px;
   }
+
+  h1 {
+    color: $ash-color;
+    font-size: 2rem;
+  }
+}
+
+.summary-question {
+  h3 {
+  font-size: 12px;
+  color: $brand-title;
+  }
+  p {
+  font-size: 1rem;
+  }
 }
 
 .embedded-form {
@@ -73,8 +95,9 @@
 
 .done-button {
   position: fixed;
-  right: 500px;
-  top: 500px;
+  right: 20px;
+  bottom: 20px;
+  z-index: 1;
   .btn-success {
     width: 200px;
     font-size: 30px;
@@ -100,7 +123,7 @@
             height: 5px;
             top: 30px;
             left: 50%;
-            z-index: 1;
+            z-index: 2;
         }
         &.completed {
             &::after {
@@ -204,4 +227,23 @@
             display: none;
         }
     }
+}
+
+.edit-later-container {
+  background-color: white;
+  width: 100%;
+  border: solid 1px #eeeeee;
+  box-shadow: 0px 2px 7px #e6e6e6;
+  margin: 10px 5px 10px 0px;
+  padding: 15px;
+  transition: box-shadow .2s ease-in-out;
+  min-height: 380px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  h2 {
+    font-size: 14px;
+    color: $brand-color !important;
+    text-align: center;
+  }
 }

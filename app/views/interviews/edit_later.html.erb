@@ -17,24 +17,26 @@
     </div>
 
     <div class="done-button">
-      <%= link_to "I'm done!", interview_path(@interview), class: "btn btn-success btn-lg" %>
+      <%= link_to "Take me back", interview_path(@interview), class: "btn btn-sm btn-primary" %>
     </div>
-    <!-- Getting the questions from the yml -->
-    <% questions_array = YAML.load(open('config/interview_questions.yml').read) %>
 
-    <!-- Starting the loop -->
+    <!-- summary -->
+    <%= render "interview_summary"  %>
 
-    <% questions_array.each_with_index do |question, index| %>
-      <div class="question">
-        <h3><%= question['title'] %></h3>
-        <p><%= question['description'] %></p>
-        <% if question['model'] == 'interview' %>
-          <%= render "form_#{question['field']}", interview: @interview %>
-        <% else %>
-          <%= render "form_#{question['field']}", user: @user %>
-        <% end %>
-      </div>
-    <% end %>
-
+    <div class="edit-form hidden">
+      <!-- Starting the loop -->
+      <% questions_array = YAML.load(open('config/interview_questions.yml').read) %>
+      <% questions_array.each_with_index do |question, index| %>
+        <div class="question">
+          <h3><%= question['title'] %></h3>
+          <p><%= question['description'] %></p>
+          <% if question['model'] == 'interview' %>
+            <%= render "form_#{question['field']}", interview: @interview %>
+          <% else %>
+            <%= render "form_#{question['field']}", user: @user %>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>

@@ -27,11 +27,44 @@ module InterviewsHelper
     end
   end
 
-   def third_step(interview)
+  def third_step(interview)
     if interview.agreement_signed == true
       "completed-s"
     else
       " "
     end
   end
+
+  def answer_logic(user, interview, question)
+
+      if question['model'] == 'interview'
+        if @interview.send(question['field']) == true
+          "yes"
+        elsif question['question_type'] == "attachment"
+          if @interview.send(question['field']).nil?
+            "Not yet submitted"
+          else
+            "Uploaded"
+          end
+        elsif @interview.send(question['field']).nil?
+          "Please complete your details"
+        elsif @interview.send(question['field']) == false
+          "no"
+        else
+          @interview.send(question['field'])
+        end
+      else
+        if @user.send(question['field']) == true
+          "yes"
+        elsif @user.send(question['field']).nil?
+          "Please complete your details"
+        elsif @user.send(question['field'])== false
+          "no"
+        else
+          @user.send(question['field'])
+        end
+      end
+
+  end
+
 end
