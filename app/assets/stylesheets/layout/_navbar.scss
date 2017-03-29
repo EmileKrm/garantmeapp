@@ -11,6 +11,7 @@
   z-index: 1000;
 }
 
+
 .navbar-home{
   position: absolute;
   background-color: transparent;
@@ -52,7 +53,7 @@
 
 /* Navbar standard link */
 .navbar-wagon-link {
-  color: $green;
+  color: $brand-title;
   font-size: 14px;
 }
 .navbar-wagon-link:hover {
