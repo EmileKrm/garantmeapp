@@ -40,7 +40,7 @@
 
 .chat-title {
   color: white;
-  background-color: #00C8CF;
+  background-color: $brand-color;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
   height: 50px;
@@ -52,8 +52,8 @@
 
 
 .chat-sub-title {
-  font-size: 10px;
-  color: #6c6c6c;
+  font-size: 12px;
+  color: $brand-title;
   padding: 10px;
   display: flex;
   justify-content: center;
