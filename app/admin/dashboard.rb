@@ -7,7 +7,11 @@ ActiveAdmin.register_page "Dashboard" do
           ul do
             last_users = User.last(30).reverse
             last_users.map do |user|
-              li link_to("#{user.first_name} #{user.last_name}", admin_user_path(user))
+              if user.first_name == ""
+                li link_to("#{user.email}", admin_user_path(user))
+              else
+                li link_to("#{user.first_name} #{user.last_name}", admin_user_path(user))
+              end
             end
           end
         end
