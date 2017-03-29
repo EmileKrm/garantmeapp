@@ -76,6 +76,10 @@
         updateScroll()
       });
 
+      $('.chat-button').on('click', function () {
+          $(this).toggleClass('clicked');
+      });
+
       $('.chat-message-form').submit(function(e) {
           e.preventDefault();
           var content = "<div class=\"message\"><p class=\"message-sender\"><%= current_user.first_name %> <%= current_user.last_name %></p><p class=\"message-timestamp\">A few seconds ago</p><p class=\"message-content\">" + $("#chat-message-area").val() + "</p></div>"

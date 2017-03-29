@@ -25,15 +25,15 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
-  & i {
+  i {
     font-size: 35px;
     color: white;
   }
 }
 
-.chat-button:hover {
+.clicked {
   background-color: white;
-  & i {
+  i {
   color: $brand-color;
   }
 }
