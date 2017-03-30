@@ -81,7 +81,7 @@ before_action :set_interview, only: [:show, :edit, :update, :edit_later, :create
 
   def update_later
     @user = @interview.user
-    @interview.update_la(interview_params)
+    @interview.update_later(interview_params)
     if @interview.save
       respond_to do |format|
         format.html { redirect_to interview_path(@interview) }
