@@ -40,8 +40,9 @@
   border-width: 0px;
   border-radius: 20px;
   padding: 5px;
-  &:hover {
+  :hover {
     color: $brand-color !important;
+    text-decoration: none;
   }
 }
 
@@ -53,7 +54,7 @@
 
 .show-user-left {
   text-align: center;
-  flex: 2;
+  flex: 1;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -63,7 +64,7 @@
 }
 
 .show-user-right {
-  flex: 3;
+  flex: 1;
   display: flex;
   justify-content: center;
   flex-direction: column;

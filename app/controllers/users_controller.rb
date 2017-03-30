@@ -6,14 +6,57 @@ class UsersController < ApplicationController
   def update
     @user.update(user_params)
     @interview = @user.interviews.last
-    redirect_to interview_path(@interview)
+
+    if @user.update(user_params)
+      respond_to do |format|
+        format.html { redirect_to interview_path(@interview) }
+        format.js  # <-- will render `app/views/reviews/create.js.erb`
+      end
+    else
+      respond_to do |format|
+        format.html { redirect_to interview_path(@interview)}
+        format.js  # <-- idem
+      end
+    end
   end
 
-  def edit_later
+  def update_later
+    @user.update(user_params)
+    @interview = @user.interviews.last
 
+    if @user.update(user_params)
+      respond_to do |format|
+        format.html { redirect_to interview_path(@interview) }
+        format.js  # <-- will render `app/views/reviews/create.js.erb`
+      end
+    else
+      respond_to do |format|
+        format.html { redirect_to interview_path(@interview)}
+        format.js  # <-- idem
+      end
+    end
   end
+
+
 
   private
+
+  def update_data
+    @user.update(user_params)
+    @interview = @user.interviews.last
+
+    if @user.update(user_params)
+      respond_to do |format|
+        format.html { redirect_to interview_path(@interview) }
+        format.js  # <-- will render `app/views/reviews/create.js.erb`
+      end
+    else
+      respond_to do |format|
+        format.html { redirect_to interview_path(@interview)}
+        format.js  # <-- idem
+      end
+    end
+  end
 
   def set_user
     @user = current_user

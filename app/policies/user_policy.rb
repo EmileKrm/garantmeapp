@@ -12,4 +12,8 @@ class UserPolicy < ApplicationPolicy
   def update?
     user == record
   end
+
+  def update_later?
+    user == record
+  end
 end

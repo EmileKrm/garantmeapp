@@ -16,6 +16,8 @@ Rails.application.routes.draw do
   post 'interviews/:id/found_apartment', to: 'interviews#found_apartment'
   get 'interviews/:id/edit_later', to: 'interviews#edit_later', as: :edit_later
   post 'interviews/:id/create_pdf', to: 'interviews#create_pdf', as: :create_pdf
+  post 'interviews/:id', to: 'users#update_later', as: :update_user
+
 
   get 'team', to: 'pages#team'
   get 'contact', to: 'pages#contact'

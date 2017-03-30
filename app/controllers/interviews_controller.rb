@@ -4,7 +4,7 @@ require 'net/http'
 require 'securerandom'
 
 class InterviewsController < ApplicationController
-before_action :set_interview, only: [:show, :edit, :update, :edit_later, :create_pdf]
+before_action :set_interview, only: [:show, :edit, :update, :edit_later, :create_pdf, :update_later]
 
   def show
     respond_to do |format|
@@ -67,6 +67,22 @@ before_action :set_interview, only: [:show, :edit, :update, :edit_later, :create
 
   def edit_later
     @user = @interview.user
+  end
+
+  def update_later
+    @user = @interview.user
+    @interview.update_la(interview_params)
+    if @interview.save
+      respond_to do |format|
+        format.html { redirect_to interview_path(@interview) }
+        format.js  # <-- will render `app/views/reviews/create.js.erb`
+      end
+    else
+      respond_to do |format|
+        format.html { redirect_to interview_path(@interview)}
+        format.js  # <-- idem
+      end
+    end
   end
 
   def found_apartment
