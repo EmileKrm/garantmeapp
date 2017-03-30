@@ -4,4 +4,8 @@ $(document).ready(function(){
     startDate: new Date(),
     autoclose: true
   });
-})
+
+  if(date < startDate ){
+    return [false, 'special']
+  }
+});
