@@ -1,0 +1,11 @@
+<% questions_array = YAML.load(open('config/interview_questions.yml').read) %>
+<% questions_array.each_with_index do |question, index| %>
+  <% if question['category'] != "personal_info" %>
+  $("#<%=index%>_id").html("<%= @interview.send(question['field'])%>")
+  <% end %>
+<% end %>
+
+$("#edit-personal-info").addClass("hidden");
+$("#personal_info").removeClass("hidden");
+
+

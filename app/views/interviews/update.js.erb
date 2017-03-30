@@ -1,5 +1,15 @@
 /*jslint browser: true*/
 /*global $, jQuery, alert*/
+
+<% questions_array = YAML.load(open('config/interview_questions.yml').read) %>
+<% questions_array.each_with_index do |question, index| %>
+  <% if question['model'] == "user" %>
+    $("#<%=index%>_id").html("<%= @user.send(question['field'])%>");
+  <% else %>
+    $("#<%=index%>_id").html("<%= @interview.send(question['field'])%>");
+  <% end %>
+<% end %>
+
 monitorEvents(myDomElem);
 
 (function($) {
@@ -56,7 +66,7 @@ monitorEvents(myDomElem);
 
       $(document).ready(function() {
         $('.stepper').find('.save-step').on('click', function(){
-          console.log("test");
+          console.log("test-ttt");
           $('.stepper').find('.active .next-step').click();
         });
       });
@@ -70,5 +80,6 @@ monitorEvents(myDomElem);
       });
     });
   });
-
 }(jQuery, this));
+
+
