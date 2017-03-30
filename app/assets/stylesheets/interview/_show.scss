@@ -62,17 +62,16 @@
 
 .show-user-left {
   text-align: center;
-  flex: 1;
+  flex: 2;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   padding: 10px;
-  min-width: 260px;
 }
 
 .show-user-right {
-  flex: 1;
+  flex: 3;
   display: flex;
   justify-content: center;
   flex-direction: column;

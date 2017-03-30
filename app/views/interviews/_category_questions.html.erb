@@ -10,7 +10,7 @@
           <div class="interviews-show-user-card-right-item-text-title">
             <%= question['short_title'] %>
           </div>
-            <p><%= answer_logic(@user, @interview, question) %> </p>
+            <p id="<%=index%>_id"><%= answer_logic(@user, @interview, question) %> </p>
         </div>
       </div>
     <% end %>
