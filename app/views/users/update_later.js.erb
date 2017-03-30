@@ -1,7 +1,11 @@
-$(function(){
-  $("#edit-personal-info-btn").click(function(){
-    $("#edit-personal-info").removeClass("hidden");
-    $("#personal_info").addClass("hidden");
-  })
-});
+<% questions_array = YAML.load(open('config/interview_questions.yml').read) %>
+<% questions_array.each_with_index do |question, index| %>
+  <% if question['category'] == "personal_info" %>
+  $("#<%=index%>_id").html("<%= @user.send(question['field'])%>")
+  <% end %>
+<% end %>
+
+$("#edit-personal-info").addClass("hidden");
+$("#personal_info").removeClass("hidden");
+
 
