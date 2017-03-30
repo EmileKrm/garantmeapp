@@ -47,7 +47,7 @@ module InterviewsHelper
             "Uploaded"
           end
         elsif @interview.send(question['field']).nil?
-          "Please complete your details"
+          "Completed"
         elsif @interview.send(question['field']) == false
           "no"
         else
