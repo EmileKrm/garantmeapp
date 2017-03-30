@@ -42,7 +42,11 @@ module OrganisationsHelper
   end
 
   def active_feature?(instance, field)
-    instance[field] ? "active-feature" : ""
+    if field == "documents_submitted"
+      (instance.id_card && instance.school_certificate && instance.proof_of_revenue) ? "active-feature" : ""
+    else
+      instance[field] ? "active-feature" : ""
+    end
   end
 
   def compute_student_stage(student)

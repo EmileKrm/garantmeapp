@@ -19,6 +19,7 @@
     font-size: 1.3rem;
     color: #b2b2bd;
   }
+
 }
 
 .green-tick {
@@ -35,7 +36,12 @@
 }
 
 .dropzone {
+  min-height: 110px;
   border: 2px dashed $border-gray;
+}
+
+#dropzone-container {
+  padding-right: 50px;
 }
 
 .submit-all-form {
@@ -57,7 +63,7 @@
 
 .question {
 
-  min-height: 270px;
+  min-height: 280px;
 
   .btn {
     width: 200px;
@@ -112,7 +118,7 @@
         position: relative;
     }
     .nav-tabs > li {
-        width: 5.5%;
+        width: 6.5%;
         position: relative;
         &:after {
             content: '';
@@ -184,7 +190,7 @@
         background: #fff;
         border: 2px solid #34bc9b;
         color: #34bc9b;
-        z-index: 2;
+        z-index: 10;
         position: absolute;
         left: 0;
         text-align: center;
@@ -246,5 +252,9 @@
     color: $brand-color !important;
     text-align: center;
   }
+}
+
+.round-tab {
+  z-index: 10;
 }
 
