@@ -54,10 +54,10 @@ ActiveRecord::Schema.define(version: 20170323142127) do
     t.integer  "user_id"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
-    t.integer  "organisation_id"
     t.boolean  "has_found_apartment"
     t.string   "arrondissement"
     t.boolean  "has_a_cosigner"
+    t.integer  "organisation_id"
     t.string   "address"
     t.boolean  "status",              default: false
     t.string   "landlord_email"

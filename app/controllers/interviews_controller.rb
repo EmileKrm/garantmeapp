@@ -34,8 +34,11 @@ before_action :set_interview, only: [:show, :edit, :update, :edit_later, :create
           # Here I combine the attachements that are already pdf
           pdf1 = CombinePDF.parse Net::HTTP.get_response(URI.parse('http://res.cloudinary.com/di7e0fdiq/image/upload/' + @interview.proof_of_revenue.path)).body
           pdf2 = CombinePDF.parse Net::HTTP.get_response(URI.parse('http://res.cloudinary.com/di7e0fdiq/image/upload/' + @interview.school_certificate.path)).body
-          pdf << pdf1
+          pdf3 = CombinePDF.parse Net::HTTP.get_response(URI.parse('http://res.cloudinary.com/di7e0fdiq/image/upload/' + @interview.id_card.path)).body
+
+          pdf << pdf3
           pdf << pdf2
+          pdf << pdf1
 
           # Now that the pdf is created, I save it, upload it to cloudinary, and attach it to my model with attachinary
           key = SecureRandom.hex
