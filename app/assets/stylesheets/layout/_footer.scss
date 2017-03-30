@@ -1,1 +1,21 @@
 // Your footer style
+#footer {
+  background: $brand-title;
+  padding: 30px;
+}
+
+#footer a {
+  font-size: 27px;
+  color: gray;
+  transition: 0.3s;
+  padding: 20px 20px 20px 0;
+}
+
+#footer a:hover {
+  color: white;
+  text-decoration: none;
+}
+
+#footer {
+  color: gray;
+}

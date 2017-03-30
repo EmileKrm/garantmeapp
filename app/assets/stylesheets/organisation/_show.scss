@@ -103,7 +103,7 @@
 }
 
 .activable-feature:hover {
-  border: solid 8px #ccc;
+  // border: solid 8px #ccc;
 }
 
 .active-feature {
@@ -188,4 +188,10 @@
     font-weight: bold;
     font-size: 12px;
     cursor: pointer;
+}
+
+.messages-container {
+  max-height: 40vh;
+  overflow: scroll;
+  padding: 0 20px 0 20px;
 }

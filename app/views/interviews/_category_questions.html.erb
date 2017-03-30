@@ -1,0 +1,18 @@
+<div class="summary-question">
+  <% questions_array = YAML.load(open('config/interview_questions.yml').read) %>
+  <% questions_array.each_with_index do |question, index| %>
+    <% if question['category'] == category %>
+      <div class="interviews-show-user-card-right-item">
+        <div class="interviews-show-user-card-right-item-icon">
+          <%= question['icon'].html_safe %>
+        </div>
+        <div class="interviews-show-user-card-right-item-text">
+          <div class="interviews-show-user-card-right-item-text-title">
+            <%= question['short_title'] %>
+          </div>
+            <p><%= answer_logic(@user, @interview, question) %> </p>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</div>

@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>We're sorry, but something went wrong (500)</title>
+  <title>Error 500</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <style>
+
   body {
     background-color: white;
-    color: #2E2F30;
+    color: $brand-title;
     text-align: center;
-    font-family: arial, sans-serif;
+    font-family: "Open Sans", "Helvetica", "sans-serif";
     margin: 0;
   }
 
@@ -18,40 +19,28 @@
     margin: 8em auto 0;
   }
 
-  div.dialog > div {
-    border: 1px solid #CCC;
-    border-right-color: #999;
-    border-left-color: #999;
-    border-bottom-color: #BBB;
-    border-top: #005B66 solid 4px;
-    border-top-left-radius: 9px;
-    border-top-right-radius: 9px;
-    background-color: white;
-    padding: 7px 12% 0;
-    box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
-  }
-
   h1 {
     font-size: 100%;
-    color: #005B66;
+    color: $brand-title;
     line-height: 1.5em;
   }
 
   div.dialog > p {
     margin: 0 0 1em;
     padding: 1em;
-    background-color: #F7F7F7;
-    border: 1px solid #CCC;
-    border-right-color: #999;
-    border-left-color: #999;
-    border-bottom-color: #999;
-    border-bottom-left-radius: 4px;
-    border-bottom-right-radius: 4px;
-    border-top-color: #DADADA;
-    color: #005B66;
-    box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
+    color: $brand-title;
   }
 
+  div.dialog > span {
+    margin: 0 0 1em;
+    padding: 1em;
+    color: $brand-color;
+  }
+
+  img {
+    width: 300px;
+    padding: 30px;
+  }
 
   </style>
 </head>
@@ -59,11 +48,27 @@
 <body>
   <!-- This file lives in public/500.html -->
   <div class="dialog">
-    <a href="http://garantme.fr"><img src="logo_complete.png"></a>
+    <a href="http://garantme.fr"><img src="garantme-logo-black.png"></a>
       <div>
         <h1>Sorry, this page is under maintenance.</h1>
       </div>
-    <p>All our forces are deployed to make it fast.</p>
+    <p>Click on the <strong>logo</strong> to return on the website</p>
   </div>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

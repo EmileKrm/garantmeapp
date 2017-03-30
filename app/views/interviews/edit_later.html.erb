@@ -10,31 +10,40 @@
     <div class="row">
       <div class="col-xs-12">
         <div class="questionnaire-head">
-          <h1>My questionnaire</h1>
+          <h1>My application</h1>
           <p>You can edit the questionnaire below: don't forget to save each question that you change</p>
         </div>
       </div>
     </div>
 
     <div class="done-button">
-      <%= link_to "I'm done!", interview_path(@interview), class: "btn btn-success btn-lg" %>
+      <%= link_to "Take me back", interview_path(@interview), class: "btn btn-sm btn-primary" %>
     </div>
-    <!-- Getting the questions from the yml -->
-    <% questions_array = YAML.load(open('config/interview_questions.yml').read) %>
 
-    <!-- Starting the loop -->
+    <!-- summary -->
+    <div class="summary-interview-info">
+      <%= render "interview_summary"  %>
+    </div>
 
-    <% questions_array.each_with_index do |question, index| %>
-      <div class="question">
-        <h3><%= question['title'] %></h3>
-        <p><%= question['description'] %></p>
-        <% if question['model'] == 'interview' %>
-          <%= render "form_#{question['field']}", interview: @interview %>
-        <% else %>
-          <%= render "form_#{question['field']}", user: @user %>
-        <% end %>
-      </div>
-    <% end %>
+    <!--  -->
+
+
+    <div class="edit-form hidden" id="edit-financial-info">
+
+    <%= render "personal_info_edit", user: @user %>
+
+    </div>
+
+    <div class="edit-form hidden" id="edit-apartment-info">
+
+    <%= render "personal_info_edit", user: @user %>
+
+    </div>
+
+    <div class="edit-form hidden" id="edit-supporting_doc">
+      <% link_to "edit pdfs", interview_path(@interview), class: "btn btn-primary" %>
+    </div>
 
   </div>
 </div>
+

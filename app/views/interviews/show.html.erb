@@ -4,6 +4,7 @@
   Dashboard
 <% end %>
 <!-- End of page title-->
+<div class="container-fluid">
   <div class="wrapper bg-light-gray show-container-padding">
       <div class="row">
 
@@ -18,7 +19,7 @@
 
         </div>
         <div class="col-xs-12 col-md-5">
-          <div class="interview-show-top-left-container">
+          <div class="interview-show-top-left-container" id="dropzone-div">
             <div class="row">
               <%= render "form_show_interview", interview: @interview %>
             </div>
@@ -73,6 +74,10 @@
         event.preventDefault();
         $('#chat').toggleClass('hidden');
         updateScroll()
+      });
+
+      $('.chat-button').on('click', function () {
+          $(this).toggleClass('clicked');
       });
 
       $('.chat-message-form').submit(function(e) {

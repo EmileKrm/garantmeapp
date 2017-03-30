@@ -7,6 +7,10 @@
   next_question_if_false: 5
   model: "interview"
   field: 'has_found_apartment'
+  category: "apartment_info"
+  icon: '<i class="fa fa-home" aria-hidden="true"></i>'
+  short_title: "Apartment?"
+
 
 # - question_type: "address"
 #   title: "Enter the address:"
@@ -17,6 +21,9 @@
 #   next_question_if_false: ""
 #   model: "interview"
 #   field: "address"
+#   category: "sub_apartment_info"
+  # icon: '<i class="fa fa-address-book" aria-hidden="true"></i>'
+  # short_title: "Address?"
 
 # - question_type: "email"
 #   title: "What the email address of the Landlord?"
@@ -27,6 +34,9 @@
 #   next_question_if_false: ""
 #   model: "interview"
 #   field: "landlord_email"
+#   category: "sub_apartment_info"
+  # icon: '<i class="fa fa-at" aria-hidden="true"></i>'
+  # short_title: "Landlord"
 
 # - question_type: "number"
 #   title: "What is your monthly rent?"
@@ -37,6 +47,9 @@
 #   next_question_if_false: ""
 #   model: "interview"
 #   field: "monthly_rent"
+#   category: "sub_apartment_info"
+  # icon: '<i class="fa fa-money" aria-hidden="true"></i>'
+  # short_title: "Rent?"
 
 
 - question_type: "text"
@@ -48,6 +61,9 @@
   next_question_if_false: ""
   model: "interview"
   field: "arrondissement"
+  category: "sub_apartment_info"
+  icon: '<i class="fa fa-map-marker" aria-hidden="true"></i>'
+  short_title: "Arr."
 
 - question_type: "number"
   title: "What is your monthly budget?"
@@ -58,16 +74,9 @@
   next_question_if_false: ""
   model: "interview"
   field: "monthly_budget"
-
-- question_type: "date"
-  title: "What is your expected move-in date?"
-  description: ""
-  answer_options: ""
-  next_question: 8
-  next_question_if_true: ""
-  next_question_if_false: ""
-  model: "interview"
-  field: "move_in_date"
+  category: "financial_info"
+  icon: '<i class="fa fa-money" aria-hidden="true"></i>'
+  short_title: "Budget"
 
 - question_type: "text"
   title: "What is your first name?"
@@ -78,6 +87,9 @@
   next_question_if_false: ""
   model: "user"
   field: "first_name"
+  category: "personal_info"
+  icon: '<i class="fa fa-user-circle" aria-hidden="true"></i>'
+  short_title: "First Name"
 
 - question_type: "text"
   title: "What is your last name?"
@@ -88,16 +100,24 @@
   next_question_if_false: ""
   model: "user"
   field: "last_name"
+  category: "personal_info"
+  icon: '<i class="fa fa-user-circle-o" aria-hidden="true"></i>'
+  short_title: "Last Name"
 
-- question_type: "date"
-  title: "What is your date of birth?"
-  description: "pre-filled by linkedin, you can edit or press enter"
-  answer_options: ""
-  next_question: 11
-  next_question_if_true: ""
-  next_question_if_false: ""
-  model: "user"
-  field: "date_of_birth"
+
+# - question_type: "date"
+#   title: "What is your date of birth?"
+#   description: "pre-filled by linkedin, you can edit or press enter"
+#   answer_options: ""
+#   next_question: 11
+#   next_question_if_true: ""
+#   next_question_if_false: ""
+#   model: "user"
+#   field: "date_of_birth"
+#   category: "personal_info"
+#   icon: '<i class="fa fa-birthday-cake" aria-hidden="true"></i>'
+#   short_title: "DOB"
+
 
 - question_type: "phone"
   title: "What is your phone number?"
@@ -108,16 +128,22 @@
   next_question_if_false: ""
   model: "user"
   field: "phone_number"
+  category: "personal_info"
+  icon: '<i class="fa fa-phone" aria-hidden="true"></i>'
+  short_title: "Number"
 
-- question_type: "dropdown"
-  title: "What is your school's name?"
-  description: "Select other if your school is not in the list"
+- question_type: "date"
+  title: "What is your expected move-in date?"
+  description: ""
   answer_options: ""
-  next_question: 13
+  next_question: 8
   next_question_if_true: ""
   next_question_if_false: ""
   model: "interview"
-  field: "organisation_id"
+  field: "move_in_date"
+  category: "financial_info"
+  icon: '<i class="fa fa-calendar" aria-hidden="true"></i>'
+  short_title: "Move-in"
 
 - question_type: "multiple-choice"
   title: "What is your current status?"
@@ -128,6 +154,22 @@
   next_question_if_false: ""
   model: "user"
   field: "current_status"
+  category: "financial_info"
+  icon: '<i class="fa fa-balance-scale" aria-hidden="true"></i>'
+  short_title: "Status"
+
+- question_type: "dropdown"
+  title: "What is your school's name?"
+  description: "Select other if your school is not in the list"
+  answer_options: ""
+  next_question: 13
+  next_question_if_true: ""
+  next_question_if_false: ""
+  model: "interview"
+  field: "organisation_id"
+  category: "financial_info"
+  icon: '<i class="fa fa-graduation-cap" aria-hidden="true"></i>'
+  short_title: "School"
 
 - question_type: "number"
   title: "What is your monthly income?"
@@ -138,6 +180,9 @@
   next_question_if_false: ""
   model: "interview"
   field: "monthly_income"
+  category: "financial_info"
+  icon: '<i class="fa fa-money" aria-hidden="true"></i>'
+  short_title: "Income"
 
 - question_type: "boolean"
   title: "Can you provide a Co-signer?"
@@ -148,6 +193,9 @@
   next_question_if_false: ""
   model: "interview"
   field: "has_a_cosigner"
+  category: "financial_info"
+  icon: '<i class="fa fa-handshake-o" aria-hidden="true"></i>'
+  short_title: "Co-signer?"
 
 - question_type: "attachment"
   title: "Please attach your ID"
@@ -158,6 +206,9 @@
   next_question_if_false: ""
   model: "interview"
   field: "id_card"
+  category: "supporting_doc"
+  icon: '<i class="fa fa-paperclip" aria-hidden="true"></i>'
+  short_title: "ID"
 
 - question_type: "attachment"
   title: "Please attach your proof of revenue"
@@ -168,6 +219,9 @@
   next_question_if_false: ""
   model: "interview"
   field: "proof_of_revenue"
+  category: "supporting_doc"
+  icon: '<i class="fa fa-paperclip" aria-hidden="true"></i>'
+  short_title: "Revenue"
 
 - question_type: "attachment"
   title: "Please attach your school certificate"
@@ -178,3 +232,7 @@
   next_question_if_false: ""
   model: "interview"
   field: "school_certificate"
+  category: "supporting_doc"
+  icon: '<i class="fa fa-paperclip" aria-hidden="true"></i>'
+  short_title: "Certificate"
+
