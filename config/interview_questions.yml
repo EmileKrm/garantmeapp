@@ -1,6 +1,6 @@
 - question_type: "boolean"
   title: "Have you found an apartment?"
-  description: "We can help you if not"
+  description: "We can help you if you haven’t yet"
   answer_options: ["Yes", "No"]
   next_question: ""
   next_question_if_true: 2
@@ -133,7 +133,7 @@
   short_title: "Number"
 
 - question_type: "date"
-  title: "What is your expected move-in date?"
+  title: "What is your expected Move-in date?"
   description: ""
   answer_options: ""
   next_question: 8
@@ -160,7 +160,7 @@
 
 - question_type: "dropdown"
   title: "What is your school's name?"
-  description: "Select other if your school is not in the list"
+  description: "Select \"Other\" if your school is not in the list"
   answer_options: ""
   next_question: 13
   next_question_if_true: ""
