@@ -14,39 +14,45 @@ before_action :set_interview, only: [:show, :edit, :update, :edit_later, :create
         @messages = Message.where({sender_id: @user}).or(Message.where({receiver_id: @user}))
       end
       format.pdf do
-        @user = @interview.user
+        # if @interview.combined_pdf
+        #   # raise
+        #   redirect_to ('http://res.cloudinary.com/di7e0fdiq/image/upload/' + @interview.combined_pdf.path)
+        #   # send_data @interview.combined_pdf, filename: "#{@interview.user.first_name}_#{@interview.user.last_name}", type: 'application/pdf'
+        # else
+          @user = @interview.user
 
-        # Here, I generate the first part of the pdf, with pictures, text, etc with Prawn
-        prawn_pdf = MergedPdf.new(@interview, @user)
-        prawn_pdf.generate
-        pdf_data = prawn_pdf.render # Import PDF data from Prawn
-        prawn_pdf_converted = CombinePDF.parse(pdf_data)
+          # Here, I generate the first part of the pdf, with pictures, text, etc with Prawn
+          prawn_pdf = MergedPdf.new(@interview, @user)
+          prawn_pdf.generate
+          pdf_data = prawn_pdf.render # Import PDF data from Prawn
+          prawn_pdf_converted = CombinePDF.parse(pdf_data)
 
-        pdf = CombinePDF.new
-        # Here, I add to the merged pdf the pdf created with prawn in the first part
-        pdf << prawn_pdf_converted
+          pdf = CombinePDF.new
+          # Here, I add to the merged pdf the pdf created with prawn in the first part
+          pdf << prawn_pdf_converted
 
-        # Here I combine the attachements that are already pdf
-        pdf1 = CombinePDF.parse Net::HTTP.get_response(URI.parse('http://res.cloudinary.com/di7e0fdiq/image/upload/' + @interview.proof_of_revenue.path)).body
-        pdf2 = CombinePDF.parse Net::HTTP.get_response(URI.parse('http://res.cloudinary.com/di7e0fdiq/image/upload/' + @interview.school_certificate.path)).body
-        pdf << pdf1
-        pdf << pdf2
+          # Here I combine the attachements that are already pdf
+          pdf1 = CombinePDF.parse Net::HTTP.get_response(URI.parse('http://res.cloudinary.com/di7e0fdiq/image/upload/' + @interview.proof_of_revenue.path)).body
+          pdf2 = CombinePDF.parse Net::HTTP.get_response(URI.parse('http://res.cloudinary.com/di7e0fdiq/image/upload/' + @interview.school_certificate.path)).body
+          pdf << pdf1
+          pdf << pdf2
 
-        # Now that the pdf is created, I save it, upload it to cloudinary, and attach it to my model with attachinary
-        key = SecureRandom.base64
-        file_name = "#{@user.first_name}_#{@user.last_name}_#{key}.pdf"
-        # raise
-        pdf.save file_name
+          # Now that the pdf is created, I save it, upload it to cloudinary, and attach it to my model with attachinary
+          key = SecureRandom.hex
 
-        Cloudinary::Uploader.upload(file_name, :public_id => key)
-        # then I need to associate the URL of that picture with the instance @interview
-        url = 'http://res.cloudinary.com/di7e0fdiq/image/upload/' + key
-        @interview.combined_pdf_url = url
+          file_name = "#{@user.first_name}_#{@user.last_name}_#{key}.pdf"
+          pdf.save file_name
 
-        # redirect_to url
+          Cloudinary::Uploader.upload(file_name, :public_id => key)
+          # then I need to associate the URL of that picture with the instance @interview
+          url = 'http://res.cloudinary.com/di7e0fdiq/image/upload/' + key
+          @interview.combined_pdf_url = url
 
-        # Here I need to render the full pdf
-        send_data pdf.to_pdf, filename: file_name, type: 'application/pdf'
+          # redirect_to url
+
+          # Here I need to render the full pdf
+          send_data pdf.to_pdf, filename: file_name, type: 'application/pdf'
+        # end
       end
     end
   end
