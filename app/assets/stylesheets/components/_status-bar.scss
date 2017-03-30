@@ -27,13 +27,15 @@
 .progress_recieved {
   left: 0px;
   position: absolute;
-  top: 0px;
+  top: -7px;
   border-style: solid;
   background-color: white;
   border-radius: 50%;
-  height: 25px;
-  width: 25px;
-  padding-left: 4px;
+  height: 35px;
+  width: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
   border-width: 2px;
   border-color: #e5e5e5;
 }
@@ -41,13 +43,15 @@
 .progress_processing {
   left: 45%;
   position: absolute;
-  top: 0px;
+  top: -7px;
   border-style: solid;
   background-color: white;
   border-radius: 50%;
-  height: 25px;
-  width: 25px;
-  padding-left: 4px;
+  height: 35px;
+  width: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
   border-width: 2px;
   border-color: #e5e5e5;
 }
@@ -55,13 +59,15 @@
 .progress_certified {
   right: 0px;
   position: absolute;
-  top: 0px;
+  top: -7px;
   border-style: solid;
   background-color: white;
   border-radius: 50%;
-  height: 25px;
-  width: 25px;
-  padding-left: 4px;
+  height: 35px;
+  width: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
   border-width: 2px;
   border-color: #e5e5e5;
 }

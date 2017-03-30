@@ -3,7 +3,7 @@
     <%= user_picture_avatar(@student, "avatar-bordered-xl")  %>
     <h5><%= @student.first_name.capitalize %> <%= @student.last_name.capitalize %></h5>
     <p><%= @student.organisation.name.upcase %></p>
-    <%= link_to "See Documents", interview_path(@interview, format: :pdf), method: :get, class: "btn btn-primary btn-xs" %>
+    <%= link_to "See Documents", interview_path(@interview, format: :pdf), method: :get, class: "btn btn-primary btn-xs", style: "padding: 8px" %>
   </div>
 
   <div class="dashboard-user-card-separator">
