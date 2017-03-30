@@ -6,4 +6,8 @@ $(document).ready(function(){
   $('.datepicker').datepicker().on('changeDate',function(e) {
    $('.datepicker').datepicker('hide');
   });
-})
+
+  if(date < startDate ){
+    return [false, 'special']
+  }
+});
