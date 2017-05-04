@@ -5,4 +5,32 @@
   margin-bottom: 15px;
 }
 
+.leads-form {
+  background: white;
+  margin: 0px;
+  padding: 50px;
+  h1 {
+    font-size: 30px;
+    color: $brand-color;
+    padding: 15px;
+    margin: 0px;
+  }
+  h3 {
+    margin: 0 0 0px;
+    padding-bottom: 15px;
+    font-size: 17px;
+    font-weight: lighter;
+    font-family: Open-sans, sans-serif;
+    color: $gray;
+  }
+  input {
+    width: 250px;
+    height: 50px;
+    border-radius: 5px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: $brand-color;
+    text-align: -webkit-center;
+  }
+}
 
