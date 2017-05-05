@@ -1,0 +1,5 @@
+<%= form_for Lead.new do |f| %>
+    <%= f.text_field :lead_first_name, label: false, placeholder: "First name"%>
+    <%= f.text_field :lead_email, label: false, id: "lead-input", placeholder: "E-mail"%>
+    <%= submit_tag  'I\'m interested!', class: "btn btn-primary" %>
+<% end %>

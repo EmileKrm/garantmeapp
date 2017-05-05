@@ -26,6 +26,18 @@ ActiveAdmin.register_page "Dashboard" do
           end
         end
       end
+      #Leads code
+      column do
+        panel "Leads" do
+          ul do
+            last_organisations = Lead.last(30).reverse
+            last_organisations.map do |lead|
+              li link_to("#{lead.lead_first_name} #{lead.lead_email}", admin_lead_path(lead))
+            end
+          end
+        end
+      end
+      #Leads end
     end
   end
 end
