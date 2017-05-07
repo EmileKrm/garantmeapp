@@ -1,0 +1,21 @@
+<div class="summary-question">
+<%= simple_form_for(interview, remote: true, :url => interview_path(interview), method: 'patch') do |f| %>
+  <% questions_array = YAML.load(open('config/interview_questions.yml').read) %>
+  <% questions_array.each_with_index do |question, index| %>
+    <% if question['category'] == "financial_info" %>
+      <div class="interviews-show-user-card-right-item">
+        <div class="interviews-show-user-card-right-item-icon">
+          <%= question['icon'].html_safe %>
+        </div>
+        <div class="interviews-show-user-card-right-item-text">
+          <div class="interviews-show-user-card-right-item-text-title">
+            <%= question['short_title'] %>
+          </div>
+            <p><%= f.input question['field'], label: false %></p>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+  <%= f.submit 'Save', class: "btn btn-primary save-step", id: "save-info-btn", id: "financial_info"%>
+  <% end %>
+</div>

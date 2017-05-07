@@ -12,3 +12,10 @@ $(function(){
     $("#personal_info").addClass("hidden");
   })
 });
+
+$(function(){
+  $("#edit-financial-info-btn").click(function(){
+    $("#edit-financial-info").removeClass("hidden");
+    $("#financial_info").addClass("hidden");
+  })
+});
