@@ -152,8 +152,8 @@
   next_question: 14
   next_question_if_true: ""
   next_question_if_false: ""
-  model: "user"
-  field: "current_status"
+  model: "interview"
+  field: "professional_status"
   category: "financial_info"
   icon: '<i class="fa fa-balance-scale" aria-hidden="true"></i>'
   short_title: "Status"

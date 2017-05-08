@@ -1,23 +1,24 @@
-
 <div class="summary-question">
-<%= simple_form_for(user, remote: true, :url => update_user_path(user), method: 'post') do |f| %>
-  <% questions_array = YAML.load(open('config/interview_questions.yml').read) %>
-  <% questions_array.each_with_index do |question, index| %>
-    <% if question['category'] == "personal_info" %>
-      <div class="interviews-show-user-card-right-item">
-        <div class="interviews-show-user-card-right-item-icon">
-          <%= question['icon'].html_safe %>
-        </div>
-        <div class="interviews-show-user-card-right-item-text">
-          <div class="interviews-show-user-card-right-item-text-title">
-            <%= question['short_title'] %>
+  <%= simple_form_for(user, remote: true, :url => update_user_path(user), method: 'post') do |f| %>
+    <% questions_array = YAML.load(open('config/interview_questions.yml').read) %>
+    <% questions_array.each_with_index do |question, index| %>
+      <% if question['category'] == "personal_info" %>
+        <div class="interviews-show-user-card-right-item">
+          <div class="interviews-show-user-card-right-item-icon">
+            <%= question['icon'].html_safe %>
           </div>
-
-            <p><%= f.input question['field'], label: false %></p>
+          <div class="interviews-show-user-card-right-item-text">
+            <div class="interviews-show-user-card-right-item-text-title">
+              <%= question['short_title'] %>
+            </div>
+              <p><%= f.input question['field'], label: false %></p>
+          </div>
         </div>
-      </div>
+      <% end %>
     <% end %>
-  <% end %>
-  <%= f.submit 'Save', class: "btn btn-primary save-step", id: "save-info-btn" %>
+    <%= f.submit 'Save', class: "btn btn-primary save-step", id: "save-info-btn" %>
   <% end %>
 </div>
+
+
+

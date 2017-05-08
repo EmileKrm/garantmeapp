@@ -24,26 +24,20 @@
     <div class="summary-interview-info">
       <%= render "interview_summary"  %>
     </div>
-
     <!--  -->
 
 
     <div class="edit-form hidden" id="edit-financial-info">
-
-    <%= render "personal_info_edit", user: @user %>
-
+      <%= render "personal_info_edit", user: @user %>
     </div>
 
     <div class="edit-form hidden" id="edit-apartment-info">
-
-    <%= render "personal_info_edit", user: @user %>
-
+      <%= render "personal_info_edit", user: @user %>
     </div>
 
     <div class="edit-form hidden" id="edit-supporting_doc">
       <% link_to "edit pdfs", interview_path(@interview), class: "btn btn-primary" %>
     </div>
-
   </div>
 </div>
 
