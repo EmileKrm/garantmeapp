@@ -37,22 +37,30 @@ module InterviewsHelper
 
   def answer_logic(user, interview, question)
 
+      # first if handles model selection interview vs user
       if question['model'] == 'interview'
+
         if @interview.send(question['field']) == true
           "yes"
+        # manages attachment options
         elsif question['question_type'] == "attachment"
           if @interview.send(question['field']).nil?
             "Not yet submitted"
           else
             "Uploaded"
           end
+
         elsif @interview.send(question['field']).nil?
           "Completed"
+
         elsif @interview.send(question['field']) == false
           "no"
+
         else
           @interview.send(question['field'])
         end
+      # end of second if
+
       else
         if @user.send(question['field']) == true
           "yes"

@@ -145,18 +145,18 @@
   icon: '<i class="fa fa-calendar" aria-hidden="true"></i>'
   short_title: "Move-in"
 
-# - question_type: "multiple-choice"
-#   title: "What is your current status?"
-#   description: ""
-#   answer_options: ""
-#   next_question: 14
-#   next_question_if_true: ""
-#   next_question_if_false: ""
-#   model: "user"
-#   field: "current_status"
-#   category: "financial_info"
-#   icon: '<i class="fa fa-balance-scale" aria-hidden="true"></i>'
-#   short_title: "Status"
+- question_type: "multiple-choice"
+  title: "What is your current status?"
+  description: ""
+  answer_options: ""
+  next_question: 14
+  next_question_if_true: ""
+  next_question_if_false: ""
+  model: "interview"
+  field: "professional_status"
+  category: "financial_info"
+  icon: '<i class="fa fa-balance-scale" aria-hidden="true"></i>'
+  short_title: "Status"
 
 - question_type: "dropdown"
   title: "What is your school's name?"
