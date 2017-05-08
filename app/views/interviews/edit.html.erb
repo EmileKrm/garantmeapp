@@ -102,8 +102,11 @@
                   <div class="summary-container">
                     <%= render "interview_last_page" %>
                     <div class="submit-all-form">
-                      <%= button_to "Submit all", {controller: "interviews", action: 'update', interview_completed: true}, method: :patch, class: "btn btn-primary pull-left" %>
-                      <%= link_to "Not Yet", interview_path(@interview), class: "btn btn-primary pull-right" %>
+                      <%= link_to "Not Yet", interview_path(@interview), class: "btn btn-primary pull-left" %>
+                      <%= button_to "Submit all", {controller: "interviews", action: 'update', interview_completed: true}, method: :patch, class: "btn btn-primary pull-right" %>
+
+
+
                     </div>
                   </div>
 
