@@ -15,7 +15,8 @@
     <h1>We can be your guarantor</h1>
     <p>Garantme lease guarantees help you secure housing in Paris</p>
     <% if user_signed_in? %>
-      <%= link_to "My profile", interview_path(current_user.interviews.last.id), id: 'home-button', class: 'btn btn-primary'%>
+     <!--  <%= link_to "My profile", interview_path(current_user.interviews.last.id), id: 'home-button', class: 'btn btn-primary'%> -->
+     <%= link_to "My Guarantor", edit_interview_path(current_user.interviews.last.id), id: 'home-button', class: 'btn btn-primary'%>
     <% else %>
       <%= link_to "Be my guarantor!", new_user_registration_path, id: 'home-button', class: 'btn btn-primary'%>
     <% end %>

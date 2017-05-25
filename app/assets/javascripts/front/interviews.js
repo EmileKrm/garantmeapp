@@ -1,6 +1,6 @@
-$(document).ready(function() {
-  $('.stepper').find('.save-step').on('click', function(){
-    console.log("test");
-    $('.stepper').find('.active .next-step').click();
-  });
-});
+// $(document).ready(function() {
+//   $('.btn').click(function() {
+//     $(this).addClass('btn-clicked');
+//   });
+// });
+

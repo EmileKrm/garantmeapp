@@ -3,122 +3,56 @@
   Application
 <% end %>
 <!-- End of page title-->
-<div class="container">
-  <div class="questions-container">
 
-    <!-- first row with head -->
-    <div class="row">
-      <div class="col-xs-12">
-        <div class="questionnaire-head">
-          <h1>My application</h1>
-          <p>it will take only 5 minutes of your time!</p>
-        </div>
+
+<div class="container">
+
+  <!-- first row: page header -->
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="questionnaire-head">
+        <h1>My application</h1>
+        <p>it will take only 5 minutes of your time!</p>
       </div>
     </div>
+  </div>
+  <!-- end of first row -->
 
-    <!-- page header -->
-      <div class="panel panel-default">
-        <div class="panel-body">
-          <!-- STEPPER
-            Allows a user to complete steps in a given process.
-
-                * Required base class: .stepper
-                @param .active
-                @param .completed
-                @param .disabled
-
-                Dependencies:
-                  //maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css
-                  //cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js
-                  //maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js
-
-            -->
-          <% questions_array = YAML.load(open('config/interview_questions.yml').read) %>
-          <div class="stepper">
-            <!-- Those are the tab element -->
-            <ul class="nav nav-tabs" role="tablist">
-              <li role="presentation" class="active">
-                <a class="persistant-disabled" href="#stepper-step-1" data-toggle="tab" aria-controls="stepper-step-1" role="tab" title="Step 1">
-                  <span class="round-tab">1</span>
-                </a>
-              </li>
-              <% (1..questions_array.length).to_a.each do |index| %>
-                <li role="presentation" class="disabled">
-                  <a class="persistant-disabled" href=<%= "#stepper-step-" + (index + 1).to_s %> data-toggle="tab" aria-controls=<%= "stepper-step-" + (index + 1).to_s %> role="tab" title=<%= "Step " + (index + 1).to_s %>>
-                    <span class="round-tab"><%= index + 1  %></span>
-                  </a>
-                </li>
-              <% end %>
-            </ul>
-            <!-- End of the tab elements -->
-
-            <!-- Here you have the different forms for each question -->
-
-            <div class="tab-content">
-
-              <!-- start of the loop -->
-              <% questions_array.each_with_index do |question, index| %>
-                <% if index == 0 %>
-                  <div class="tab-pane fade in active" role="tabpanel" id=<%= "stepper-step-" + (index + 1).to_s %>>
-                    <div class="question">
-                      <h3><%= question['title'] %></h3>
-                      <p><%= question['description'] %></p>
-                      <% if question['model'] == 'interview' %>
-                        <%= render "form_#{question['field']}", interview: @interview %>
-                      <% else %>
-                        <%= render "form_#{question['field']}", user: @user %>
-                      <% end %>
-                    </div>
-                    <ul class="list-inline pull-right">
-                      <li>
-                        <a class="btn btn-link next-step">Skip for now</a>
-                      </li>
-                    </ul>
-                  </div>
-                <% else %>
-                  <div class="tab-pane fade" role="tabpanel" id=<%= "stepper-step-" + (index + 1).to_s %>>
-                    <div class="question">
-                      <h3><%= question['title'] %></h3>
-                      <p><%= question['description'] %></p>
-                      <% if question['model'] == 'interview' %>
-                        <%= render "form_#{question['field']}", interview: @interview %>
-                      <% else %>
-                        <%= render "form_#{question['field']}", user: @user %>
-                      <% end %>
-                    </div>
-                    <ul class="list-inline pull-right">
-                      <li>
-                        <a class="btn btn-default prev-step">Back</a>
-                      </li>
-                      <li>
-                        <a class="btn btn-link next-step">Skip for now</a>
-                      </li>
-                    </ul>
-                  </div>
-                <% end %>
-              <% end %>
-
-                <div class="tab-pane fade" role="tabpanel" id=<%= "stepper-step-" + (questions_array.length + 1).to_s %>>
-                  <div class="summary-container">
-                    <%= render "interview_last_page" %>
-                    <div class="submit-all-form">
-                      <%= link_to "Not Yet", interview_path(@interview), class: "btn btn-primary pull-left" %>
-                      <%= button_to "Submit all", {controller: "interviews", action: 'update', interview_completed: true}, method: :patch, class: "btn btn-primary pull-right" %>
-
-
-
-                    </div>
-                  </div>
-
-                </div>
-              </div>
-
-
+  <!-- second row: start of questions -->
+  <div class="row">
+    <div class="col-xs-12">
+      <!-- Loading the questions into questions_array-->
+      <% questions_array = YAML.load(open('config/interview_questions.yml').read) %>
+      <!-- start of the loop -->
+      <% questions_array.each_with_index do |question, index| %>
+        <div class="question text-center">
+          <h3><%= question['title'] %></h3>
+          <p><%= question['description'] %></p>
+          <!-- loads the form partials -->
+          <div class="answer text-center">
+            <% if question['model'] == 'interview' %>
+              <%= render "form_#{question['field']}", interview: @interview %>
+            <% else %>
+              <%= render "form_#{question['field']}", user: @user %>
+            <% end %>
           </div>
+        </div>
+      <% end %>
 
+      <!-- opens the summary page -->
+      <div class="tab-pane fade" role="tabpanel" id=<%= "stepper-step-" + (questions_array.length + 1).to_s %>>
+        <div class="summary-container">
+          <%= render "interview_last_page" %>
+          <div class="submit-all-form">
+            <%= link_to "Not Yet", interview_path(@interview), class: "btn btn-primary pull-left" %>
+            <%= button_to "Submit all", {controller: "interviews", action: 'update', interview_completed: true}, method: :patch, class: "btn btn-primary pull-right" %>
+          </div>
         </div>
       </div>
-    <!-- end -->
 
+    </div>
   </div>
+  <!-- End of second row-->
 </div>
+<!-- End of container -->
+

@@ -16,4 +16,21 @@
   }
 }
 
+.btn {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  min-width: 100px;
+  border-radius: 3px;
+}
 
+.btn-primary {
+  background: $brand-color;
+  color: white;
+  border: solid 2.5px $brand-color;
+}
+
+.btn-primary:active, .btn-primary.active {
+  background: white;
+  color: $brand-color;
+
+}
