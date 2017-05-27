@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170527132855) do
+ActiveRecord::Schema.define(version: 20170527174709) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -70,6 +70,8 @@ ActiveRecord::Schema.define(version: 20170527132855) do
     t.boolean  "lease_signed",        default: false
     t.string   "job_title"
     t.string   "work_place"
+    t.string   "appartment_address"
+    t.string   "landlord_phone"
     t.index ["organisation_id"], name: "index_interviews_on_organisation_id", using: :btree
     t.index ["user_id"], name: "index_interviews_on_user_id", using: :btree
   end

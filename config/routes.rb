@@ -24,10 +24,8 @@ Rails.application.routes.draw do
 
 
   #routes for interviews
-  resources :interviews, only: [:show, :new, :create, :edit, :update, :found_apartment] do
-    #routes for appartments
-    resources :appartment, only: [:new, :create]
-  end
+  resources :interviews, only: [:show, :new, :create, :edit, :update, :found_apartment]
+
   post 'interviews/:id/found_apartment', to: 'interviews#found_apartment'
   get 'interviews/:id/edit_later', to: 'interviews#edit_later', as: :edit_later
   post 'interviews/:id/create_pdf', to: 'interviews#create_pdf', as: :create_pdf

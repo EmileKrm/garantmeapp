@@ -65,8 +65,6 @@
                       <p><%= question['description'] %></p>
                       <% if question['model'] == 'interview' %>
                         <%= render "form_#{question['field']}", interview: @interview %>
-                      <% elsif question['model'] == 'appartment' %>
-                        <%= render "form_ #{question['field']}", appartment: @appartment %>
                       <% else %>
                         <%= render "form_#{question['field']}", user: @user %>
                       <% end %>

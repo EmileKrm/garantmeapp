@@ -125,7 +125,7 @@
   category: "sub_apartment_info"
   icon: '<i class="fa fa-address-book" aria-hidden="true"></i>'
   short_title: "Address?"
-  model: "appartment"
+  model: "interview"
   field: "appartment_address"
 
 - title: "What is your monthly rent including charges?"
@@ -139,14 +139,14 @@
   field: "monthly_rent"
 
 - title: "How can we contact your landlord or lessor"
-  question_type: "number"
-  description: ""
+  question_type: "text"
+  description: "We will let him now that Garantme is backing your application"
   answer_options: ""
   category: "sub_apartment_info"
   icon: '<i class="fa fa-money" aria-hidden="true"></i>'
-  short_title: "Rent?"
+  short_title: "Landlord contact"
   model: "interview"
-  field: "monthly_rent"
+  field: "landlord_contact"
 
 - title: "Are you the only person on the lease?"
   description: "We can help you if you haven’t yet"

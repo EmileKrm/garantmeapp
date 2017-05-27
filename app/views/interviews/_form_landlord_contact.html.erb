@@ -1,6 +1,7 @@
 <div class="embedded-form">
   <%= simple_form_for interview, remote: true do |f| %>
-    <%= f.input :appartment_address, label: false, placeholder: 'number, street type, street name'%>
+    <%= f.input :landlord_email, label: false, placeholder:'example@mail.com' %>
+    <%= f.input :landlord_phone, label: false, placeholder:'+33 00 00 00 00' %>
     <%= f.submit 'Save', class: "btn btn-primary save-step" %>
   <% end %>
 </div>
