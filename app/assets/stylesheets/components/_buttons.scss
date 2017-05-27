@@ -16,4 +16,35 @@
   }
 }
 
+.btn {
+  margin-right: 20px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
 
+.btn:focus, .btn:active:focus, .btn.active:focus {
+    outline: 0 none;
+}
+
+.btn-primary {
+  color: white;
+  background-color: $brand-color;
+  border-color: $brand-color;
+  min-width: 100px;
+  border-radius: 2px;
+  border: solid 2.5px;
+}
+
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary {
+  color: $brand-color;
+  background-color: white;
+  border-color: $brand-color;
+  border: solid 2.5px;
+}
+
+.btn-primary:active, .btn-primary.active {
+  color: $brand-color;
+  background-color: white;
+  border-color: $brand-color;
+  border: solid 2.5px;
+}

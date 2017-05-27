@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170504101627) do
+ActiveRecord::Schema.define(version: 20170527144232) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,6 +27,15 @@ ActiveRecord::Schema.define(version: 20170504101627) do
     t.index ["author_type", "author_id"], name: "index_active_admin_comments_on_author_type_and_author_id", using: :btree
     t.index ["namespace"], name: "index_active_admin_comments_on_namespace", using: :btree
     t.index ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id", using: :btree
+  end
+
+  create_table "appartments", force: :cascade do |t|
+    t.string   "appartment_address"
+    t.integer  "rent"
+    t.string   "landlord_email"
+    t.string   "landlord_number"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
   end
 
   create_table "attachinary_files", force: :cascade do |t|
@@ -68,6 +77,8 @@ ActiveRecord::Schema.define(version: 20170504101627) do
     t.boolean  "agreement_signed",    default: false
     t.boolean  "lease_provided",      default: false
     t.boolean  "lease_signed",        default: false
+    t.string   "job_title"
+    t.string   "work_place"
     t.index ["organisation_id"], name: "index_interviews_on_organisation_id", using: :btree
     t.index ["user_id"], name: "index_interviews_on_user_id", using: :btree
   end

@@ -1,6 +1,6 @@
 <div class="embedded-form">
   <%= simple_form_for interview, remote: true do |f| %>
-    <%= f.input :organisation_id, :collection => Organisation.all.map {|u| [u.name, u.id]}, input_html: {class: "chosen-select chosen-container chosen-container-single chosen-with-drop chosen-container-active"}  %>
+    <%= f.input :organisation_id, label: false, placeholder: 'click for dropdown menu', :collection => Organisation.all.map {|u| [u.name, u.id]}, input_html: {class: "chosen-select chosen-container chosen-container-single chosen-with-drop chosen-container-active"}  %>
     <%= f.submit 'Save', class: "btn btn-primary save-step" %>
   <% end %>
 </div>

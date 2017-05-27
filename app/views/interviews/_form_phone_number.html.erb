@@ -1,6 +1,6 @@
 <div class="embedded-form">
   <%= simple_form_for user, remote: true do |f| %>
-    <%= f.input :phone_number %>
+    <%= f.input :phone_number, label: false, placeholder:'+33 00 00 00 00' %>
     <%= f.submit 'Save', class: "btn btn-primary save-step" %>
   <% end %>
 </div>
