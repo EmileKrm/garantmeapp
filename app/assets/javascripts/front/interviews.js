@@ -1,6 +1,7 @@
 // $(document).ready(function() {
-//   $('.btn').click(function() {
-//     $(this).addClass('btn-clicked');
-//   });
+//   $('.btn').click(function(e) {
+//     e.preventDefault();
+//     $(this).addClass('active');
+//   })
 // });
 

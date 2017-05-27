@@ -1,5 +1,8 @@
 <div class="yes-no-form">
   <%= button_to 'Student', {controller: "interviews", action: 'update', professional_status: 'Student'}, method: :patch, remote: true, class: "btn btn-primary save-step" %>
   <%= button_to 'Working Student',{controller: "interviews", action: 'update', professional_status: 'Working Student'}, method: :patch, remote: true, class: "btn btn-primary save-step" %>
+  <%= button_to 'Expatriate',{controller: "interviews", action: 'update', professional_status: 'Expatriate'}, method: :patch, remote: true, class: "btn btn-primary save-step" %>
+  <%= button_to 'Self-employed',{controller: "interviews", action: 'update', professional_status: 'Self-employed'}, method: :patch, remote: true, class: "btn btn-primary save-step" %>
+  <%= button_to 'Employee',{controller: "interviews", action: 'update', professional_status: 'Employee'}, method: :patch, remote: true, class: "btn btn-primary save-step" %>
   <%= button_to 'Other',{controller: "interviews", action: 'update', professional_status: 'Other'}, method: :patch, remote: true, class: "btn btn-primary save-step" %>
 </div>

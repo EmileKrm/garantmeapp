@@ -60,6 +60,12 @@ source "https://rails-assets.org" do
   gem 'rails-assets-bootstrap-datepicker'
 end
 
+#international phone number
+
+source 'https://rails-assets.org' do
+  gem 'rails-assets-international-phone-number'
+end
+
 #linkedin
 gem 'omniauth-oauth2', '~> 1.3.1'
 gem 'omniauth-linkedin-oauth2'

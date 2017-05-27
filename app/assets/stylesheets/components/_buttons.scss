@@ -17,8 +17,7 @@
 }
 
 .btn {
-  margin-top: 15px;
-  margin-bottom: 15px;
+  margin: 10px;
   min-width: 100px;
   border-radius: 3px;
 }
@@ -27,10 +26,13 @@
   background: $brand-color;
   color: white;
   border: solid 2.5px $brand-color;
+  border-width: 2px !important;
+  border-color: $brand-color !important;
 }
 
-.btn-primary:active, .btn-primary.active {
-  background: white;
-  color: $brand-color;
-
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active{
+    background: white;
+    border: solid 2.5px $brand-color;
+    color: $brand-color;
+    outline: none;
 }
