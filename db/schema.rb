@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170504101627) do
+ActiveRecord::Schema.define(version: 20170528142010) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -52,22 +52,32 @@ ActiveRecord::Schema.define(version: 20170504101627) do
     t.integer  "monthly_income"
     t.boolean  "unique_signator"
     t.integer  "user_id"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
+    t.datetime "created_at",                              null: false
+    t.datetime "updated_at",                              null: false
     t.integer  "organisation_id"
     t.boolean  "has_found_apartment"
     t.string   "arrondissement"
     t.boolean  "has_a_cosigner"
     t.string   "address"
-    t.boolean  "status",              default: false
+    t.boolean  "status",                  default: false
     t.string   "landlord_email"
     t.string   "monthly_rent"
-    t.boolean  "interview_completed", default: false
-    t.boolean  "documents_submitted", default: false
-    t.boolean  "documents_validated", default: false
-    t.boolean  "agreement_signed",    default: false
-    t.boolean  "lease_provided",      default: false
-    t.boolean  "lease_signed",        default: false
+    t.boolean  "interview_completed",     default: false
+    t.boolean  "documents_submitted",     default: false
+    t.boolean  "documents_validated",     default: false
+    t.boolean  "agreement_signed",        default: false
+    t.boolean  "lease_provided",          default: false
+    t.boolean  "lease_signed",            default: false
+    t.string   "job_title"
+    t.string   "work_place"
+    t.string   "appartment_address"
+    t.string   "landlord_phone"
+    t.string   "cosigner_first_name"
+    t.string   "cosigner_last_name"
+    t.integer  "cosigner_monthly_income"
+    t.string   "cosigner_address"
+    t.string   "cosigner_phone"
+    t.string   "cosigner_email"
     t.index ["organisation_id"], name: "index_interviews_on_organisation_id", using: :btree
     t.index ["user_id"], name: "index_interviews_on_user_id", using: :btree
   end

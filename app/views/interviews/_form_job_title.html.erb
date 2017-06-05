@@ -1,6 +1,6 @@
 <div class="embedded-form">
   <%= simple_form_for interview, remote: true do |f| %>
-    <%= f.input :monthly_budget, label: false, placeholder:'in €' %>
+    <%= f.input :job_title, label: false, placeholder: 'Job title'%>
     <%= f.submit 'Save', class: "btn btn-primary save-step" %>
   <% end %>
 </div>
