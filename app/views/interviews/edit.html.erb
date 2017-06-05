@@ -33,6 +33,7 @@
                   //maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js
 
             -->
+
           <% questions_array = YAML.load(open('config/interview_questions.yml').read) %>
           <div class="stepper">
             <!-- Those are the tab element -->
@@ -78,12 +79,26 @@
                 <% else %>
                   <div class="tab-pane fade" role="tabpanel" id=<%= "stepper-step-" + (index + 1).to_s %>>
                     <div class="question">
-                      <h3><%= question['title'] %></h3>
-                      <p><%= question['description'] %></p>
-                      <% if question['model'] == 'interview' %>
-                        <%= render "form_#{question['field']}", interview: @interview %>
+                      <% if question['condition'] %>
+                        <h3><%= question['title'] %></h3>
+                        <p><%= question['description'] %></p>
+                        <p><%= question['condition'] %></p>
+                        <p><%= eval(question['condition1']) %></p>
+                        <p><%= eval(question['condition']) %></p>
+                        <!-- loading of form -->
+                        <% if question['model'] == 'interview' %>
+                          <%= render "form_#{question['field']}", interview: @interview %>
+                        <% else %>
+                          <%= render "form_#{question['field']}", user: @user %>
+                        <% end %>
+                        <!-- end of loading form -->
                       <% else %>
-                        <%= render "form_#{question['field']}", user: @user %>
+                        <!-- javascript to disable the question -->
+                         <% content_for(:js) do %>
+                          <%= javascript_tag do %>
+                          <% end %>
+                        <% end %>
+                        <!-- end of javascritp -->
                       <% end %>
                     </div>
                     <ul class="list-inline pull-right">

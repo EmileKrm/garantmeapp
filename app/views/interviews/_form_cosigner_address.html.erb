@@ -1,0 +1,6 @@
+<div class="embedded-form">
+  <%= simple_form_for interview, remote: true do |f| %>
+  <%= f.input :cosigner_address, label: false, placeholder:'number, street type, street name' %>
+  <%= f.submit 'Save', class: "btn btn-primary save-step" %>
+  <% end %>
+</div>

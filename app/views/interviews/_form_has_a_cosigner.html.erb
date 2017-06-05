@@ -1,6 +1,4 @@
-<div class="embedded-form">
-  <%= simple_form_for interview, remote: true do |f| %>
-    <%= f.input :has_a_cosigner %>
-    <%= f.submit 'Save', class: "btn btn-primary save-step" %>
-  <% end %>
+<div class="yes-no-form">
+  <%= button_to 'Yes', {controller: "interviews", action: 'update', has_a_cosigner: true}, method: :patch, remote: true, class: "btn btn-primary save-step" %>
+  <%= button_to 'No',{controller: "interviews", action: 'update', has_a_cosigner: false}, method: :patch, remote: true, class: "btn btn-primary save-step" %>
 </div>

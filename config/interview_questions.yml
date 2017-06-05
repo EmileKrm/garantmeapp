@@ -1,49 +1,59 @@
 - title: "What is your first name?"
+  condition1: "true"
+  condition: "true"
   description: ""
   answer_options: ""
   question_type: "text"
   category: "personal_info"
-  icon: '<i class="fa fa-user-circle" aria-hidden="true"></i>'
+  icon: '<i class="fa fa-user-circle" ></i>'
   short_title: "First Name"
   model: "user"
   field: "first_name"
 
 - title: "What is your last name?"
+  condition1: "true"
+  condition: "true"
   description: ""
   answer_options: ""
   question_type: "text"
   category: "personal_info"
-  icon: '<i class="fa fa-user-circle" aria-hidden="true"></i>'
+  icon: '<i class="fa fa-user-circle" ></i>'
   short_title: "Last Name"
   model: "user"
   field: "last_name"
 
 - title: "What is your date of birth?"
+  condition1: "true"
+  condition: "true"
   description: ""
   answer_options: ""
   question_type: "date"
   category: "personal_info"
-  icon: '<i class="fa fa-birthday-cake" aria-hidden="true"></i>'
+  icon: '<i class="fa fa-birthday-cake" ></i>'
   short_title: "DOB"
   model: "user"
   field: "date_of_birth"
 
 - title: "What is your phone number?"
+  condition: "true"
+  condition1: "true"
   description: ""
   answer_options: ""
   question_type: "phone"
   category: "personal_info"
-  icon: '<i class="fa fa-phone" aria-hidden="true"></i>'
+  icon: '<i class="fa fa-phone" ></i>'
   short_title: "Number"
   model: "user"
   field: "phone_number"
 
 - title: "What status will you have when you move in?"
+  condition: "true"
+  condition1: "true"
   description: ""
   answer_options: ""
   question_type: "multiple-choice"
   category: "financial_info"
-  icon: '<i class="fa fa-balance-scale" aria-hidden="true"></i>'
+  icon: '<i class="fa fa-balance-scale" ></i>'
   short_title: "Status"
   model: "interview"
   field: "professional_status"
@@ -53,228 +63,262 @@
 #   answer_options: ""
 #   question_type: "text"
 #   category: "financial_info"
-#   icon: '<i class="fa fa-balance-scale" aria-hidden="true"></i>'
+#   icon: '<i class="fa fa-balance-scale" ></i>'
 #   short_title: "Status"
 #   model: "interview"
 #   field: "professional_status"
 
 - title: "Pick your place of studies"
+  condition1: "@interview.professional_status"
+  condition: "@interview.professional_status == \"Student\" || @interview.professional_status == \"Working Student\""
   description: "Your school is a good sign of trust to convince landlords. Select \"Other\" if your school is not in the list"
   question_type: "dropdown"
   answer_options: ""
   category: "financial_info"
-  icon: '<i class="fa fa-graduation-cap" aria-hidden="true"></i>'
+  icon: '<i class="fa fa-graduation-cap" ></i>'
   short_title: "School"
   model: "interview"
   field: "organisation_id"
 
 - title: "Specify your job title"
+  condition: "@interview.professional_status != \"Student\" || @interview.professional_status != \"Working Student\""
+  condition1: "@interview.professional_status"
   description: ""
   question_type: "dropdown"
   answer_options: ""
   category: "financial_info"
-  icon: '<i class="fa fa-graduation-cap" aria-hidden="true"></i>'
+  icon: '<i class="fa fa-graduation-cap" ></i>'
   short_title: "Job"
   model: "interview"
   field: "job_title"
 
 - title: "Specify your place of work"
+  condition: "@interview.professional_status != \"Student\" || @interview.professional_status != \"Working Student\""
+  condition1: "@interview.professional_status"
   description: ""
   question_type: "text"
   answer_options: ""
   category: "financial_info"
-  icon: '<i class="fa fa-graduation-cap" aria-hidden="true"></i>'
+  icon: '<i class="fa fa-graduation-cap" ></i>'
   short_title: "Job"
   model: "interview"
   field: "work_place"
 
 - question_type: "date"
+  condition: "true"
+  condition1: "true"
   title: "What is your expected Move-in date?"
   description: ""
   answer_options: ""
   model: "interview"
   field: "move_in_date"
   category: "financial_info"
-  icon: '<i class="fa fa-calendar" aria-hidden="true"></i>'
+  icon: '<i class="fa fa-calendar" ></i>'
   short_title: "Move-in"
 
 - title: "Have you found an apartment?"
+  condition: "true"
+  condition1: "true"
   description: "We can help you if you haven’t yet"
   answer_options: ["Yes", "No"]
   question_type: "boolean"
   category: "apartment_info"
-  icon: '<i class="fa fa-home" aria-hidden="true"></i>'
+  icon: '<i class="fa fa-home" ></i>'
   short_title: "Apartment?"
   model: "interview"
   field: 'has_found_apartment'
 
 - title: "Which city do you want to live in? "
+  condition: "@interview.has_found_apartment == false"
+  condition1: "true"
   description: ""
   answer_options: ""
   question_type: "text"
   category: "sub_apartment_info"
-  icon: '<i class="fa fa-map-marker" aria-hidden="true"></i>'
+  icon: '<i class="fa fa-map-marker" ></i>'
   short_title: "City"
   model: "interview"
   field: "city"
 
 - title: "Enter the address:"
+  condition: "@interview.has_found_apartment"
+  condition1: "true"
   description: "This address will appear on the contract"
   answer_options: ""
   question_type: "address"
   category: "sub_apartment_info"
-  icon: '<i class="fa fa-address-book" aria-hidden="true"></i>'
+  icon: '<i class="fa fa-address-book" ></i>'
   short_title: "Address?"
   model: "interview"
   field: "appartment_address"
 
 - title: "What is your monthly rent including charges?"
+  condition: "@interview.has_found_apartment"
+  condition1: "true"
   question_type: "number"
   description: ""
   answer_options: ""
   category: "sub_apartment_info"
-  icon: '<i class="fa fa-money" aria-hidden="true"></i>'
+  icon: '<i class="fa fa-money" ></i>'
   short_title: "Rent?"
   model: "interview"
   field: "monthly_rent"
 
 - title: "How can we contact your landlord or lessor"
+  condition: "@interview.has_found_apartment"
+  condition1: "true"
   question_type: "text"
   description: "We will let him now that Garantme is backing your application"
   answer_options: ""
   category: "sub_apartment_info"
-  icon: '<i class="fa fa-money" aria-hidden="true"></i>'
+  icon: '<i class="fa fa-money" ></i>'
   short_title: "Landlord contact"
   model: "interview"
   field: "landlord_contact"
 
 - title: "Are you the only person on the lease?"
-  description: "We can help you if you haven’t yet"
+  condition: "@interview.has_found_apartment"
+  condition1: "true"
+  description: "If you have co-tenants, they need to be on the Garantme contract with you"
   answer_options: ["Yes", "No"]
   question_type: "boolean"
   category: "apartment_info"
-  icon: '<i class="fa fa-home" aria-hidden="true"></i>'
+  icon: '<i class="fa fa-home" ></i>'
   short_title: "Apartment?"
   model: "interview"
   field: 'has_found_apartment'
 
-- title: "Fill in your contenants emails"
-  description: ""
-  answer_options: ["Yes", "No"]
-  question_type: "boolean"
-  category: "apartment_info"
-  icon: '<i class="fa fa-home" aria-hidden="true"></i>'
-  short_title: "Apartment?"
-  model: "interview"
-  field: 'has_found_apartment'
+# - title: "Fill in your contenants emails"
+#   description: ""
+#   answer_options: ["Yes", "No"]
+#   question_type: "boolean"
+#   category: "apartment_info"
+#   icon: '<i class="fa fa-home" ></i>'
+#   short_title: "Apartment?"
+#   model: "interview"
+#   field: 'has_found_apartment'
 
 - title: "What is your monthly budget?"
-  description: ""
+  condition: "@interview.has_found_apartment == false"
+  condition1: "true"
+  description: "It is the amount you are willing to spend on rent"
   answer_options: ""
   question_type: "number"
   category: "financial_info"
-  icon: '<i class="fa fa-money" aria-hidden="true"></i>'
+  icon: '<i class="fa fa-money" ></i>'
   short_title: "Budget"
   model: "interview"
   field: "monthly_budget"
 
 - title: "What is your monthly income?"
-  description: "It's alright if you have none"
+  condition: "true"
+  condition1: "true"
+  description: "It's alright if you have none. it can include financial help and scholarships"
   answer_options: ""
   question_type: "number"
   category: "financial_info"
-  icon: '<i class="fa fa-money" aria-hidden="true"></i>'
+  icon: '<i class="fa fa-money" ></i>'
   short_title: "Income"
   model: "interview"
   field: "monthly_income"
 
 - title: "Can you provide a Responsible Party?"
-  description: "A Responsible Party is a close relative (Father, Mother or Siblings) to the applicant but would not be a signatory on the apartment lease. The co-signer will need to have a minimum anual income of 3.5x the annual rent. We can also combine co-signers to meet the requirements"
+  condition: "true"
+  condition1: "true"
+  description: "A Responsible Party is a close relative (Father, Mother or Siblings) to the applicant but would not be a signatory on the apartment lease. The Responsible Party will need to have a minimum anual income of 3.5x the annual rent. We can also combine co-signers to meet the requirements"
   answer_options: ""
   question_type: "boolean"
   model: "interview"
   field: "has_a_cosigner"
   category: "financial_info"
-  icon: '<i class="fa fa-handshake-o" aria-hidden="true"></i>'
+  icon: '<i class="fa fa-handshake-o" ></i>'
   short_title: "Co-signer?"
 
 - title: "What is your Responsible Party's first name?"
-  description: "pre-filled by linkedin, you can edit or press enter"
+  condition: "@interview.has_a_cosigner"
+  condition1: "true"
+  description: ""
   answer_options: ""
   question_type: "text"
-  category: "personal_info"
-  icon: '<i class="fa fa-user-circle" aria-hidden="true"></i>'
+  category: "financial_info"
+  icon: '<i class="fa fa-user-circle" ></i>'
   short_title: "First Name"
-  model: "user"
-  field: "first_name"
+  model: "interview"
+  field: "cosigner_first_name"
 
 - title: "What is your Responsible Party's last name?"
-  description: "pre-filled by linkedin, you can edit or press enter"
+  condition: "@interview.has_a_cosigner"
+  condition1: "@interview.has_a_cosigner"
+  description: ""
   question_type: "text"
   answer_options: ""
-  category: "personal_info"
-  icon: '<i class="fa fa-user-circle-o" aria-hidden="true"></i>'
+  category: "financial_info"
+  icon: '<i class="fa fa-user-circle-o" ></i>'
   short_title: "Last Name"
-  model: "user"
-  field: "last_name"
+  model: "interview"
+  field: "cosigner_last_name"
 
-- title: "What is your Responsible Party's last name?"
-  description: "This address will appear on the contract"
+- title: "What is your Responsible Party's address?"
+  condition: "@interview.has_a_cosigner"
+  condition1: "@interview.has_a_cosigner"
+  description: ""
   answer_options: ""
   question_type: "address"
   category: "sub_apartment_info"
-  icon: '<i class="fa fa-address-book" aria-hidden="true"></i>'
+  icon: '<i class="fa fa-address-book" ></i>'
   short_title: "Address?"
   model: "interview"
-  field: "address"
+  field: "cosigner_address"
 
 - title: "How can we contact your Responsible Party"
+  condition: "@interview.has_a_cosigner"
+  condition1: "@interview.has_a_cosigner"
   question_type: "number"
   description: ""
   answer_options: ""
   category: "sub_apartment_info"
-  icon: '<i class="fa fa-money" aria-hidden="true"></i>'
+  icon: '<i class="fa fa-money" ></i>'
   short_title: "Rent?"
   model: "interview"
-  field: "monthly_rent"
+  field: "cosigner_contact"
 
 - question_type: "attachment"
+  condition: "true"
+  condition1: "true"
   title: "Please attach your ID"
   description: "It's important so that we're sure you're not a bot"
   answer_options: ""
   next_question: ""
-  next_question_if_true: ""
-  next_question_if_false: ""
   model: "interview"
   field: "id_card"
   category: "supporting_doc"
-  icon: '<i class="fa fa-paperclip" aria-hidden="true"></i>'
+  icon: '<i class="fa fa-paperclip" ></i>'
   short_title: "ID"
 
 - question_type: "attachment"
+  condition: "true"
+  condition1: "true"
   title: "Please attach your proof of revenue"
   description: "It's important so that we're sure you're not out of money"
   answer_options: ""
   next_question: ""
-  next_question_if_true: ""
-  next_question_if_false: ""
   model: "interview"
   field: "proof_of_revenue"
   category: "supporting_doc"
-  icon: '<i class="fa fa-paperclip" aria-hidden="true"></i>'
+  icon: '<i class="fa fa-paperclip" ></i>'
   short_title: "Revenue"
 
 - question_type: "attachment"
+  condition: "true"
+  condition1: "true"
   title: "Please attach your school certificate"
   description: "It's important so that we're sure you're attending the school"
   answer_options: ""
   next_question: ""
-  next_question_if_true: ""
-  next_question_if_false: ""
   model: "interview"
   field: "school_certificate"
   category: "supporting_doc"
-  icon: '<i class="fa fa-paperclip" aria-hidden="true"></i>'
+  icon: '<i class="fa fa-paperclip" ></i>'
   short_title: "Certificate"
 
 
@@ -295,12 +339,12 @@
 #   description: "We can help you if you haven’t yet"
 #   answer_options: ["Yes", "No"]
 #   next_question: ""
-#   next_question_if_true: 2
+#   next_question_if_"true": 2
 #   next_question_if_false: 5
 #   model: "interview"
 #   field: 'has_found_apartment'
 #   category: "apartment_info"
-#   icon: '<i class="fa fa-home" aria-hidden="true"></i>'
+#   icon: '<i class="fa fa-home" ></i>'
 #   short_title: "Apartment?"
 
 
@@ -314,7 +358,7 @@
 # #   model: "interview"
 # #   field: "address"
 # #   category: "sub_apartment_info"
-#   # icon: '<i class="fa fa-address-book" aria-hidden="true"></i>'
+#   # icon: '<i class="fa fa-address-book" ></i>'
 #   # short_title: "Address?"
 
 # # - question_type: "email"
@@ -327,7 +371,7 @@
 # #   model: "interview"
 # #   field: "landlord_email"
 # #   category: "sub_apartment_info"
-#   # icon: '<i class="fa fa-at" aria-hidden="true"></i>'
+#   # icon: '<i class="fa fa-at" ></i>'
 #   # short_title: "Landlord"
 
 # # - question_type: "number"
@@ -340,7 +384,7 @@
 # #   model: "interview"
 # #   field: "monthly_rent"
 # #   category: "sub_apartment_info"
-#   # icon: '<i class="fa fa-money" aria-hidden="true"></i>'
+#   # icon: '<i class="fa fa-money" ></i>'
 #   # short_title: "Rent?"
 
 
@@ -484,7 +528,7 @@
 #   next_question_if_true: ""
 #   next_question_if_false: ""
 #   model: "interview"
-#   field: "has_a_cosigner"
+#   field: "@interview.has_a_cosigner"
 #   category: "financial_info"
 #   icon: '<i class="fa fa-handshake-o" aria-hidden="true"></i>'
 #   short_title: "Co-signer?"
