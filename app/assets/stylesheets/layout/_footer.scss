@@ -2,20 +2,41 @@
 #footer {
   background: $brand-title;
   padding: 30px;
+  color: gray;
+  p {
+    margin: 11px, 0px, 11px !important;
+    font-variant: 12px !important;
+  }
 }
 
-#footer a {
+ #footer a {
   font-size: 27px;
   color: gray;
-  transition: 0.3s;
+  transition: 0.25s;
   padding: 20px 20px 20px 0;
+  &:hover {
+    color: white;
+    text-decoration: none;
+  }
 }
 
-#footer a:hover {
-  color: white;
-  text-decoration: none;
+
+.social-media {
+  h5 {
+    color:$brand-color;
+    font-size: 12px;
+    margin-top: 20px;
+  }
+  ul {
+    margin-left: 0px;
+    padding: 0px;
+  }
 }
 
-#footer {
-  color: gray;
+.copyright {
+  background-color: black;
+  h6 {
+    font-size: 12px;
+    font-color: white;
+  }
 }

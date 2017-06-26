@@ -35,8 +35,10 @@ Rails.application.routes.draw do
   get 'team', to: 'pages#team'
   get 'contact', to: 'pages#contact'
 
-
+  #routes for organisations
   resources :organisations, only: [:index, :show, :new, :create, :edit, :update]
+
+  #attachinary setup
   mount Attachinary::Engine => "/attachinary"
 
 end

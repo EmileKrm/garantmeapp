@@ -15,7 +15,7 @@
     <h1>We can be your guarantor</h1>
     <p>Garantme lease guarantees help you secure housing in Paris</p>
     <% if user_signed_in? %>
-      <%= link_to "My profile", interview_path(current_user.interviews.last.id), id: 'home-button', class: 'btn btn-primary'%>
+      <%= link_to "My Profile", interview_path(current_user.interviews.last.id), id: 'home-button', class: 'btn btn-primary'%>
     <% else %>
       <%= link_to "Be my guarantor!", new_user_registration_path, id: 'home-button', class: 'btn btn-primary'%>
     <% end %>
@@ -34,21 +34,21 @@
         <div class="col-xs-12 col-sm-4 col-md-4">
            <%= image_tag "curriculum.svg" %>
           <h2>Apply</h2>
-          <p>Build your online application and upload supporting documents in English</p>
+          <p>Build your online application and upload supporting documents</p>
         </div>
 
         <!-- second feature -->
         <div class="col-xs-12 col-sm-4 col-md-4">
           <%= image_tag "certificate.svg" %>
           <h2>Get certified</h2>
-          <p>Receive your Garantme guarantee in 12 hours</p>
+          <p>Receive your Garantme certification in 12 hours</p>
         </div>
 
         <!-- third feature -->
         <div class="col-xs-12 col-sm-4 col-md-4">
             <%= image_tag "house.svg" %>
             <h2>Find your home</h2>
-            <p>Find your apartment, pay our fee, and sign your new lease</p>
+            <p>Send us your lease</p>
         </div>
       </div>
     </div>
