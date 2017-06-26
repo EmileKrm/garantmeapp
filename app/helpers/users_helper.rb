@@ -5,7 +5,6 @@ module UsersHelper
   # example: <%= user_picture_avatar(current.user, "avatar-large")
   def user_picture_avatar(user, image_class)
    if user.photo?
-    # cl_image_tag(user.photo.path, { class: image_class})
     cl_image_tag(user.photo.path, { class: image_class})
    else
     avatar_url = user.linkedin_picture_url || "http://placehold.it/100x100"
