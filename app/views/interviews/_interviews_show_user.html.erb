@@ -1,7 +1,9 @@
 
 <div class="show-user-left">
 
-  <div class="user-show-photo"><%= user_picture_avatar(current_user, "interview-show-avatar avatar-bordered-xl") %>
+  <!-- avatar display using helper -->
+  <div class="user-show-photo">
+    <%= user_picture_avatar(current_user, "interview-show-avatar avatar-bordered-xl") %>
   </div>
 
   <div class="user-show-full-name">

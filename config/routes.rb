@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  #attachinary setup
+  mount Attachinary::Engine => "/attachinary"
+
 
 
   get 'leads/new'
@@ -37,8 +40,5 @@ Rails.application.routes.draw do
 
   #routes for organisations
   resources :organisations, only: [:index, :show, :new, :create, :edit, :update]
-
-  #attachinary setup
-  mount Attachinary::Engine => "/attachinary"
 
 end

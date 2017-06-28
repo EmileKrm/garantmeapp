@@ -139,10 +139,6 @@ before_action :set_interview, only: [:show, :edit, :update, :edit_later, :create
     # # then I need to associate the URL of that picture with the instance @interview
     # url = 'http://res.cloudinary.com/di7e0fdiq/image/upload/' + key
     # @interview.combined_pdf_url = url
-
-
-
-
     redirect_to url
   end
 
