@@ -28,7 +28,7 @@ ruby '2.3.3'
 # setup security for keys
 gem 'figaro'
 
-# gem for the drag and drop
+# gem for the dropzone
 gem 'dropzonejs-rails'
 
 #activer admin setup

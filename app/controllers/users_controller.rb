@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user.update(user_params)
+    # @user.update(user_params) deleted because it was updating the model twice
     @interview = @user.interviews.last
 
     if @user.update(user_params)
@@ -21,7 +21,7 @@ class UsersController < ApplicationController
   end
 
   def update_later
-    @user.update(user_params)
+    # @user.update(user_params) deleted because it was updating the model twice
     @interview = @user.interviews.last
 
     if @user.update(user_params)
@@ -42,7 +42,7 @@ class UsersController < ApplicationController
   private
 
   def update_data
-    @user.update(user_params)
+    # @user.update(user_params)
     @interview = @user.interviews.last
 
     if @user.update(user_params)
@@ -66,6 +66,6 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:email, :encrypted_password, :first_name, :last_name,
       :phone_number, :date_of_birth, :home_address, :organisation_id, :is_manager,
-      :provider, :uid, :linkedin_picture_url, :photo)
+      :provider, :uid, :linkedin_picture_url, :photo, :photo_cache)
   end
 end
