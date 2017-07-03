@@ -63,9 +63,9 @@ ActiveAdmin.register User do
     column "Landlord Email" do |itw|
       "#{itw.interviews.last.landlord_email}" unless itw.interviews.last.nil?
     end
-    column "Landlord Phone" do |itw|
-      "#{itw.interviews.last.landlord_phone}" unless itw.interviews.last.nil?
-    end
+    # column "Landlord Phone" do |itw|
+    #   "#{itw.interviews.last.landlord_phone}" unless itw.interviews.last.nil?
+    # end
     # marketing information
     column :sign_in_count
     column :provider
