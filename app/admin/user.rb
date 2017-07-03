@@ -21,8 +21,10 @@ ActiveAdmin.register User do
     column :email
     column :phone_number
     column :organisation
-    column :move_in_date
-    column :created_date
+    column "Move in Date" do |itw|
+      "#{itw.interviews.last.move_in_date}" unless itw.interviews.last.nil?
+    end
+    column :created_at
     column :date_of_birth
     column :home_address
     column "Professional Status" do |itw|
