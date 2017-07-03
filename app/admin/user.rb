@@ -7,9 +7,6 @@ ActiveAdmin.register User do
   index do
     selectable_column
     column :id
-    column :first_name
-    column :last_name
-    column :organisation
     column "Last Interview n°" do |itw|
         unless itw.interviews.last.nil?
           link_to "#{itw.interviews.last.id}", admin_interview_path(itw.interviews.last)
@@ -17,9 +14,50 @@ ActiveAdmin.register User do
           " - "
         end
       end
-    column :date_of_birth
-    column :phone_number
+    # user information
+    column :first_name
+    column :last_name
     column :email
+    column :phone_number
+    column :organisation
+    column :move_in_date
+    column :created_date
+    column :date_of_birth
+    column :home_address
+    column :professional_status
+    column :job_title
+    column :work_place
+    # interview information
+    column :city
+    column :monthly_budget
+    column :monthly_income
+    column :has_found_apartment
+    column :arrondissement
+    column :address
+    # appartment information
+    column :appartment_address
+    column :monthly_rent
+    column :landlord_email
+    column :landlord_phone
+    # marketing information
+    column :sign_in_count
+    column :provider
+    # interview status
+    column :interview_completed
+    column :documents_submitted
+    column :documents_validated
+    column :agreement_signed
+    column :lease_provided
+    column :lease_signed
+    # cosigner information
+    column :has_a_cosigner
+    column :cosigner_first_name
+    column :cosigner_last_name
+    column :cosigner_monthly_income
+    column :cosigner_address
+    column :cosigner_phone
+    column :cosigner_email
+    #access information
     column :is_manager
     column :admin
     actions
@@ -48,3 +86,7 @@ ActiveAdmin.register User do
     f.actions
   end
 end
+
+
+
+
