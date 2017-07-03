@@ -53,10 +53,10 @@ ActiveAdmin.register User do
     column "Address" do |itw|
       "#{itw.interviews.last.address}" unless itw.interviews.last.nil?
     end
-    # appartment information
-    column "Appartment Address" do |itw|
-      "#{itw.interviews.last.appartment_address}" unless itw.interviews.last.nil?
-    end
+    appartment information
+    # column "Appartment Address" do |itw|
+    #   "#{itw.interviews.last.appartment_address}" unless itw.interviews.last.nil?
+    # end
     column "Monthly Rent" do |itw|
       "#{itw.interviews.last.monthly_rent}" unless itw.interviews.last.nil?
     end
