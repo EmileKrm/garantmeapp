@@ -54,18 +54,18 @@ ActiveAdmin.register User do
       "#{itw.interviews.last.address}" unless itw.interviews.last.nil?
     end
     #appartment information
-    # column "Appartment Address" do |itw|
-    #   "#{itw.interviews.last.appartment_address}" unless itw.interviews.last.nil?
-    # end
+    column "Appartment Address" do |itw|
+      "#{itw.interviews.last.appartment_address}" unless itw.interviews.last.nil?
+    end
     column "Monthly Rent" do |itw|
       "#{itw.interviews.last.monthly_rent}" unless itw.interviews.last.nil?
     end
     column "Landlord Email" do |itw|
       "#{itw.interviews.last.landlord_email}" unless itw.interviews.last.nil?
     end
-    # column "Landlord Phone" do |itw|
-    #   "#{itw.interviews.last.landlord_phone}" unless itw.interviews.last.nil?
-    # end
+    column "Landlord Phone" do |itw|
+      "#{itw.interviews.last.landlord_phone}" unless itw.interviews.last.nil?
+    end
     # marketing information
     column :sign_in_count
     column :provider
