@@ -47,6 +47,9 @@ gem 'attachinary', github: 'assembler/attachinary'
 gem 'jquery-fileupload-rails'
 gem 'coffee-rails'
 
+#Postmark configuration
+gem 'postmark-rails'
+
 #authentification
 gem 'devise'
 
