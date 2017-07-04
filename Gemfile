@@ -28,6 +28,9 @@ ruby '2.3.3'
 # setup security for keys
 gem 'figaro'
 
+# gem to simulate email openings
+gem 'letter_opener', group: :development
+
 # gem for the dropzone
 gem 'dropzonejs-rails'
 
@@ -67,7 +70,8 @@ gem 'omniauth-linkedin-oauth2'
 group :development, :test do
   gem 'binding_of_caller'
   gem 'better_errors'
-
+  # gem to simulate email openings
+  gem 'letter_opener'
   gem 'pry-byebug'
   gem 'pry-rails'
   gem 'spring'
