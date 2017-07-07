@@ -13,7 +13,7 @@
 
   <div class="banner-content" id="home-banner">
     <h1>We can be your guarantor</h1>
-    <p>Garantme lease guarantees help you secure housing in Paris</p>
+    <p>Garantme lease guarantees help you secure housing in France</p>
     <% if user_signed_in? && current_user.nil? %>
       <%= link_to "My Profile", interview_path(current_user.interviews.last.id), id: 'home-button', class: 'btn btn-primary'%>
     <% else %>
