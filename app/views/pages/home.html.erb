@@ -12,7 +12,7 @@
 <div class="banner" style= "background-image: linear-gradient(-225deg, rgba(0,101,168,0.4) 0%, rgba(0,36,61,0.3) 50%), url('<%= cl_image_path('banner-photo') %>')">
 
   <div class="banner-content" id="home-banner">
-    <h1>We can be your guarantor</h1>
+    <h1>We can be your French guarantor</h1>
     <p>Garantme lease guarantees help you secure housing in France</p>
     <% if user_signed_in? && current_user.nil? %>
       <%= link_to "My Profile", interview_path(current_user.interviews.last.id), id: 'home-button', class: 'btn btn-primary'%>
@@ -51,6 +51,42 @@
             <p>Send us your lease</p>
         </div>
       </div>
+    </div>
+  </div>
+</div>
+
+<!-- Partners block -->
+<div class="partners text-center padded">
+
+  <div class ="row partner-title">
+    <div class="col-xs-12 col-sm-12 col-md-12">
+      <h1>We already guarantee students from:</h1>
+    </div>
+  </div>
+
+  <div class="row partner-list">
+    <div class="col-xs-12 col-sm-3 col-md-3">
+      <%= image_tag "dauphine.png", width: 230, height: 140 %>
+    </div>
+     <div class="col-xs-12 col-sm-3 col-md-3">
+      <%= image_tag "essec.png", width: 220, height: 96.59 %>
+    </div>
+     <div class="col-xs-12 col-sm-3 col-md-3">
+      <%= image_tag "hec.png", width: 220, height: 115.13  %>
+    </div>
+    <div class="col-xs-12 col-sm-3 col-md-3">
+      <%= image_tag "sciencespo.png", width: 220, height: 34.53  %>
+    </div>
+  </div>
+
+  <div class="row partner-content">
+    <div class="col-xs-12 col-sm-12 col-md-12">
+      <h3>Do you also need to be guaranteed for the appartment of your dreams?</h3>
+      <% if user_signed_in? && current_user.nil? %>
+        <%= link_to "My Profile", interview_path(current_user.interviews.last.id), id: 'home-button', class: 'btn btn-primary'%>
+      <% else %>
+        <%= link_to "Be my guarantor!", new_user_registration_path, id: 'home-button', class: 'btn btn-primary'%>
+      <% end %>
     </div>
   </div>
 </div>
