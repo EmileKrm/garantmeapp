@@ -30,3 +30,29 @@
     margin-bottom: 20px;
   }
 }
+
+.partners {
+  background-color: white;
+  margin: 0px;
+  padding: 50px;
+}
+
+.partner-title {
+  padding-bottom: 50px;
+  h1 {
+    font-size: 30px;
+    color: $brand-color;
+    padding: 15px;
+    margin: 0px;
+  }
+}
+
+.partner-list {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.partner-list {
+  padding-bottom: 50px;
+}
