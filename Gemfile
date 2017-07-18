@@ -66,6 +66,9 @@ source "https://rails-assets.org" do
   gem 'rails-assets-bootstrap-datepicker'
 end
 
+#active-admin sql
+gem 'activeadmin-sqlpage'
+
 #linkedin
 gem 'omniauth-oauth2', '~> 1.3.1'
 gem 'omniauth-linkedin-oauth2'
